@@ -279,26 +279,67 @@ def upload_excel_to_wordpress(filepath):
 
 
 def send_email_report(processed_articles, excel_download_url):
-    print(f"\n📧 Sending email report...", flush=True)
+    print(f"\n📧 Sending email report ({len(processed_articles)} articles)...", flush=True)
     try:
-        email_body = "RxBenefits Intel Hub News Radar Report\n"
-        email_body += "=" * 50 + "\n\n"
+        # ---- HTML email body ----
+        html_parts = []
+        html_parts.append("""
+        <html><body style="font-family: Arial, sans-serif; font-size: 14px; color: #222;">
+        <h2 style="color: #1F4E79;">RxBenefits Intel Hub — Daily News Radar Report</h2>
+        <hr style="border: 1px solid #1F4E79;">
+        """)
 
         if excel_download_url:
-            email_body += f"DOWNLOAD FULL EXCEL SPREADSHEET:\n{excel_download_url}\n\n"
-            email_body += "=" * 50 + "\n\n"
+            html_parts.append(f"""
+            <p>
+              <a href="{excel_download_url}" 
+                 style="background:#1F4E79; color:white; padding:8px 16px; 
+                        text-decoration:none; border-radius:4px; font-weight:bold;">
+                📥 Download Full Excel Report
+              </a>
+            </p>
+            <hr>
+            """)
 
-        for art in processed_articles:
-            email_body += f"{art['title']}\n"
-            email_body += f"{art['summary']}\n"
-            email_body += f"{art['source_line']}\n"
-            email_body += f"Link: {art['link']}\n"
-            email_body += "\n" + "-" * 40 + "\n\n"
+        for i, art in enumerate(processed_articles, 1):
+            html_parts.append(f"""
+            <div style="margin-bottom: 28px;">
+              <p style="font-size:15px; font-weight:bold; color:#1F4E79; margin:0 0 6px 0;">
+                [{i}] {art['title']}
+              </p>
+              <p style="margin: 0 0 6px 0;">{art['summary']}</p>
+              <p style="margin: 0; color: #555;">
+                {art['source_line']} &nbsp;|&nbsp;
+                <a href="{art['link']}" style="color:#1F4E79;">Read Full Article</a>
+              </p>
+            </div>
+            <hr style="border: none; border-top: 1px solid #ddd;">
+            """)
 
-        msg = MIMEText(email_body, "plain", "utf-8")
+        html_parts.append("</body></html>")
+        html_body = "".join(html_parts)
+
+        # ---- Plain text fallback ----
+        text_parts = ["RxBenefits Intel Hub — Daily News Radar Report", "=" * 60, ""]
+        if excel_download_url:
+            text_parts.append(f"Download Excel: {excel_download_url}\n")
+        for i, art in enumerate(processed_articles, 1):
+            text_parts.append(f"[{i}] {art['title']}")
+            text_parts.append(art['summary'])
+            text_parts.append(f"{art['source_line']} | Link: {art['link']}")
+            text_parts.append("-" * 60)
+            text_parts.append("")
+        text_body = "\n".join(text_parts)
+
+        # ---- Build MIME message with both parts ----
+        from email.mime.multipart import MIMEMultipart
+        msg = MIMEMultipart("alternative")
         msg["Subject"] = "Daily RxBenefits Intel Hub News Radar Report"
-        msg["From"] = SENDER_EMAIL
-        msg["To"] = RECIPIENT_EMAIL
+        msg["From"]    = SENDER_EMAIL
+        msg["To"]      = RECIPIENT_EMAIL
+
+        msg.attach(MIMEText(text_body, "plain", "utf-8"))  # fallback
+        msg.attach(MIMEText(html_body, "html",  "utf-8"))  # preferred
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(SENDER_EMAIL, SENDER_APP_PASSWORD)
