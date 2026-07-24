@@ -351,8 +351,6 @@ def send_email_report(processed_articles, excel_download_url):
             f"Please find updates from {body_date} below:",
             "",
         ]
-        if excel_download_url:
-            text_parts.append(f"Download Excel: {excel_download_url}\n")
         for i, art in enumerate(processed_articles, 1):
             text_parts.append(f"[{i}] {art['title']}")
             text_parts.append(art['summary'])
