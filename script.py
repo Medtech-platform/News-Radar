@@ -46,14 +46,13 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_KEYWORDS_FILE = os.path.join(BASE_DIR, "keywords.txt")
 OUTPUT_EXCEL_FILE = "rxbenefits_intel_hub_report.xlsx"
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-WP_SITE_URL = os.environ.get("WP_SITE_URL", "").strip()
-WP_USERNAME = os.environ.get("WP_USERNAME", "").strip()
-WP_APP_PASS = os.environ.get("WP_APP_PASS", "").strip()
-
-SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "").strip()
-SENDER_APP_PASSWORD = os.environ.get("SENDER_APP_PASSWORD", "").strip()
-RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "").strip()
+GEMINI_API_KEY     = os.environ.get("GEMINI_API_KEY", "").strip()
+WP_SITE_URL        = os.environ.get("WP_SITE_URL", "").strip()
+WP_USERNAME        = os.environ.get("WP_USERNAME", "").strip()
+WP_APP_PASS        = os.environ.get("WP_APP_PASS", "").strip()
+SENDER_EMAIL       = os.environ.get("SENDER_EMAIL", "").strip()
+SENDER_APP_PASSWORD= os.environ.get("SENDER_APP_PASSWORD", "").strip()
+RECIPIENT_EMAIL    = os.environ.get("RECIPIENT_EMAIL", "").strip()
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"
@@ -72,7 +71,7 @@ You are an editor creating news updates for the RxBenefits Intel Hub News Radar 
 4. Write the Summary: Write one concise paragraph (maximum 5 lines) explaining What happened, Why it matters, and Key business implications.
 5. Output Format:
    If the article DOES NOT pass the criteria, respond ONLY with: SKIP
-   
+
    If it PASSES, return the output strictly formatted with three labeled tags:
    TITLE: <Title in Title Case>
    SUMMARY: <One-paragraph summary>
@@ -81,33 +80,40 @@ You are an editor creating news updates for the RxBenefits Intel Hub News Radar 
 
 
 def validate_env_vars():
+    """Check env vars are set — print ONLY present/missing status, never the values."""
     print("\n🔐 Validating environment variables...", flush=True)
-    missing = []
-
-    checks = {
-        "GEMINI_API_KEY": GEMINI_API_KEY,
-        "WP_SITE_URL": WP_SITE_URL,
-        "WP_USERNAME": WP_USERNAME,
-        "WP_APP_PASS": WP_APP_PASS,
-        "SENDER_EMAIL": SENDER_EMAIL,
+    required = [
+        "GEMINI_API_KEY",
+        "WP_SITE_URL",
+        "WP_USERNAME",
+        "WP_APP_PASS",
+        "SENDER_EMAIL",
+        "SENDER_APP_PASSWORD",
+        "RECIPIENT_EMAIL",
+    ]
+    values = {
+        "GEMINI_API_KEY":      GEMINI_API_KEY,
+        "WP_SITE_URL":         WP_SITE_URL,
+        "WP_USERNAME":         WP_USERNAME,
+        "WP_APP_PASS":         WP_APP_PASS,
+        "SENDER_EMAIL":        SENDER_EMAIL,
         "SENDER_APP_PASSWORD": SENDER_APP_PASSWORD,
-        "RECIPIENT_EMAIL": RECIPIENT_EMAIL,
+        "RECIPIENT_EMAIL":     RECIPIENT_EMAIL,
     }
-
-    for name, value in checks.items():
-        if not value:
+    missing = []
+    for name in required:
+        if values[name]:
+            # Print ONLY the length — never any characters of the value
+            print(f"   ✅ {name} is set (length={len(values[name])})", flush=True)
+        else:
             print(f"   ❌ {name} is NOT set or empty", flush=True)
             missing.append(name)
-        else:
-            # Print masked value for confirmation (first 4 chars only)
-            masked = value[:4] + "*" * (len(value) - 4) if len(value) > 4 else "****"
-            print(f"   ✅ {name} is set ({masked})", flush=True)
 
     if missing:
-        print(f"\n❌ FATAL: Missing required environment variables: {missing}", flush=True)
+        print(f"\n❌ FATAL: Missing required env vars: {missing}", flush=True)
         return False
 
-    print("✅ All environment variables validated.\n", flush=True)
+    print("✅ All environment variables present.\n", flush=True)
     return True
 
 
@@ -124,7 +130,7 @@ def load_keywords(filepath):
     with open(filepath, "r", encoding="utf-8") as f:
         keywords = [line.strip() for line in f if line.strip()]
 
-    print(f"✅ Successfully loaded {len(keywords)} keywords:", flush=True)
+    print(f"✅ Loaded {len(keywords)} keywords:", flush=True)
     for i, kw in enumerate(keywords, 1):
         print(f"   {i}. {kw}", flush=True)
 
@@ -147,22 +153,26 @@ def fetch_all_news(keywords):
             print(f"      Found {count} articles", flush=True)
 
             for item in feed.entries:
-                source_info = item.get('source', {})
-                source_name = source_info.get('title', 'N/A') if isinstance(source_info, dict) else getattr(source_info, 'title', 'N/A')
+                source_info = item.get("source", {})
+                source_name = (
+                    source_info.get("title", "N/A")
+                    if isinstance(source_info, dict)
+                    else getattr(source_info, "title", "N/A")
+                )
                 all_articles.append({
-                    "keyword": kw,
-                    "title": item.get('title', 'N/A'),
-                    "link": item.get('link', 'N/A'),
-                    "published": item.get('published', item.get('pubDate', 'N/A')),
+                    "keyword":     kw,
+                    "title":       item.get("title", "N/A"),
+                    "link":        item.get("link", "N/A"),
+                    "published":   item.get("published", item.get("pubDate", "N/A")),
                     "source_name": source_name,
-                    "description": item.get('summary', item.get('description', 'N/A'))
+                    "description": item.get("summary", item.get("description", "N/A")),
                 })
 
         except Exception as e:
             print(f"      ❌ Error fetching '{kw}': {e}", flush=True)
 
         delay = random.uniform(2.0, 4.0)
-        print(f"      ⏳ Sleeping {delay:.1f}s before next keyword...", flush=True)
+        print(f"      ⏳ Sleeping {delay:.1f}s...", flush=True)
         time.sleep(delay)
 
     print(f"\n✅ Total raw articles fetched: {len(all_articles)}", flush=True)
@@ -190,14 +200,13 @@ def process_article_with_ai(article, ai_client):
 
         lines = text.split("\n")
         parsed = {
-            "title": "",
-            "summary": "",
+            "title":       "",
+            "summary":     "",
             "source_line": "",
-            "link": article['link'],
-            "source_name": article['source_name'],
-            "date": article['published']
+            "link":        article["link"],
+            "source_name": article["source_name"],
+            "date":        article["published"],
         }
-
         for line in lines:
             if line.startswith("TITLE:"):
                 parsed["title"] = line.replace("TITLE:", "").strip()
@@ -214,27 +223,23 @@ def process_article_with_ai(article, ai_client):
 
 
 def save_excel_format(processed_articles):
-    print(f"\n💾 Saving {len(processed_articles)} articles to Excel: {OUTPUT_EXCEL_FILE}", flush=True)
+    print(f"\n💾 Saving {len(processed_articles)} articles to {OUTPUT_EXCEL_FILE}", flush=True)
     try:
         wb = openpyxl.Workbook()
         ws = wb.active
         ws.title = "News Radar Report"
-
-        headers = ["New Title", "Summary", "Source Name", "Publication Date", "Hyperlink URL"]
-        ws.append(headers)
-
-        for row_idx, art in enumerate(processed_articles, start=2):
+        ws.append(["New Title", "Summary", "Source Name", "Publication Date", "Hyperlink URL"])
+        for art in processed_articles:
             ws.append([art["title"], art["summary"], art["source_name"], art["date"], art["link"]])
-
         wb.save(OUTPUT_EXCEL_FILE)
-        print(f"✅ Excel file saved successfully.", flush=True)
+        print("✅ Excel file saved successfully.", flush=True)
     except Exception as e:
         print(f"❌ Error saving Excel: {e}", flush=True)
         raise
 
 
 def upload_excel_to_wordpress(filepath):
-    print(f"\n☁️  Uploading Excel to WordPress: {WP_SITE_URL}", flush=True)
+    print(f"\n☁️  Uploading Excel to WordPress...", flush=True)
     try:
         url = f"{WP_SITE_URL}/wp-json/wp/v2/media"
         filename = os.path.basename(filepath)
@@ -245,15 +250,20 @@ def upload_excel_to_wordpress(filepath):
                 url,
                 auth=(WP_USERNAME, WP_APP_PASS),
                 headers=headers,
-                files={"file": (filename, file_data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}
+                files={"file": (
+                    filename,
+                    file_data,
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                )}
             )
 
         if response.status_code == 201:
             download_url = response.json().get("source_url")
-            print(f"✅ Upload successful. URL: {download_url}", flush=True)
+            print(f"✅ WordPress upload successful.", flush=True)
             return download_url
         else:
-            print(f"❌ Upload failed. Status: {response.status_code}, Response: {response.text[:200]}", flush=True)
+            print(f"❌ WordPress upload failed. Status: {response.status_code}", flush=True)
+            print(f"   Response: {response.text[:300]}", flush=True)
             return None
 
     except Exception as e:
@@ -262,7 +272,7 @@ def upload_excel_to_wordpress(filepath):
 
 
 def send_email_report(processed_articles, excel_download_url):
-    print(f"\n📧 Sending email to: {RECIPIENT_EMAIL}", flush=True)
+    print(f"\n📧 Sending email report...", flush=True)
     try:
         email_body = "RxBenefits Intel Hub News Radar Report\n"
         email_body += "=" * 50 + "\n\n"
@@ -294,18 +304,21 @@ def send_email_report(processed_articles, excel_download_url):
         raise
 
 
+# ==========================================
+# MAIN
+# ==========================================
 if __name__ == "__main__":
     print("=" * 60, flush=True)
     print("🚀 RxBenefits Intel Hub News Radar — Script Starting", flush=True)
     print("=" * 60, flush=True)
 
     try:
-        # Step 1: Validate environment
+        # Step 1: Validate env vars (prints only length, never values)
         if not validate_env_vars():
             print("❌ Exiting due to missing environment variables.", flush=True)
             exit(1)
 
-        # Step 2: Initialize AI client (MOVED here, not at module level)
+        # Step 2: Initialize AI client (NOT at module level — would crash silently)
         print("🤖 Initializing Gemini AI client...", flush=True)
         AI_CLIENT = genai.Client(api_key=GEMINI_API_KEY)
         print("✅ Gemini AI client initialized.", flush=True)
@@ -325,19 +338,18 @@ if __name__ == "__main__":
         # Step 5: Process with AI
         print(f"\n🤖 Processing {len(raw_articles)} articles with Gemini AI...", flush=True)
         processed_articles = []
-
         for i, art in enumerate(raw_articles, 1):
-            print(f"   [{i}/{len(raw_articles)}] Processing: {art['title'][:60]}...", flush=True)
+            title_preview = art["title"][:70]
+            print(f"   [{i}/{len(raw_articles)}] {title_preview}", flush=True)
             res = process_article_with_ai(art, AI_CLIENT)
             if res:
                 processed_articles.append(res)
-                print(f"      ✅ Kept: {res['title'][:60]}", flush=True)
+                print(f"      ✅ Kept", flush=True)
             else:
-                print(f"      ⏭️  Skipped (filtered by AI)", flush=True)
+                print(f"      ⏭️  Skipped", flush=True)
+            time.sleep(random.uniform(0.5, 1.5))
 
-            time.sleep(random.uniform(0.5, 1.5))  # Rate limit buffer
-
-        print(f"\n📊 AI processing complete: {len(processed_articles)}/{len(raw_articles)} articles kept.", flush=True)
+        print(f"\n📊 {len(processed_articles)}/{len(raw_articles)} articles kept after AI filter.", flush=True)
 
         if not processed_articles:
             print("⚠️  No articles passed AI filter. Exiting.", flush=True)
