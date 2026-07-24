@@ -190,15 +190,14 @@ def process_article_with_ai(article, ai_client):
     """
     try:
         response = ai_client.models.generate_content(
-            model="gemini-flash-latest",
+            model="gemini-2.0-flash",
             contents=f"{SYSTEM_PROMPT}\n\n{user_prompt}"
         )
         text = response.text.strip()
 
-        if text.startswith("SKIP"):
+        if text.upper().startswith("SKIP"):
             return None
 
-        lines = text.split("\n")
         parsed = {
             "title":       "",
             "summary":     "",
@@ -207,13 +206,21 @@ def process_article_with_ai(article, ai_client):
             "source_name": article["source_name"],
             "date":        article["published"],
         }
-        for line in lines:
+
+        for line in text.split("\n"):
+            line = line.strip()
             if line.startswith("TITLE:"):
                 parsed["title"] = line.replace("TITLE:", "").strip()
             elif line.startswith("SUMMARY:"):
                 parsed["summary"] = line.replace("SUMMARY:", "").strip()
             elif line.startswith("SOURCE_LINE:"):
                 parsed["source_line"] = line.replace("SOURCE_LINE:", "").strip()
+
+        # If any field is empty, skip the article
+        if not parsed["title"] or not parsed["summary"] or not parsed["source_line"]:
+            print(f"      ⚠️  Incomplete AI output — skipping", flush=True)
+            print(f"         title={bool(parsed['title'])} summary={bool(parsed['summary'])} source={bool(parsed['source_line'])}", flush=True)
+            return None
 
         return parsed
 
