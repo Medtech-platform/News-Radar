@@ -290,14 +290,10 @@ def send_email_report(processed_articles, excel_download_url):
 
         # ---- HTML body ----
         html_parts = []
-        html_parts.append(f"""
-        <html><body style="font-family: Arial, sans-serif; font-size:14px; color:#222;">
-
-        <h2 style="color:#1F4E79; font-size:17px; font-weight:500;">
-          RxBenefits Intel Hub — Daily News Radar Report
-        </h2>
-        <hr style="border:1px solid #1F4E79;">
-        """)
+        html_parts.append("""
+<html><body style="font-family: Arial, sans-serif; font-size:14px; 
+                   color:#222; max-width:680px; margin:0 auto; padding:24px;">
+""")
 
         # Greeting
         html_parts.append(f"""
