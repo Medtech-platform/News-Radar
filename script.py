@@ -54,10 +54,16 @@ You are an editor creating news updates for the RxBenefits Intel Hub News Radar 
 """
 
 def load_keywords(filepath):
+    print(f"🔍 Searching for keywords at path: {filepath}", flush=True)
     if not os.path.exists(filepath):
+        print(f"❌ ERROR: Cannot find '{filepath}'! Make sure keywords.txt is in the repository root.", flush=True)
         return []
+    
     with open(filepath, "r", encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
+        keywords = [line.strip() for line in f if line.strip()]
+        
+    print(f"✅ Successfully loaded {len(keywords)} keywords.", flush=True)
+    return keywords
 
 def fetch_all_news(keywords):
     all_articles = []
