@@ -299,18 +299,6 @@ def send_email_report(processed_articles, excel_download_url):
         <hr style="border:1px solid #1F4E79;">
         """)
 
-        if excel_download_url:
-            html_parts.append(f"""
-            <p>
-              <a href="{excel_download_url}"
-                 style="background:#1F4E79; color:white; padding:8px 16px;
-                        text-decoration:none; border-radius:4px; font-weight:bold;">
-                📥 Download Full Excel Report
-              </a>
-            </p>
-            <hr>
-            """)
-
         # Greeting
         html_parts.append(f"""
         <p style="margin: 16px 0;">Hi Lee Ashford,</p>
