@@ -279,21 +279,31 @@ def upload_excel_to_wordpress(filepath):
 
 
 def send_email_report(processed_articles, excel_download_url):
+    from email.mime.multipart import MIMEMultipart
+    from datetime import datetime
+
     print(f"\n📧 Sending email report ({len(processed_articles)} articles)...", flush=True)
     try:
-        # ---- HTML email body ----
+        today = datetime.utcnow()
+        subject_date = today.strftime("%m/%d/%Y")        # 07/25/2026
+        body_date    = today.strftime("%B %d, %Y")       # July 25, 2026
+
+        # ---- HTML body ----
         html_parts = []
-        html_parts.append("""
-        <html><body style="font-family: Arial, sans-serif; font-size: 14px; color: #222;">
-        <h2 style="color: #1F4E79;">RxBenefits Intel Hub — Daily News Radar Report</h2>
-        <hr style="border: 1px solid #1F4E79;">
+        html_parts.append(f"""
+        <html><body style="font-family: Arial, sans-serif; font-size:14px; color:#222;">
+
+        <h2 style="color:#1F4E79; font-size:17px; font-weight:500;">
+          RxBenefits Intel Hub — Daily News Radar Report
+        </h2>
+        <hr style="border:1px solid #1F4E79;">
         """)
 
         if excel_download_url:
             html_parts.append(f"""
             <p>
-              <a href="{excel_download_url}" 
-                 style="background:#1F4E79; color:white; padding:8px 16px; 
+              <a href="{excel_download_url}"
+                 style="background:#1F4E79; color:white; padding:8px 16px;
                         text-decoration:none; border-radius:4px; font-weight:bold;">
                 📥 Download Full Excel Report
               </a>
@@ -301,26 +311,58 @@ def send_email_report(processed_articles, excel_download_url):
             <hr>
             """)
 
+        # Greeting
+        html_parts.append(f"""
+        <p style="margin: 16px 0;">Hi Lee Ashford,</p>
+        <p style="margin: 0 0 20px 0;">
+          Please find updates from <strong>{body_date}</strong> below:
+        </p>
+        <hr style="border:none; border-top:1px solid #ddd; margin-bottom:20px;">
+        """)
+
+        # Articles
         for i, art in enumerate(processed_articles, 1):
             html_parts.append(f"""
-            <div style="margin-bottom: 28px;">
-              <p style="font-size:15px; font-weight:bold; color:#1F4E79; margin:0 0 6px 0;">
-                [{i}] {art['title']}
-              </p>
-              <p style="margin: 0 0 6px 0;">{art['summary']}</p>
-              <p style="margin: 0; color: #555;">
+            <div style="margin-bottom:24px;">
+              <div style="font-size:13px; color:#1F4E79; font-weight:500; margin-bottom:4px;">[{i}]</div>
+              <div style="font-size:15px; font-weight:500; color:#000000; margin-bottom:8px; line-height:1.4;">
+                {art['title']}
+              </div>
+              <div style="font-size:13px; color:#222; line-height:1.6; margin-bottom:8px;">
+                {art['summary']}
+              </div>
+              <div style="font-size:12px; color:#555;">
                 {art['source_line']} &nbsp;|&nbsp;
                 <a href="{art['link']}" style="color:#1F4E79;">Read Full Article</a>
-              </p>
+              </div>
             </div>
-            <hr style="border: none; border-top: 1px solid #ddd;">
+            <hr style="border:none; border-top:1px solid #eee; margin-bottom:20px;">
             """)
 
-        html_parts.append("</body></html>")
+        # Sign-off
+        html_parts.append("""
+        <p style="margin-top:24px;">Regards,</p>
+        <p style="font-weight:500; margin:0;">Evalueserve Team</p>
+
+        <hr style="border:none; border-top:1px solid #ddd; margin-top:24px;">
+        <div style="font-size:11px; color:#aaa; text-align:center;">
+          RxBenefits Intel Hub · Daily News Radar · Automated Report
+        </div>
+
+        </body></html>
+        """)
+
         html_body = "".join(html_parts)
 
         # ---- Plain text fallback ----
-        text_parts = ["RxBenefits Intel Hub — Daily News Radar Report", "=" * 60, ""]
+        text_parts = [
+            "RxBenefits Intel Hub — Daily News Radar Report",
+            "=" * 60,
+            "",
+            f"Hi Lee Ashford,",
+            f"Please find updates from {body_date} below:",
+            "",
+        ]
         if excel_download_url:
             text_parts.append(f"Download Excel: {excel_download_url}\n")
         for i, art in enumerate(processed_articles, 1):
@@ -329,23 +371,23 @@ def send_email_report(processed_articles, excel_download_url):
             text_parts.append(f"{art['source_line']} | Link: {art['link']}")
             text_parts.append("-" * 60)
             text_parts.append("")
+        text_parts += ["Regards,", "Evalueserve Team"]
         text_body = "\n".join(text_parts)
 
-        # ---- Build MIME message with both parts ----
-        from email.mime.multipart import MIMEMultipart
+        # ---- Build message ----
         msg = MIMEMultipart("alternative")
-        msg["Subject"] = "Daily RxBenefits Intel Hub News Radar Report"
+        msg["Subject"] = f"Daily News Alerts_{subject_date}"
         msg["From"]    = SENDER_EMAIL
         msg["To"]      = RECIPIENT_EMAIL
 
-        msg.attach(MIMEText(text_body, "plain", "utf-8"))  # fallback
-        msg.attach(MIMEText(html_body, "html",  "utf-8"))  # preferred
+        msg.attach(MIMEText(text_body, "plain", "utf-8"))
+        msg.attach(MIMEText(html_body, "html",  "utf-8"))
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(SENDER_EMAIL, SENDER_APP_PASSWORD)
             server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
 
-        print("✅ Email sent successfully.", flush=True)
+        print(f"✅ Email sent. Subject: Daily News Alerts_{subject_date}", flush=True)
 
     except Exception as e:
         print(f"❌ Email sending error: {e}", flush=True)
