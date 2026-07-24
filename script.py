@@ -14,7 +14,8 @@ from google import genai
 # ==========================================
 # CONFIGURATION & ENVIRONMENT SECRETS
 # ==========================================
-INPUT_KEYWORDS_FILE = "keywords.txt"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+INPUT_KEYWORDS_FILE = os.path.join(BASE_DIR, "keywords.txt")
 OUTPUT_EXCEL_FILE = "rxbenefits_intel_hub_report.xlsx"
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
