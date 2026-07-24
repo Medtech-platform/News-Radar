@@ -340,9 +340,6 @@ def send_email_report(processed_articles, excel_download_url):
 
         # ---- Plain text fallback ----
         text_parts = [
-            "RxBenefits Intel Hub — Daily News Radar Report",
-            "=" * 60,
-            "",
             f"Hi Lee Ashford,",
             f"Please find updates from {body_date} below:",
             "",
