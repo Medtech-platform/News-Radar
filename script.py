@@ -232,6 +232,7 @@ def process_article_with_ai(article, ai_client):
 def save_excel_format(processed_articles):
     print(f"\n💾 Saving {len(processed_articles)} articles to {OUTPUT_EXCEL_FILE}", flush=True)
     try:
+        os.makedirs(os.path.dirname(OUTPUT_EXCEL_FILE), exist_ok=True)
         wb = openpyxl.Workbook()
         ws = wb.active
         ws.title = "News Radar Report"
