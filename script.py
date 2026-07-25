@@ -258,7 +258,7 @@ def save_json_format(processed_articles):
             "date":       today.strftime("%B %d, %Y"),   # "July 25, 2026"
             "date_short": today.strftime("%Y-%m-%d"),    # "2026-07-25"
             "total":      len(processed_articles),
-            "excel_url": f"https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_{today.strftime('%Y-%m-%d')}.xlsx"
+            "excel_url": f"https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_{today.strftime('%Y-%m-%d')}.xlsx",
             "articles":   processed_articles
         }
 
