@@ -256,39 +256,6 @@ def save_json_format(processed_articles):
     except Exception as e:
         print(f"❌ Error saving JSON: {e}", flush=True)
         raise
-        
-def upload_excel_to_wordpress(filepath):
-    print(f"\n☁️  Uploading Excel to WordPress...", flush=True)
-    try:
-        url = f"{WP_SITE_URL}/wp-json/wp/v2/media"
-        filename = os.path.basename(filepath)
-        headers = {"Content-Disposition": f"attachment; filename={filename}"}
-
-        with open(filepath, "rb") as file_data:
-            response = requests.post(
-                url,
-                auth=(WP_USERNAME, WP_APP_PASS),
-                headers=headers,
-                files={"file": (
-                    filename,
-                    file_data,
-                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                )}
-            )
-
-        if response.status_code == 201:
-            download_url = response.json().get("source_url")
-            print(f"✅ WordPress upload successful.", flush=True)
-            return download_url
-        else:
-            print(f"❌ WordPress upload failed. Status: {response.status_code}", flush=True)
-            print(f"   Response: {response.text[:300]}", flush=True)
-            return None
-
-    except Exception as e:
-        print(f"❌ WordPress upload error: {e}", flush=True)
-        return None
-
 
 def send_email_report(processed_articles, excel_download_url):
     from email.mime.multipart import MIMEMultipart
@@ -439,11 +406,8 @@ if __name__ == "__main__":
         # Step 6: Save Excel
         save_excel_format(processed_articles)
         
-        # Step 6b: Save JSON 
+        # Step 7: Save JSON 
         save_json_format(processed_articles) 
-
-        # Step 7: Upload to WordPress
-        excel_url = upload_excel_to_wordpress(OUTPUT_EXCEL_FILE)
 
         # Step 8: Send email
         send_email_report(processed_articles, excel_url)
