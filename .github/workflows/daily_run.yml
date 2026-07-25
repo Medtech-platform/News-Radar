@@ -40,7 +40,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data/rxbenefits_intel_hub_report.xlsx
+          git add docs/data/rxbenefits_intel_hub_report_*.xlsx
           git add docs/data/rxbenefits_*.json
           git diff --staged --quiet || git commit -m "chore: update news radar report $(date +'%Y-%m-%d')"
           git push
