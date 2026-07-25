@@ -148,10 +148,7 @@ function todayStr() {
 }
 
 function buildUrl(date) {
-  var p = date.split('-');
-  return BASE + p[0] + '/' + p[1]
-       + '/rxbenefits_' + date + '.txt'
-       + '?t=' + Date.now();
+  return BASE + 'rxbenefits_' + date + '.json?t=' + Date.now();
 }
 
 function loadReport() {
