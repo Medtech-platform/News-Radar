@@ -244,7 +244,18 @@ def save_excel_format(processed_articles):
         print(f"❌ Error saving Excel: {e}", flush=True)
         raise
 
-
+def save_json_format(processed_articles):
+    import json
+    print(f"\n💾 Saving JSON to {OUTPUT_JSON_FILE}", flush=True)
+    try:
+        os.makedirs(os.path.dirname(OUTPUT_JSON_FILE), exist_ok=True)
+        with open(OUTPUT_JSON_FILE, "w", encoding="utf-8") as f:
+            json.dump(processed_articles, f, ensure_ascii=False, indent=2)
+        print("✅ JSON file saved successfully.", flush=True)
+    except Exception as e:
+        print(f"❌ Error saving JSON: {e}", flush=True)
+        raise
+        
 def upload_excel_to_wordpress(filepath):
     print(f"\n☁️  Uploading Excel to WordPress...", flush=True)
     try:
