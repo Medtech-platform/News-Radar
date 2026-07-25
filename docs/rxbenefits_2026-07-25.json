@@ -1,0 +1,48 @@
+{
+  "date": "July 25, 2026",
+  "date_short": "2026-07-25",
+  "total": 5,
+  "excel_url": "https://medtechplatform.wordpress.com/wp-content/uploads/2026/07/rxbenefits_intel_hub_report.xlsx",
+  "articles": [
+    {
+      "title": "Michigan Health Systems Accuse CVS Health Of Improperly Redirecting Federal Drug Discount Savings Through Pricing Practices",
+      "summary": "Michigan Medicine and Henry Ford Health have filed lawsuits against CVS Health, alleging the company improperly retained millions of dollars intended for hospitals under the federal drug discount program. The cases claim pricing and reimbursement practices reduced savings available to participating health systems, adding to ongoing legal and regulatory scrutiny surrounding pharmacy benefit and drug pricing operations.",
+      "source_line": "Source: Crain's Detroit Business; July 22, 2026",
+      "source_name": "Crain's Detroit Business",
+      "link": "https://www.crainsdetroit.com/health-care/michigan-health-systems-sue-cvs-health",
+      "date": "July 22, 2026"
+    },
+    {
+      "title": "Self-Funded Employers Face Rising Specialty Drug Costs As PBM Contracts Lack Transparency On Rebate Distribution",
+      "summary": "A new industry report reveals that self-funded employer health plans are absorbing a disproportionate share of specialty drug cost increases, largely due to opaque rebate structures in PBM contracts. Employers are finding it increasingly difficult to verify whether negotiated rebates are being passed through in full, raising concerns about fiduciary responsibility and the need for independent pharmacy benefit audits.",
+      "source_line": "Source: Benefits Pro; July 25, 2026",
+      "source_name": "Benefits Pro",
+      "link": "https://www.benefitspro.com/specialty-drug-costs-pbm-transparency",
+      "date": "July 25, 2026"
+    },
+    {
+      "title": "Drug Pricing Transparency Bill Advances In Congress Targeting Hidden PBM Fees That Inflate Employer Health Plan Costs",
+      "summary": "Bipartisan legislation targeting pharmacy benefit manager fee structures passed a key committee vote this week, moving closer to a full floor vote. The bill would require PBMs to disclose all fees, spread pricing, and rebate arrangements to plan sponsors, a move industry advocates say could save self-funded employers billions annually and reshape how PBM contracts are negotiated.",
+      "source_line": "Source: SHRM; July 24, 2026",
+      "source_name": "SHRM",
+      "link": "https://www.shrm.org/drug-pricing-transparency-bill-congress",
+      "date": "July 24, 2026"
+    },
+    {
+      "title": "GLP-1 Drug Utilization Surges Among Employer-Sponsored Health Plans Driving Unprecedented Pharmacy Benefit Cost Increases",
+      "summary": "New claims data shows GLP-1 medications now account for over 18 percent of total pharmacy spend among mid-market self-funded employers, up from just 4 percent two years ago. Plan sponsors are urgently reviewing their pharmacy benefit structures and working with PBMs to establish clinical criteria, prior authorization protocols, and cost-sharing arrangements to manage the accelerating budget impact.",
+      "source_line": "Source: Business Insurance; July 23, 2026",
+      "source_name": "Business Insurance",
+      "link": "https://www.businessinsurance.com/glp1-employer-health-plans-cost",
+      "date": "July 23, 2026"
+    },
+    {
+      "title": "FTC Report Finds Major PBMs Engaged In Anti-Competitive Practices That Raised Drug Costs For Employer Plan Sponsors",
+      "summary": "The Federal Trade Commission released findings indicating that the three largest pharmacy benefit managers used their market position to steer patients toward affiliated pharmacies, inflate drug acquisition costs, and suppress competition from independent pharmacies. The report recommends legislative action and increased oversight, signaling potential structural changes to how PBMs operate within employer-sponsored benefit plans.",
+      "source_line": "Source: Wall Street Journal; July 21, 2026",
+      "source_name": "Wall Street Journal",
+      "link": "https://www.wsj.com/ftc-pbm-anti-competitive-report-2026",
+      "date": "July 21, 2026"
+    }
+  ]
+}
