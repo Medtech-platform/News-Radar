@@ -438,6 +438,9 @@ if __name__ == "__main__":
 
         # Step 6: Save Excel
         save_excel_format(processed_articles)
+        
+        # Step 6b: Save JSON 
+        save_json_format(processed_articles) 
 
         # Step 7: Upload to WordPress
         excel_url = upload_excel_to_wordpress(OUTPUT_EXCEL_FILE)
