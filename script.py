@@ -190,7 +190,7 @@ def process_article_with_ai(article, ai_client):
     """
     try:
         response = ai_client.models.generate_content(
-            model="gemini-flash-latest",
+            model="gemini-2.5-flash",
             contents=f"{SYSTEM_PROMPT}\n\n{user_prompt}"
         )
         text = response.text.strip()
