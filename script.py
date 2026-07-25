@@ -44,7 +44,7 @@ print("✅ All imports successful", flush=True)
 # ==========================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_KEYWORDS_FILE = os.path.join(BASE_DIR, "keywords.txt")
-OUTPUT_EXCEL_FILE = "rxbenefits_intel_hub_report.xlsx"
+OUTPUT_EXCEL_FILE = os.path.join(BASE_DIR, "docs", "data", "rxbenefits_intel_hub_report.xlsx")
 
 GEMINI_API_KEY     = os.environ.get("GEMINI_API_KEY", "").strip()
 WP_SITE_URL        = os.environ.get("WP_SITE_URL", "").strip()
