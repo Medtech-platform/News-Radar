@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RxBenefits Intel Hub</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #222;
+  background: #f4f5f7;
+  padding: 20px;
+}
+.rxhub-wrap { max-width: 900px; margin: 0 auto; }
+
+.rxhub-header {
+  background: #1a2b4a;
+  padding: 20px 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rxhub-header .title { color: #fff; font-size: 18px; font-weight: 500; }
+.rxhub-header .subtitle { color: #aac4e0; font-size: 12px; margin-top: 4px; }
+.rxhub-header .badge {
+  background: #f47920; color: #fff;
+  font-size: 11px; font-weight: 500;
+  padding: 5px 12px; border-radius: 20px;
+}
+.rxhub-datebar {
+  background: #fff; border: 1px solid #ddd;
+  border-radius: 8px; padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex; align-items: center;
+  gap: 10px; flex-wrap: wrap;
+}
+.rxhub-datebar label { font-size: 12px; color: #666; }
+.rxhub-datebar input[type="date"] {
+  border: 1px solid #ddd; border-radius: 6px;
+  padding: 5px 10px; font-size: 12px; color: #222;
+}
+.rxhub-datebar button {
+  background: #0057a8; color: #fff; border: none;
+  border-radius: 6px; padding: 6px 18px;
+  font-size: 12px; cursor: pointer; font-weight: 500;
+}
+.rxhub-datebar button:hover { background: #004490; }
+.rxhub-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin-bottom: 20px;
+}
+.stat-card {
+  background: #e8f0f8; border-radius: 8px;
+  padding: 14px 16px; text-align: center;
+}
+.stat-card .val {
+  font-size: 24px; font-weight: 500; color: #1a2b4a;
+}
+.stat-card .lbl { font-size: 11px; color: #555; margin-top: 4px; }
+.stat-card .sub { font-size: 10px; color: #888; margin-top: 2px; }
+.excel-btn {
+  display: inline-block; background: #217346;
+  color: #fff; padding: 9px 18px; border-radius: 6px;
+  text-decoration: none; font-size: 13px;
+  font-weight: 500; margin-bottom: 20px;
+}
+.excel-btn:hover { background: #185c38; }
+.article {
+  background: #fff; border: 1px solid #e0e0e0;
+  border-radius: 8px; padding: 16px 18px;
+  margin-bottom: 12px;
+  border-left: 4px solid #0057a8;
+}
+.art-num { font-size: 11px; color: #0057a8; font-weight: 500; margin-bottom: 6px; }
+.art-title {
+  font-size: 15px; font-weight: 500;
+  color: #000; margin-bottom: 8px; line-height: 1.45;
+}
+.art-summary {
+  font-size: 13px; color: #444;
+  line-height: 1.65; margin-bottom: 10px;
+}
+.art-source { font-size: 12px; color: #888; }
+.art-source a { color: #0057a8; text-decoration: underline; }
+.loading { text-align: center; padding: 40px; color: #888; font-size: 13px; }
+.error-box {
+  background: #fff3cd; border: 1px solid #ffc107;
+  border-radius: 8px; padding: 16px 18px;
+  font-size: 13px; color: #856404;
+}
+.footer {
+  margin-top: 24px; padding-top: 16px;
+  border-top: 1px solid #eee;
+  text-align: center; font-size: 11px; color: #aaa;
+}
+.footer .ev { color: #f47920; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="rxhub-wrap">
+
+  <div class="rxhub-header">
+    <div>
+      <div class="title">RxBenefits Intel Hub</div>
+      <div class="subtitle" id="date-label">Loading latest report...</div>
+    </div>
+    <div class="badge">Daily NL</div>
+  </div>
+
+  <div class="rxhub-datebar">
+    <label>&#128197; Select report date:</label>
+    <input type="date" id="datepicker">
+    <button onclick="loadReport()">Load Report</button>
+    <span id="load-status" style="font-size:11px;color:#888;"></span>
+  </div>
+
+  <div class="rxhub-stats" id="stats" style="display:none;"></div>
+  <div id="excel-wrap"></div>
+  <div id="articles"><div class="loading">Loading today's report...</div></div>
+
+  <div class="footer">
+    RxBenefits Intel Hub &nbsp;&middot;&nbsp;
+    Powered by <span class="ev">Evalueserve</span>
+    &nbsp;&middot;&nbsp; Auto-updated daily at 3:00 AM UTC
+  </div>
+
+</div>
+
+<script>
+// ================================================================
+// UPDATE THIS to your WordPress uploads base URL
+// Find it by uploading any file to Media Library and copying
+// the URL up to /wp-content/uploads/
+// ================================================================
+var BASE = "https://medtechplatform.wordpress.com/wp-content/uploads/";
+// ================================================================
+
+function todayStr() {
+  var d = new Date();
+  return d.getUTCFullYear() + '-'
+    + String(d.getUTCMonth()+1).padStart(2,'0') + '-'
+    + String(d.getUTCDate()).padStart(2,'0');
+}
+
+function buildUrl(date) {
+  var p = date.split('-');
+  return BASE + p[0] + '/' + p[1]
+       + '/rxbenefits_' + date + '.txt'
+       + '?t=' + Date.now();
+}
+
+function loadReport() {
+  var date = document.getElementById('datepicker').value || todayStr();
+  fetchData(date);
+}
+
+function fetchData(date) {
+  document.getElementById('load-status').innerText = 'Loading...';
+  document.getElementById('articles').innerHTML =
+    '<div class="loading">Fetching report for ' + date + '...</div>';
+  document.getElementById('stats').style.display = 'none';
+  document.getElementById('excel-wrap').innerHTML = '';
+  document.getElementById('date-label').innerText = 'Loading...';
+
+  fetch(buildUrl(date))
+    .then(function(r) {
+      if (!r.ok) throw new Error('not found');
+      return r.json();
+    })
+    .then(function(data) {
+      render(data);
+      document.getElementById('load-status').innerText = '';
+    })
+    .catch(function() {
+      document.getElementById('load-status').innerText = '';
+      document.getElementById('date-label').innerText = 'No data found';
+      document.getElementById('stats').style.display = 'none';
+      document.getElementById('excel-wrap').innerHTML = '';
+      document.getElementById('articles').innerHTML =
+        '<div class="error-box">&#9888; No report found for <strong>'
+        + date + '</strong>. The script may not have run on this date.</div>';
+    });
+}
+
+function render(data) {
+  document.getElementById('date-label').innerText =
+    'Daily News Radar \u2014 ' + data.date;
+
+  var s = document.getElementById('stats');
+  s.style.display = 'grid';
+  s.innerHTML =
+    sc(data.total, 'Articles today', 'After AI filter') +
+    sc(data.date_short, 'Report date', 'UTC') +
+    sc('Daily', 'Frequency', 'Auto-updated 3AM UTC');
+
+  document.getElementById('excel-wrap').innerHTML = data.excel_url
+    ? '<a class="excel-btn" href="' + data.excel_url + '" download>'
+      + '&#128190; Download Excel Report</a>'
+    : '';
+
+  if (!data.articles || !data.articles.length) {
+    document.getElementById('articles').innerHTML =
+      '<div class="error-box">No articles for this date.</div>';
+    return;
+  }
+
+  var html = '';
+  data.articles.forEach(function(art, i) {
+    html +=
+      '<div class="article">'
+      + '<div class="art-num">[' + (i+1) + ']'
+      + ' <span style="color:#888;font-weight:400;">'
+      + esc(art.source_name) + '</span></div>'
+      + '<div class="art-title">'   + esc(art.title)       + '</div>'
+      + '<div class="art-summary">' + esc(art.summary)     + '</div>'
+      + '<div class="art-source">'  + esc(art.source_line)
+      + ' &nbsp;|&nbsp; <a href="'  + esc(art.link)
+      + '" target="_blank" rel="noopener">Read Full Article &#8599;</a>'
+      + '</div></div>';
+  });
+  document.getElementById('articles').innerHTML = html;
+}
+
+function sc(val, lbl, sub) {
+  return '<div class="stat-card"><div class="val">' + val
+    + '</div><div class="lbl">' + lbl
+    + '</div><div class="sub">' + sub + '</div></div>';
+}
+
+function esc(s) {
+  if (!s) return '';
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+document.getElementById('datepicker').value = todayStr();
+fetchData(todayStr());
+</script>
+</body>
+</html>
