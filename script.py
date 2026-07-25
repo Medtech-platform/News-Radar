@@ -410,7 +410,7 @@ if __name__ == "__main__":
         save_json_format(processed_articles) 
 
         # Step 8: Send email
-        send_email_report(processed_articles, excel_url)
+        send_email_report(processed_articles, None)
 
         print("\n" + "=" * 60, flush=True)
         print("✅ Process completed successfully!", flush=True)
