@@ -247,16 +247,28 @@ def save_excel_format(processed_articles):
 
 def save_json_format(processed_articles):
     import json
+    from datetime import datetime
+
     print(f"\n💾 Saving JSON to {OUTPUT_JSON_FILE}", flush=True)
     try:
         os.makedirs(os.path.dirname(OUTPUT_JSON_FILE), exist_ok=True)
+
+        today = datetime.utcnow()
+        payload = {
+            "date":       today.strftime("%B %d, %Y"),   # "July 25, 2026"
+            "date_short": today.strftime("%Y-%m-%d"),    # "2026-07-25"
+            "total":      len(processed_articles),
+            "excel_url":  "",                            # no WordPress URL
+            "articles":   processed_articles
+        }
+
         with open(OUTPUT_JSON_FILE, "w", encoding="utf-8") as f:
-            json.dump(processed_articles, f, ensure_ascii=False, indent=2)
-        print("✅ JSON file saved successfully.", flush=True)
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+
+        print(f"✅ JSON saved. Total articles: {len(processed_articles)}", flush=True)
     except Exception as e:
         print(f"❌ Error saving JSON: {e}", flush=True)
         raise
-
 def send_email_report(processed_articles, excel_download_url):
     from email.mime.multipart import MIMEMultipart
     from datetime import datetime
