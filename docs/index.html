@@ -6,44 +6,32 @@
 <title>RxBenefits Intel Hub</title>
 <style>
 /* ═══════════════════════════════════════════
-   TOKENS — RxBenefits Brand Palette
+   TOKENS
 ═══════════════════════════════════════════ */
 :root {
-  /* Brand core */
-  --rx-blue:       #1A73E8;   /* RxBenefits primary blue  */
-  --rx-blue-dark:  #1558B0;   /* Pressed / hover state    */
-  --rx-blue-mid:   #1967D2;   /* Active / focus           */
-  --rx-blue-lt:    #E8F0FD;   /* Tinted surface           */
-  --rx-white:      #FFFFFF;
-  --rx-ink:        #202124;   /* Near-black text          */
-  --rx-ink-mid:    #3C4043;   /* Secondary text           */
-  --rx-ink-soft:   #5F6368;   /* Tertiary / meta text     */
-
-  /* Functional accents (muted to stay in brand range) */
-  --orange:        #E37400;   /* Alerts / highlights      */
-  --orange-lt:     #FEF3E2;
-  --green:         #188038;   /* Success                  */
-  --green-lt:      #E6F4EA;
-  --purple:        #6200EE;   /* Regulatory               */
-  --purple-lt:     #EDE7F6;
-  --red:           #D93025;
-  --red-lt:        #FCE8E6;
-
-  /* Surfaces */
-  --surface:       #F8F9FA;   /* Page background          */
-  --card:          #FFFFFF;
-  --border:        #DADCE0;
-  --border-focus:  var(--rx-blue);
-
-  /* Typography */
-  --text:          var(--rx-ink);
-  --text-mid:      var(--rx-ink-mid);
-  --text-soft:     var(--rx-ink-soft);
-
-  /* Shape */
-  --radius:        10px;
-  --shadow:        0 1px 3px rgba(32,33,36,.08), 0 4px 16px rgba(32,33,36,.05);
-  --shadow-lg:     0 4px 24px rgba(26,115,232,.14), 0 1px 4px rgba(32,33,36,.08);
+  --navy:      #0F1F3D;
+  --navy-mid:  #1a2b4a;
+  --navy-soft: #1e3a5f;
+  --blue:      #2563EB;
+  --blue-lt:   #dbeafe;
+  --orange:    #F47920;
+  --orange-lt: #fff4ec;
+  --green:     #16a34a;
+  --green-lt:  #dcfce7;
+  --purple:    #7c3aed;
+  --purple-lt: #ede9fe;
+  --red:       #dc2626;
+  --red-lt:    #fee2e2;
+  --slate:     #64748b;
+  --slate-lt:  #f1f5f9;
+  --border:    #e2e8f0;
+  --white:     #ffffff;
+  --text:      #0f172a;
+  --text-mid:  #334155;
+  --text-soft: #64748b;
+  --radius:    10px;
+  --shadow:    0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.05);
+  --shadow-lg: 0 8px 32px rgba(15,31,61,.12);
 }
 
 /* ═══════════════════════════════════════════
@@ -52,11 +40,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: var(--text);
-  background: var(--surface);
+  background: #f0f4f8;
   min-height: 100vh;
 }
 
@@ -67,7 +55,7 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--rx-blue), var(--orange));
+  background: linear-gradient(90deg, var(--orange), var(--blue));
   transform-origin: left;
   transform: scaleX(0);
   z-index: 1000;
@@ -80,7 +68,7 @@ body {
 #sticky-count {
   position: fixed;
   top: 12px; right: 16px;
-  background: var(--rx-ink);
+  background: var(--navy);
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -99,35 +87,24 @@ body {
    LAYOUT WRAPPER
 ═══════════════════════════════════════════ */
 .wrap {
-  max-width: 960px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 24px 16px 56px;
+  padding: 24px 16px 48px;
 }
 
 /* ═══════════════════════════════════════════
    MASTHEAD
 ═══════════════════════════════════════════ */
 .masthead {
-  background: var(--rx-ink);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
   border-radius: 14px;
-  padding: 28px 32px 24px;
+  padding: 28px 28px 24px;
   margin-bottom: 20px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   box-shadow: var(--shadow-lg);
-  position: relative;
-  overflow: hidden;
-}
-/* Subtle blue glow strip on left edge */
-.masthead::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 4px;
-  background: var(--rx-blue);
-  border-radius: 14px 0 0 14px;
 }
 .masthead-left { flex: 1 1 auto; }
 .masthead-eyebrow {
@@ -135,23 +112,23 @@ body {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--rx-blue);
+  color: var(--orange);
   margin-bottom: 6px;
 }
 .masthead-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
-  color: var(--rx-white);
+  color: #fff;
   line-height: 1.2;
-  letter-spacing: -.4px;
+  letter-spacing: -.3px;
 }
-.masthead-title span { color: #8AB4F8; } /* Google-blue tint on dark */
+.masthead-title span { color: #7eb8f7; }
 .masthead-sub {
   font-size: 12px;
-  color: #9AA0A6;
+  color: #8aa8c8;
   margin-top: 6px;
 }
-.masthead-sub strong { color: #BDC1C6; }
+.masthead-sub strong { color: #aac4e0; }
 .masthead-right {
   display: flex;
   flex-direction: column;
@@ -160,25 +137,25 @@ body {
   flex-shrink: 0;
 }
 .ev-badge {
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  color: #9AA0A6;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #aac4e0;
   font-size: 10px;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 6px;
   letter-spacing: .5px;
 }
-.ev-badge span { color: var(--rx-blue); }
+.ev-badge span { color: var(--orange); }
 .pulse-badge {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 11px;
   font-weight: 700;
-  color: var(--rx-white);
-  background: var(--rx-blue);
-  padding: 5px 13px;
+  color: #fff;
+  background: var(--orange);
+  padding: 5px 12px;
   border-radius: 20px;
 }
 .pulse-dot {
@@ -189,7 +166,7 @@ body {
 }
 @keyframes pulse {
   0%,100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: .35; transform: scale(.65); }
+  50%      { opacity: .4; transform: scale(.7); }
 }
 
 /* ═══════════════════════════════════════════
@@ -207,43 +184,41 @@ body {
   justify-content: center;
   gap: 8px;
   padding: 12px 20px;
-  background: var(--card);
-  border: 1.5px solid var(--border);
+  background: var(--white);
+  border: 2px solid var(--border);
   border-radius: var(--radius);
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-soft);
+  color: var(--slate);
   cursor: pointer;
   transition: all .18s;
   box-shadow: var(--shadow);
-  font-family: inherit;
 }
 .tab-btn:hover {
-  border-color: var(--rx-blue);
-  color: var(--rx-blue);
-  background: var(--rx-blue-lt);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 .tab-btn.active {
-  background: var(--rx-blue);
-  border-color: var(--rx-blue);
-  color: var(--rx-white);
-  box-shadow: 0 2px 12px rgba(26,115,232,.3);
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
 }
 .tab-btn .tab-icon { font-size: 16px; }
-.tab-btn .tab-label { line-height: 1; text-align: left; }
+.tab-btn .tab-label { line-height: 1; }
 .tab-btn .tab-desc {
   font-size: 10px;
   font-weight: 400;
-  opacity: .75;
+  opacity: .7;
   display: block;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 /* ═══════════════════════════════════════════
-   CONTROL PANEL
+   CONTROL PANEL (date picker area)
 ═══════════════════════════════════════════ */
 .control-panel {
-  background: var(--card);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 18px;
@@ -257,7 +232,7 @@ body {
 .control-panel label {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-soft);
+  color: var(--slate);
   white-space: nowrap;
 }
 .control-panel input[type="date"] {
@@ -267,33 +242,29 @@ body {
   font-size: 13px;
   color: var(--text);
   font-family: inherit;
-  background: var(--surface);
+  background: var(--slate-lt);
   outline: none;
-  transition: border-color .15s, box-shadow .15s;
+  transition: border-color .15s;
 }
-.control-panel input[type="date"]:focus {
-  border-color: var(--rx-blue);
-  box-shadow: 0 0 0 3px rgba(26,115,232,.12);
-}
+.control-panel input[type="date"]:focus { border-color: var(--blue); }
 .load-btn {
-  background: var(--rx-blue);
-  color: var(--rx-white);
+  background: var(--blue);
+  color: #fff;
   border: none;
   border-radius: 7px;
-  padding: 8px 22px;
+  padding: 8px 20px;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
-  transition: background .15s, transform .1s, box-shadow .15s;
+  transition: background .15s, transform .1s;
   white-space: nowrap;
-  letter-spacing: .2px;
 }
-.load-btn:hover  { background: var(--rx-blue-dark); box-shadow: 0 2px 8px rgba(26,115,232,.3); }
+.load-btn:hover  { background: #1d4ed8; }
 .load-btn:active { transform: scale(.97); }
 #load-status {
   font-size: 11px;
-  color: var(--text-soft);
+  color: var(--slate);
   margin-left: auto;
 }
 
@@ -302,9 +273,9 @@ body {
 ═══════════════════════════════════════════ */
 .alert-banner {
   display: none;
-  background: linear-gradient(135deg, #E8F0FD 0%, #D2E3FC 100%);
-  border: 1.5px solid #A8C7FA;
-  border-left: 5px solid var(--rx-blue);
+  background: linear-gradient(135deg, #fff8f3 0%, #fff4ec 100%);
+  border: 1.5px solid #fbd5b5;
+  border-left: 5px solid var(--orange);
   border-radius: var(--radius);
   padding: 16px 20px;
   margin-bottom: 20px;
@@ -317,15 +288,15 @@ body {
 .alert-date {
   font-size: 13px;
   font-weight: 800;
-  color: var(--rx-ink);
-  letter-spacing: -.1px;
+  color: var(--navy);
+  letter-spacing: -.2px;
 }
 .alert-msg {
   font-size: 13px;
   color: var(--text-mid);
   margin-top: 2px;
 }
-.alert-msg strong { color: var(--rx-blue); font-size: 15px; font-weight: 800; }
+.alert-msg strong { color: var(--orange); font-size: 15px; }
 .alert-hint {
   font-size: 11px;
   color: var(--text-soft);
@@ -342,10 +313,10 @@ body {
   margin-bottom: 20px;
 }
 .stat-card {
-  background: var(--card);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px 16px;
+  padding: 16px;
   text-align: center;
   box-shadow: var(--shadow);
   position: relative;
@@ -356,13 +327,12 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 3px;
-  background: var(--rx-blue);
-  opacity: .9;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
 }
 .stat-val {
   font-size: 28px;
   font-weight: 800;
-  color: var(--rx-ink);
+  color: var(--navy);
   line-height: 1;
   font-variant-numeric: tabular-nums;
   letter-spacing: -1px;
@@ -377,7 +347,7 @@ body {
 }
 .stat-sub {
   font-size: 10px;
-  color: var(--text-soft);
+  color: var(--slate);
   margin-top: 2px;
 }
 
@@ -388,22 +358,21 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--green);
-  color: var(--rx-white);
+  background: #16a34a;
+  color: #fff;
   padding: 9px 18px;
   border-radius: 7px;
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 22px;
-  transition: background .15s, box-shadow .15s;
+  transition: background .15s;
   box-shadow: var(--shadow);
-  letter-spacing: .1px;
 }
-.excel-btn:hover { background: #0D6E2F; box-shadow: 0 2px 8px rgba(24,128,56,.3); }
+.excel-btn:hover { background: #15803d; }
 
 /* ═══════════════════════════════════════════
-   SECTION HEADERS (weekly category headers)
+   SECTION HEADERS (per category)
 ═══════════════════════════════════════════ */
 .cat-section { margin-top: 24px; }
 .cat-section:first-child { margin-top: 0; }
@@ -415,25 +384,24 @@ body {
   gap: 10px;
   padding: 12px 18px;
   border-radius: var(--radius) var(--radius) 0 0;
-  background: var(--rx-ink);
+  background: var(--navy);
 }
-/* Subtle differentiation per category via left accent stripe */
-.cat-header.cat-pbm-competitor { background: #1F2532; border-left: 4px solid var(--rx-blue); }
-.cat-header.cat-big3           { background: #202124; border-left: 4px solid var(--orange); }
-.cat-header.cat-industry       { background: #1A2820; border-left: 4px solid var(--green); }
-.cat-header.cat-regulatory     { background: #1E1A30; border-left: 4px solid var(--purple); }
+.cat-header.cat-pbm-competitor { background: #1e3a5f; }
+.cat-header.cat-big3           { background: #1a2b4a; }
+.cat-header.cat-industry       { background: #1e3050; }
+.cat-header.cat-regulatory     { background: #1f1f3d; }
 
 .cat-title {
   font-size: 13px;
   font-weight: 700;
-  color: var(--rx-white);
+  color: #fff;
   letter-spacing: .2px;
 }
 .cat-count {
   font-size: 11px;
   font-weight: 700;
-  background: rgba(255,255,255,.12);
-  color: var(--rx-white);
+  background: rgba(255,255,255,.15);
+  color: #fff;
   padding: 3px 10px;
   border-radius: 12px;
   white-space: nowrap;
@@ -441,17 +409,17 @@ body {
 }
 
 /* ═══════════════════════════════════════════
-   ARTICLE CARDS (weekly grouped view)
+   ARTICLE CARDS
 ═══════════════════════════════════════════ */
 .article-card {
-  background: var(--card);
+  background: var(--white);
   border: 1px solid var(--border);
   border-top: none;
-  border-left: 4px solid var(--rx-blue);
+  border-left: 4px solid var(--blue);
   padding: 14px 18px;
   transition: background .12s;
 }
-.article-card.cat-pbm-competitor { border-left-color: var(--rx-blue); }
+.article-card.cat-pbm-competitor { border-left-color: #2563eb; }
 .article-card.cat-big3           { border-left-color: var(--orange); }
 .article-card.cat-industry       { border-left-color: var(--green); }
 .article-card.cat-regulatory     { border-left-color: var(--purple); }
@@ -459,26 +427,26 @@ body {
 .article-card:last-child {
   border-radius: 0 0 var(--radius) var(--radius);
 }
-.article-card:hover { background: var(--rx-blue-lt); }
+.article-card:hover { background: #fafcff; }
 
 .art-num {
   font-size: 10px;
   font-weight: 700;
-  color: var(--text-soft);
+  color: var(--slate);
   letter-spacing: .5px;
   margin-bottom: 5px;
 }
 .art-title-link {
   font-size: 14px;
   font-weight: 700;
-  color: var(--rx-ink);
+  color: var(--navy);
   text-decoration: none;
   line-height: 1.4;
   display: block;
   margin-bottom: 6px;
   transition: color .12s;
 }
-.art-title-link:hover { color: var(--rx-blue); }
+.art-title-link:hover { color: var(--blue); }
 
 .art-meta {
   display: flex;
@@ -490,17 +458,27 @@ body {
   font-size: 11px;
   font-weight: 600;
   color: var(--text-mid);
-  background: var(--surface);
+  background: var(--slate-lt);
   border: 1px solid var(--border);
   padding: 2px 9px;
   border-radius: 12px;
 }
+.art-read-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.art-read-link:hover { text-decoration: underline; }
 
 /* Summary toggle */
 .art-toggle {
   font-size: 11px;
   font-weight: 600;
-  color: var(--text-soft);
+  color: var(--slate);
   cursor: pointer;
   background: none;
   border: none;
@@ -512,7 +490,7 @@ body {
   gap: 4px;
   transition: color .12s;
 }
-.art-toggle:hover { color: var(--rx-blue); }
+.art-toggle:hover { color: var(--blue); }
 .art-toggle svg { transition: transform .2s; }
 .art-toggle.open svg { transform: rotate(180deg); }
 
@@ -520,7 +498,7 @@ body {
   display: none;
   font-size: 13px;
   color: var(--text-mid);
-  line-height: 1.75;
+  line-height: 1.7;
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px dashed var(--border);
@@ -529,33 +507,32 @@ body {
 
 /* Empty state per section */
 .section-empty {
-  background: var(--card);
+  background: var(--white);
   border: 1px solid var(--border);
   border-top: none;
   border-radius: 0 0 var(--radius) var(--radius);
   padding: 16px 18px;
   font-size: 12px;
-  color: var(--text-soft);
+  color: var(--slate);
   font-style: italic;
 }
 
 /* ═══════════════════════════════════════════
-   DAILY MODE — flat article list
+   DAILY MODE — flat article list (no cats)
 ═══════════════════════════════════════════ */
 .daily-article {
-  background: var(--card);
+  background: var(--white);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--rx-blue);
+  border-left: 4px solid var(--blue);
   border-radius: var(--radius);
   padding: 16px 18px;
   margin-bottom: 10px;
   box-shadow: var(--shadow);
-  transition: box-shadow .15s, background .12s, border-left-color .15s;
+  transition: box-shadow .12s, background .12s;
 }
 .daily-article:hover {
-  box-shadow: 0 4px 20px rgba(26,115,232,.12);
-  background: var(--rx-blue-lt);
-  border-left-color: var(--rx-blue-mid);
+  box-shadow: 0 4px 20px rgba(37,99,235,.1);
+  background: #fafcff;
 }
 
 /* ═══════════════════════════════════════════
@@ -564,12 +541,12 @@ body {
 .loading-state {
   text-align: center;
   padding: 60px 20px;
-  color: var(--text-soft);
+  color: var(--slate);
 }
 .loading-spinner {
   width: 36px; height: 36px;
   border: 3px solid var(--border);
-  border-top-color: var(--rx-blue);
+  border-top-color: var(--blue);
   border-radius: 50%;
   animation: spin .7s linear infinite;
   margin: 0 auto 16px;
@@ -578,22 +555,22 @@ body {
 .loading-state p { font-size: 13px; }
 
 .error-state {
-  background: var(--rx-blue-lt);
-  border: 1.5px solid #A8C7FA;
+  background: #fff9f0;
+  border: 1.5px solid #fed7aa;
   border-radius: var(--radius);
   padding: 20px;
   text-align: center;
-  color: var(--rx-blue-dark);
+  color: #92400e;
   font-size: 13px;
 }
-.error-state strong { display: block; font-size: 15px; margin-bottom: 6px; color: var(--rx-ink); }
-.error-state .err-hint { font-size: 12px; color: var(--text-soft); margin-top: 6px; }
+.error-state strong { display: block; font-size: 15px; margin-bottom: 6px; }
+.error-state .err-hint { font-size: 12px; color: #b45309; margin-top: 6px; }
 
 /* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
 .footer {
-  margin-top: 40px;
+  margin-top: 36px;
   padding-top: 20px;
   border-top: 1px solid var(--border);
   display: flex;
@@ -602,9 +579,9 @@ body {
   flex-wrap: wrap;
   gap: 8px;
 }
-.footer-left { font-size: 11px; color: var(--text-soft); }
-.footer-left strong { color: var(--rx-blue); }
-.footer-right { font-size: 10px; color: #9AA0A6; }
+.footer-left { font-size: 11px; color: var(--slate); }
+.footer-left strong { color: var(--orange); }
+.footer-right { font-size: 10px; color: #94a3b8; }
 
 /* ═══════════════════════════════════════════
    RESPONSIVE
@@ -711,18 +688,9 @@ body {
 <script>
 // ═══════════════════════════════════════════════════════
 // CONFIG
-// ─────────────────────────────────────────────────────
-// Daily JSON  →  docs/data/rxbenefits_YYYY-MM-DD.json
-// Weekly JSON →  docs/data_weekly/rxbenefits_week_YYYY-MM-DD.json
-//               (where YYYY-MM-DD is the Monday of that week)
 // ═══════════════════════════════════════════════════════
-var REPO_BASE    = "https://medtech-platform.github.io/News-Radar";
-var DAILY_BASE   = REPO_BASE + "/data/";          // docs/data/
-var WEEKLY_BASE  = REPO_BASE + "/data_weekly/";   // docs/data_weekly/
+var BASE = "https://medtech-platform.github.io/News-Radar/data/";
 
-// ═══════════════════════════════════════════════════════
-// CATEGORIES
-// ═══════════════════════════════════════════════════════
 var CATEGORIES = [
   {
     id:       "cat-pbm-competitor",
@@ -798,7 +766,15 @@ function sundayOf(monStr) {
   d.setUTCDate(d.getUTCDate() + 6);
   return pad4(d.getUTCFullYear()) + '-' + pad2(d.getUTCMonth()+1) + '-' + pad2(d.getUTCDate());
 }
-
+function weekDates(monStr) {
+  var out = [];
+  for (var i = 0; i < 7; i++) {
+    var d = new Date(monStr + 'T00:00:00Z');
+    d.setUTCDate(d.getUTCDate() + i);
+    out.push(pad4(d.getUTCFullYear()) + '-' + pad2(d.getUTCMonth()+1) + '-' + pad2(d.getUTCDate()));
+  }
+  return out;
+}
 var MONTHS = ["January","February","March","April","May","June",
               "July","August","September","October","November","December"];
 function fmtLong(str) {
@@ -831,8 +807,8 @@ function resetUI(msg) {
   document.getElementById('stats-grid').style.display = 'none';
   document.getElementById('excel-wrap').innerHTML = '';
   document.getElementById('alert-banner').classList.remove('show');
-  document.getElementById('masthead-sub').innerHTML =
-    '<strong id="masthead-date-label">' + esc(msg || 'Loading…') + '</strong>';
+  document.getElementById('masthead-date-label').innerText = msg || 'Loading…';
+  document.getElementById('masthead-sub').innerHTML = '<strong id="masthead-date-label">' + (msg || 'Loading…') + '</strong>';
   showLoading(msg || 'Loading report…');
 }
 
@@ -844,21 +820,13 @@ function showLoading(msg) {
 // ═══════════════════════════════════════════════════════
 // FETCH
 // ═══════════════════════════════════════════════════════
-function fetchJson(url) {
-  return fetch(url + '?t=' + Date.now())
+function buildUrl(date) {
+  return BASE + 'rxbenefits_' + date + '.json?t=' + Date.now();
+}
+function fetchDay(date) {
+  return fetch(buildUrl(date))
     .then(function(r) { return r.ok ? r.json() : null; })
     .catch(function() { return null; });
-}
-
-// Daily:  docs/data/rxbenefits_YYYY-MM-DD.json
-function dailyUrl(date) {
-  return DAILY_BASE + 'rxbenefits_' + date + '.json';
-}
-
-// Weekly: docs/data_weekly/rxbenefits_week_YYYY-MM-DD.json
-// (YYYY-MM-DD = Monday of that week)
-function weeklyUrl(monday) {
-  return WEEKLY_BASE + 'rxbenefits_week_' + monday + '.json';
 }
 
 // ═══════════════════════════════════════════════════════
@@ -876,10 +844,9 @@ function loadReport() {
 }
 
 // ─── DAILY ───────────────────────────────────────────
-// Fetches a single daily JSON from docs/data/
 function loadDaily(date) {
   resetUI('Loading daily report for ' + fmtShort(date) + '…');
-  fetchJson(dailyUrl(date)).then(function(data) {
+  fetchDay(date).then(function(data) {
     document.getElementById('load-status').innerText = '';
     if (!data) {
       renderError(date, 'daily');
@@ -890,14 +857,20 @@ function loadDaily(date) {
 }
 
 function renderDaily(data, date) {
+  // Masthead
   setMasthead('Daily News Radar', fmtLong(date));
+
+  // Alert
   showAlert(fmtLong(date), data.total || 0);
+
+  // Stats
   showStats([
     { val: data.total, lbl: 'Articles Today', sub: 'After AI filter' },
     { val: fmtShort(date), lbl: 'Report Date', sub: 'UTC' },
     { val: 'Daily', lbl: 'Frequency', sub: 'Auto-updated 3 AM UTC' }
   ]);
 
+  // Excel
   if (data.excel_url) {
     document.getElementById('excel-wrap').innerHTML =
       '<a class="excel-btn" href="' + esc(data.excel_url) + '" download>' +
@@ -922,7 +895,7 @@ function renderDaily(data, date) {
       + '<div class="art-meta">'
       +   '<span class="art-source-chip">' + esc(art.source_name) + '</span>';
     if (art.source_line) {
-      html += '<span style="font-size:11px;color:var(--text-soft);">' + esc(art.source_line) + '</span>';
+      html += '<span style="font-size:11px;color:var(--slate);">' + esc(art.source_line) + '</span>';
     }
     html += '</div>';
     if (hasSummary) {
@@ -938,21 +911,24 @@ function renderDaily(data, date) {
 }
 
 // ─── WEEKLY ──────────────────────────────────────────
-// Fetches ONE pre-aggregated weekly JSON from docs/data_weekly/
 function loadWeekly(anyDate) {
   var monday = mondayOf(anyDate);
   var sunday = sundayOf(monday);
+  var dates  = weekDates(monday);
   resetUI('Loading week of ' + fmtLong(monday) + '…');
 
-  fetchJson(weeklyUrl(monday)).then(function(data) {
+  Promise.all(dates.map(fetchDay)).then(function(results) {
     document.getElementById('load-status').innerText = '';
-    if (!data) {
-      renderError(monday, 'weekly');
-      return;
-    }
-    // Support both a pre-aggregated articles array and the legacy daily shape
-    var articles = data.articles || [];
-    renderWeekly(articles, monday, sunday);
+    var allArticles = [];
+    results.forEach(function(data) {
+      if (data && Array.isArray(data.articles)) {
+        data.articles.forEach(function(a) { allArticles.push(a); });
+      }
+    });
+    renderWeekly(allArticles, monday, sunday);
+  }).catch(function() {
+    document.getElementById('load-status').innerText = '';
+    renderError(mondayOf(anyDate), 'weekly');
   });
 }
 
@@ -960,6 +936,7 @@ function renderWeekly(articles, monday, sunday) {
   var range = fmtLong(monday) + ' – ' + fmtLong(sunday);
   setMasthead('Weekly Newsletter', range);
   showAlert(fmtLong(monday), articles.length, 'Mon–Sun digest');
+
   showStats([
     { val: articles.length, lbl: 'Total Articles', sub: 'This week' },
     { val: fmtShort(monday), lbl: 'Week Starting', sub: 'Monday' },
@@ -971,20 +948,22 @@ function renderWeekly(articles, monday, sunday) {
       '<div class="error-state">'
       + '<strong>No articles this week</strong>'
       + 'No data found for the week of ' + esc(fmtLong(monday)) + '.'
-      + '<div class="err-hint">The weekly JSON has not been generated yet for this period.</div>'
+      + '<div class="err-hint">Daily JSON files for Mon–Sun have not been generated yet.</div>'
       + '</div>';
     return;
   }
 
-  // Bucket into categories
+  // Bucket
   var buckets = {};
   CATEGORIES.forEach(function(c) { buckets[c.id] = []; });
+
   articles.forEach(function(art) {
     var cid = categorise(art);
     if (!buckets[cid]) cid = 'cat-industry';
     buckets[cid].push(art);
   });
 
+  // Render sections
   var html = '';
   CATEGORIES.forEach(function(cat) {
     var items = buckets[cat.id];
@@ -1001,8 +980,7 @@ function renderWeekly(articles, monday, sunday) {
         var uid = cat.id + '-' + i;
         var hasSummary = art.summary && art.summary.trim();
         var isLast = i === items.length - 1;
-        html += '<div class="article-card ' + cat.id + '"'
-          + (isLast ? ' style="border-radius:0 0 10px 10px;"' : '') + '>'
+        html += '<div class="article-card ' + cat.id + '"' + (isLast ? ' style="border-radius:0 0 10px 10px;"' : '') + '>'
           + '<div class="art-num">[ ' + (i+1) + ' ]</div>'
           + '<a class="art-title-link" href="' + esc(art.link) + '" target="_blank" rel="noopener">'
           + esc(art.title) + ' ↗</a>'
@@ -1028,8 +1006,7 @@ function renderError(date, mode) {
   document.getElementById('content-area').innerHTML =
     '<div class="error-state">'
     + '<strong>⚠ No report found</strong>'
-    + 'No ' + (mode === 'weekly' ? 'weekly' : 'daily') + ' data for <strong>'
-    + esc(mode === 'weekly' ? 'week of ' + fmtLong(date) : fmtLong(date)) + '</strong>.'
+    + 'No ' + (mode === 'weekly' ? 'weekly' : 'daily') + ' data for <strong>' + esc(mode === 'weekly' ? 'week of ' + fmtLong(date) : fmtLong(date)) + '</strong>.'
     + '<div class="err-hint">The automated script may not have run yet for this date.</div>'
     + '</div>';
 }
@@ -1039,7 +1016,7 @@ function renderError(date, mode) {
 // ═══════════════════════════════════════════════════════
 function setMasthead(type, dateStr) {
   document.getElementById('masthead-sub').innerHTML =
-    '<span style="color:#8AB4F8;font-weight:600;">' + esc(type) + '</span>'
+    '<span style="color:#7eb8f7;font-weight:600;">' + esc(type) + '</span>'
     + ' &nbsp;·&nbsp; <strong id="masthead-date-label">' + esc(dateStr) + '</strong>';
 }
 
@@ -1080,26 +1057,26 @@ function updateStickyCount(n) {
 }
 
 // ═══════════════════════════════════════════════════════
-// CATEGORISE (client-side, for weekly bucketing)
+// CATEGORISE
 // ═══════════════════════════════════════════════════════
 function categorise(art) {
-  var hay = ((art.title||'') + ' ' + (art.source_name||'') + ' ' + (art.summary||'')).toLowerCase();
-  // Regulatory first (most specific legal terms)
+  var hay = ((art.title || '') + ' ' + (art.source_name || '') + ' ' + (art.summary || '')).toLowerCase();
+  // Regulatory first (very specific legal terms)
   var regCat = CATEGORIES[3];
   for (var k = 0; k < regCat.keywords.length; k++) {
     if (hay.indexOf(regCat.keywords[k]) !== -1) return regCat.id;
   }
-  // Big-3 PBMs
+  // Big-3 next
   var big3 = CATEGORIES[1];
   for (var k = 0; k < big3.keywords.length; k++) {
     if (hay.indexOf(big3.keywords[k]) !== -1) return big3.id;
   }
-  // PBM Competitors
+  // PBM competitor
   var comp = CATEGORIES[0];
   for (var k = 0; k < comp.keywords.length; k++) {
     if (hay.indexOf(comp.keywords[k]) !== -1) return comp.id;
   }
-  return 'cat-industry'; // default bucket
+  return 'cat-industry'; // default
 }
 
 // ═══════════════════════════════════════════════════════
@@ -1107,11 +1084,7 @@ function categorise(art) {
 // ═══════════════════════════════════════════════════════
 function esc(s) {
   if (!s) return '';
-  return String(s)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ═══════════════════════════════════════════════════════
