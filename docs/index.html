@@ -5,239 +5,1103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RxBenefits Intel Hub</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  color: #222;
-  background: #f4f5f7; 
-  padding: 20px;
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --navy:      #0F1F3D;
+  --navy-mid:  #1a2b4a;
+  --navy-soft: #1e3a5f;
+  --blue:      #2563EB;
+  --blue-lt:   #dbeafe;
+  --orange:    #F47920;
+  --orange-lt: #fff4ec;
+  --green:     #16a34a;
+  --green-lt:  #dcfce7;
+  --purple:    #7c3aed;
+  --purple-lt: #ede9fe;
+  --red:       #dc2626;
+  --red-lt:    #fee2e2;
+  --slate:     #64748b;
+  --slate-lt:  #f1f5f9;
+  --border:    #e2e8f0;
+  --white:     #ffffff;
+  --text:      #0f172a;
+  --text-mid:  #334155;
+  --text-soft: #64748b;
+  --radius:    10px;
+  --shadow:    0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.05);
+  --shadow-lg: 0 8px 32px rgba(15,31,61,.12);
 }
-.rxhub-wrap { max-width: 900px; margin: 0 auto; }
 
-.rxhub-header {
-  background: #1a2b4a;
-  padding: 20px 24px;
-  border-radius: 8px;
+/* ═══════════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: #f0f4f8;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════
+   STICKY SCROLL BAR
+═══════════════════════════════════════════ */
+#scroll-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 1000;
+  transition: transform .1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   STICKY COUNT CHIP
+═══════════════════════════════════════════ */
+#sticky-count {
+  position: fixed;
+  top: 12px; right: 16px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .25s, transform .25s;
+  pointer-events: none;
+}
+#sticky-count.show { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════
+   LAYOUT WRAPPER
+═══════════════════════════════════════════ */
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* ═══════════════════════════════════════════
+   MASTHEAD
+═══════════════════════════════════════════ */
+.masthead {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-lg);
+}
+.masthead-left { flex: 1 1 auto; }
+.masthead-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+.masthead-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -.3px;
+}
+.masthead-title span { color: #7eb8f7; }
+.masthead-sub {
+  font-size: 12px;
+  color: #8aa8c8;
+  margin-top: 6px;
+}
+.masthead-sub strong { color: #aac4e0; }
+.masthead-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.ev-badge {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #aac4e0;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: .5px;
+}
+.ev-badge span { color: var(--orange); }
+.pulse-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--orange);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.pulse-dot {
+  width: 7px; height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .4; transform: scale(.7); }
+}
+
+/* ═══════════════════════════════════════════
+   MODE TABS
+═══════════════════════════════════════════ */
+.tabs-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all .18s;
+  box-shadow: var(--shadow);
+}
+.tab-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.tab-btn.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+}
+.tab-btn .tab-icon { font-size: 16px; }
+.tab-btn .tab-label { line-height: 1; }
+.tab-btn .tab-desc {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: .7;
+  display: block;
+  margin-top: 1px;
+}
+
+/* ═══════════════════════════════════════════
+   CONTROL PANEL (date picker area)
+═══════════════════════════════════════════ */
+.control-panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow);
 }
-.rxhub-header .title { color: #fff; font-size: 18px; font-weight: 500; }
-.rxhub-header .subtitle { color: #aac4e0; font-size: 12px; margin-top: 4px; }
-.rxhub-header .badge {
-  background: #f47920; color: #fff;
-  font-size: 11px; font-weight: 500;
-  padding: 5px 12px; border-radius: 20px;
+.control-panel label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate);
+  white-space: nowrap;
 }
-.rxhub-datebar {
-  background: #fff; border: 1px solid #ddd;
-  border-radius: 8px; padding: 12px 16px;
-  margin-bottom: 16px;
-  display: flex; align-items: center;
-  gap: 10px; flex-wrap: wrap;
+.control-panel input[type="date"] {
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: var(--text);
+  font-family: inherit;
+  background: var(--slate-lt);
+  outline: none;
+  transition: border-color .15s;
 }
-.rxhub-datebar label { font-size: 12px; color: #666; }
-.rxhub-datebar input[type="date"] {
-  border: 1px solid #ddd; border-radius: 6px;
-  padding: 5px 10px; font-size: 12px; color: #222;
+.control-panel input[type="date"]:focus { border-color: var(--blue); }
+.load-btn {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s, transform .1s;
+  white-space: nowrap;
 }
-.rxhub-datebar button {
-  background: #0057a8; color: #fff; border: none;
-  border-radius: 6px; padding: 6px 18px;
-  font-size: 12px; cursor: pointer; font-weight: 500;
+.load-btn:hover  { background: #1d4ed8; }
+.load-btn:active { transform: scale(.97); }
+#load-status {
+  font-size: 11px;
+  color: var(--slate);
+  margin-left: auto;
 }
-.rxhub-datebar button:hover { background: #004490; }
-.rxhub-stats {
+
+/* ═══════════════════════════════════════════
+   ALERT BANNER
+═══════════════════════════════════════════ */
+.alert-banner {
+  display: none;
+  background: linear-gradient(135deg, #fff8f3 0%, #fff4ec 100%);
+  border: 1.5px solid #fbd5b5;
+  border-left: 5px solid var(--orange);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 14px;
+}
+.alert-banner.show { display: flex; }
+.alert-icon { font-size: 26px; flex-shrink: 0; }
+.alert-body { flex: 1; }
+.alert-date {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.2px;
+}
+.alert-msg {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-top: 2px;
+}
+.alert-msg strong { color: var(--orange); font-size: 15px; }
+.alert-hint {
+  font-size: 11px;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   STATS GRID
+═══════════════════════════════════════════ */
+.stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px; margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 .stat-card {
-  background: #e8f0f8; border-radius: 8px;
-  padding: 14px 16px; text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
 }
-.stat-card .val {
-  font-size: 24px; font-weight: 500; color: #1a2b4a;
+.stat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--orange));
 }
-.stat-card .lbl { font-size: 11px; color: #555; margin-top: 4px; }
-.stat-card .sub { font-size: 10px; color: #888; margin-top: 2px; }
+.stat-val {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+.stat-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-top: 6px;
+}
+.stat-sub {
+  font-size: 10px;
+  color: var(--slate);
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   EXCEL DOWNLOAD
+═══════════════════════════════════════════ */
 .excel-btn {
-  display: inline-block; background: #217346;
-  color: #fff; padding: 9px 18px; border-radius: 6px;
-  text-decoration: none; font-size: 13px;
-  font-weight: 500; margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #16a34a;
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  transition: background .15s;
+  box-shadow: var(--shadow);
 }
-.excel-btn:hover { background: #185c38; }
-.article {
-  background: #fff; border: 1px solid #e0e0e0;
-  border-radius: 8px; padding: 16px 18px;
-  margin-bottom: 12px;
-  border-left: 4px solid #0057a8;
+.excel-btn:hover { background: #15803d; }
+
+/* ═══════════════════════════════════════════
+   SECTION HEADERS (per category)
+═══════════════════════════════════════════ */
+.cat-section { margin-top: 24px; }
+.cat-section:first-child { margin-top: 0; }
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--navy);
 }
-.art-num { font-size: 11px; color: #0057a8; font-weight: 500; margin-bottom: 6px; }
-.art-title {
-  font-size: 15px; font-weight: 500;
-  color: #000; margin-bottom: 8px; line-height: 1.45;
+.cat-header.cat-pbm-competitor { background: #1e3a5f; }
+.cat-header.cat-big3           { background: #1a2b4a; }
+.cat-header.cat-industry       { background: #1e3050; }
+.cat-header.cat-regulatory     { background: #1f1f3d; }
+
+.cat-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .2px;
 }
+.cat-count {
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   ARTICLE CARDS
+═══════════════════════════════════════════ */
+.article-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-left: 4px solid var(--blue);
+  padding: 14px 18px;
+  transition: background .12s;
+}
+.article-card.cat-pbm-competitor { border-left-color: #2563eb; }
+.article-card.cat-big3           { border-left-color: var(--orange); }
+.article-card.cat-industry       { border-left-color: var(--green); }
+.article-card.cat-regulatory     { border-left-color: var(--purple); }
+
+.article-card:last-child {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.article-card:hover { background: #fafcff; }
+
+.art-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slate);
+  letter-spacing: .5px;
+  margin-bottom: 5px;
+}
+.art-title-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+  margin-bottom: 6px;
+  transition: color .12s;
+}
+.art-title-link:hover { color: var(--blue); }
+
+.art-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.art-source-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-mid);
+  background: var(--slate-lt);
+  border: 1px solid var(--border);
+  padding: 2px 9px;
+  border-radius: 12px;
+}
+.art-read-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.art-read-link:hover { text-decoration: underline; }
+
+/* Summary toggle */
+.art-toggle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--slate);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color .12s;
+}
+.art-toggle:hover { color: var(--blue); }
+.art-toggle svg { transition: transform .2s; }
+.art-toggle.open svg { transform: rotate(180deg); }
+
 .art-summary {
-  font-size: 13px; color: #444;
-  line-height: 1.65; margin-bottom: 10px;
+  display: none;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
 }
-.art-source { font-size: 12px; color: #888; }
-.art-source a { color: #0057a8; text-decoration: underline; }
-.loading { text-align: center; padding: 40px; color: #888; font-size: 13px; }
-.error-box {
-  background: #fff3cd; border: 1px solid #ffc107;
-  border-radius: 8px; padding: 16px 18px;
-  font-size: 13px; color: #856404;
+.art-summary.open { display: block; }
+
+/* Empty state per section */
+.section-empty {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 16px 18px;
+  font-size: 12px;
+  color: var(--slate);
+  font-style: italic;
 }
+
+/* ═══════════════════════════════════════════
+   DAILY MODE — flat article list (no cats)
+═══════════════════════════════════════════ */
+.daily-article {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+  transition: box-shadow .12s, background .12s;
+}
+.daily-article:hover {
+  box-shadow: 0 4px 20px rgba(37,99,235,.1);
+  background: #fafcff;
+}
+
+/* ═══════════════════════════════════════════
+   LOADING & ERROR STATES
+═══════════════════════════════════════════ */
+.loading-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--slate);
+}
+.loading-spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-state p { font-size: 13px; }
+
+.error-state {
+  background: #fff9f0;
+  border: 1.5px solid #fed7aa;
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  color: #92400e;
+  font-size: 13px;
+}
+.error-state strong { display: block; font-size: 15px; margin-bottom: 6px; }
+.error-state .err-hint { font-size: 12px; color: #b45309; margin-top: 6px; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
 .footer {
-  margin-top: 24px; padding-top: 16px;
-  border-top: 1px solid #eee;
-  text-align: center; font-size: 11px; color: #aaa;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.footer .ev { color: #f47920; font-weight: 500; }
+.footer-left { font-size: 11px; color: var(--slate); }
+.footer-left strong { color: var(--orange); }
+.footer-right { font-size: 10px; color: #94a3b8; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .stats-grid       { grid-template-columns: 1fr 1fr; }
+  .masthead         { flex-direction: column; }
+  .masthead-right   { flex-direction: row; align-items: center; }
+  .stat-val         { font-size: 22px; }
+  .tabs-row         { gap: 6px; }
+  .tab-btn .tab-desc { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot, .loading-spinner { animation: none; }
+}
 </style>
 </head>
 <body>
-<div class="rxhub-wrap">
 
-  <div class="rxhub-header">
-    <div>
-      <div class="title">RxBenefits Intel Hub</div>
-      <div class="subtitle" id="date-label">Loading latest report...</div>
+<!-- Scroll progress bar -->
+<div id="scroll-bar"></div>
+
+<!-- Sticky article count chip -->
+<div id="sticky-count"></div>
+
+<div class="wrap">
+
+  <!-- ── Masthead ── -->
+  <div class="masthead">
+    <div class="masthead-left">
+      <div class="masthead-eyebrow">Intelligence Platform</div>
+      <div class="masthead-title">RxBenefits <span>Intel Hub</span></div>
+      <div class="masthead-sub" id="masthead-sub">
+        <strong id="masthead-date-label">Loading…</strong>
+      </div>
     </div>
-    <div class="badge">Daily NL</div>
+    <div class="masthead-right">
+      <div class="ev-badge">Powered by <span>Evalueserve</span></div>
+      <div class="pulse-badge" id="mode-badge">
+        <div class="pulse-dot"></div>
+        <span id="badge-text">Daily NL</span>
+      </div>
+    </div>
   </div>
 
-  <div class="rxhub-datebar">
-    <label>&#128197; Select report date:</label>
+  <!-- ── Mode Tabs ── -->
+  <div class="tabs-row">
+    <button class="tab-btn active" id="tab-daily" onclick="switchMode('daily')">
+      <span class="tab-icon">📋</span>
+      <span class="tab-label">
+        Daily Newsletter
+        <span class="tab-desc">Today's curated news</span>
+      </span>
+    </button>
+    <button class="tab-btn" id="tab-weekly" onclick="switchMode('weekly')">
+      <span class="tab-icon">📅</span>
+      <span class="tab-label">
+        Weekly Newsletter
+        <span class="tab-desc">Mon–Sun digest by category</span>
+      </span>
+    </button>
+  </div>
+
+  <!-- ── Control Panel ── -->
+  <div class="control-panel">
+    <label id="picker-label">📅 Report date:</label>
     <input type="date" id="datepicker">
-    <button onclick="loadReport()">Load Report</button>
-    <span id="load-status" style="font-size:11px;color:#888;"></span>
+    <button class="load-btn" onclick="loadReport()">Load Report</button>
+    <span id="load-status"></span>
   </div>
 
-  <div class="rxhub-stats" id="stats" style="display:none;"></div>
+  <!-- ── Alert Banner ── -->
+  <div class="alert-banner" id="alert-banner">
+    <div class="alert-icon">🔔</div>
+    <div class="alert-body">
+      <div class="alert-date" id="alert-date-line"></div>
+      <div class="alert-msg">Newsletter Alert &mdash; You have <strong id="alert-count">0</strong> new news items for review!</div>
+      <div class="alert-hint">Click any article title to open the source. Expand summaries with the toggle below each headline.</div>
+    </div>
+  </div>
+
+  <!-- ── Stats ── -->
+  <div class="stats-grid" id="stats-grid" style="display:none;"></div>
+
+  <!-- ── Excel download ── -->
   <div id="excel-wrap"></div>
-  <div id="articles"><div class="loading">Loading today's report...</div></div>
 
-  <div class="footer">
-    RxBenefits Intel Hub &nbsp;&middot;&nbsp;
-    Powered by <span class="ev">Evalueserve</span>
-    &nbsp;&middot;&nbsp; Auto-updated daily at 3:00 AM UTC
+  <!-- ── Main content area ── -->
+  <div id="content-area">
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Loading today's report…</p>
+    </div>
   </div>
 
-</div>
+  <!-- ── Footer ── -->
+  <div class="footer">
+    <div class="footer-left">RxBenefits Intel Hub &nbsp;·&nbsp; Powered by <strong>Evalueserve</strong></div>
+    <div class="footer-right">Auto-updated daily at 3:00 AM UTC</div>
+  </div>
+
+</div><!-- /.wrap -->
 
 <script>
-// ================================================================
-// UPDATE THIS to your WordPress uploads base URL
-// Find it by uploading any file to Media Library and copying
-// the URL up to /wp-content/uploads/
-// ================================================================
-var BASE = "https://medtech-platform.github.io/News-Radar/data/";  
-// ================================================================
+// ═══════════════════════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════════════════════
+var BASE = "https://medtech-platform.github.io/News-Radar/data/";
 
+var CATEGORIES = [
+  {
+    id:       "cat-pbm-competitor",
+    label:    "PBM Competitor News",
+    icon:     "🏢",
+    keywords: [
+      "elevance","anthem","cigna","evernorth","carelon",
+      "prime therapeutics","medimpact","envision rx","humana pharmacy",
+      "magellan","blue cross","blue shield","bcbs","aetna","rxo",
+      "navitus","healthtrans","capital rx","rxpreferred"
+    ]
+  },
+  {
+    id:       "cat-big3",
+    label:    "Big 3 PBM News",
+    icon:     "⭐",
+    keywords: [
+      "optum rx","optum","unitedhealth","uhc","cvs","caremark",
+      "cvs specialty","cvs health","express scripts","evernorth",
+      "cigna","heather cianfrocco","pbm","pharmacy benefit manager"
+    ]
+  },
+  {
+    id:       "cat-industry",
+    label:    "Industry News",
+    icon:     "📊",
+    keywords: [
+      "specialty drug","specialty pharmacy","biosimilar","drug pricing",
+      "formulary","employer benefits","self-funded","self funded",
+      "health plan","pharmacy benefit","prior authorization",
+      "step therapy","oncology","cancer drug","infusion","rare disease",
+      "gene therapy","cell therapy","adherence","clinical","healthcare cost",
+      "color health","grail","priority health","cancer support"
+    ]
+  },
+  {
+    id:       "cat-regulatory",
+    label:    "Regulatory & Litigation News",
+    icon:     "⚖️",
+    keywords: [
+      "ftc","doj","congress","senate","house","legislation","regulation",
+      "lawsuit","litigation","settlement","antitrust","rebate","pbm reform",
+      "transparency","sec","fda","legal","court","judge","ruling",
+      "bill","act","policy","compliance"
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+var currentMode = 'daily';  // 'daily' | 'weekly'
+
+// ═══════════════════════════════════════════════════════
+// DATE UTILITIES
+// ═══════════════════════════════════════════════════════
 function todayStr() {
   var d = new Date();
-  return d.getUTCFullYear() + '-'
-    + String(d.getUTCMonth()+1).padStart(2,'0') + '-'
-    + String(d.getUTCDate()).padStart(2,'0');
+  return pad4(d.getUTCFullYear()) + '-' + pad2(d.getUTCMonth()+1) + '-' + pad2(d.getUTCDate());
+}
+function pad2(n) { return String(n).padStart(2,'0'); }
+function pad4(n) { return String(n).padStart(4,'0'); }
+
+function mondayOf(dateStr) {
+  var d = new Date(dateStr + 'T00:00:00Z');
+  var day = d.getUTCDay();
+  var diff = (day === 0) ? -6 : 1 - day;
+  d.setUTCDate(d.getUTCDate() + diff);
+  return pad4(d.getUTCFullYear()) + '-' + pad2(d.getUTCMonth()+1) + '-' + pad2(d.getUTCDate());
+}
+function sundayOf(monStr) {
+  var d = new Date(monStr + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() + 6);
+  return pad4(d.getUTCFullYear()) + '-' + pad2(d.getUTCMonth()+1) + '-' + pad2(d.getUTCDate());
+}
+function weekDates(monStr) {
+  var out = [];
+  for (var i = 0; i < 7; i++) {
+    var d = new Date(monStr + 'T00:00:00Z');
+    d.setUTCDate(d.getUTCDate() + i);
+    out.push(pad4(d.getUTCFullYear()) + '-' + pad2(d.getUTCMonth()+1) + '-' + pad2(d.getUTCDate()));
+  }
+  return out;
+}
+var MONTHS = ["January","February","March","April","May","June",
+              "July","August","September","October","November","December"];
+function fmtLong(str) {
+  var p = str.split('-');
+  return parseInt(p[2]) + ' ' + MONTHS[parseInt(p[1])-1] + ' ' + p[0];
+}
+function fmtShort(str) {
+  var p = str.split('-');
+  return MONTHS[parseInt(p[1])-1].slice(0,3) + ' ' + parseInt(p[2]) + ', ' + p[0];
 }
 
+// ═══════════════════════════════════════════════════════
+// MODE SWITCH
+// ═══════════════════════════════════════════════════════
+function switchMode(mode) {
+  currentMode = mode;
+  document.getElementById('tab-daily').classList.toggle('active', mode === 'daily');
+  document.getElementById('tab-weekly').classList.toggle('active', mode === 'weekly');
+  document.getElementById('badge-text').innerText = mode === 'daily' ? 'Daily NL' : 'Weekly NL';
+  document.getElementById('picker-label').innerText = mode === 'daily'
+    ? '📅 Report date:' : '📅 Any day in the week:';
+  resetUI('Switching mode…');
+  loadReport();
+}
+
+// ═══════════════════════════════════════════════════════
+// RESET
+// ═══════════════════════════════════════════════════════
+function resetUI(msg) {
+  document.getElementById('stats-grid').style.display = 'none';
+  document.getElementById('excel-wrap').innerHTML = '';
+  document.getElementById('alert-banner').classList.remove('show');
+  document.getElementById('masthead-date-label').innerText = msg || 'Loading…';
+  document.getElementById('masthead-sub').innerHTML = '<strong id="masthead-date-label">' + (msg || 'Loading…') + '</strong>';
+  showLoading(msg || 'Loading report…');
+}
+
+function showLoading(msg) {
+  document.getElementById('content-area').innerHTML =
+    '<div class="loading-state"><div class="loading-spinner"></div><p>' + esc(msg) + '</p></div>';
+}
+
+// ═══════════════════════════════════════════════════════
+// FETCH
+// ═══════════════════════════════════════════════════════
 function buildUrl(date) {
   return BASE + 'rxbenefits_' + date + '.json?t=' + Date.now();
 }
+function fetchDay(date) {
+  return fetch(buildUrl(date))
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .catch(function() { return null; });
+}
 
+// ═══════════════════════════════════════════════════════
+// MAIN LOAD ENTRY
+// ═══════════════════════════════════════════════════════
 function loadReport() {
-  var date = document.getElementById('datepicker').value || todayStr();
-  fetchData(date);
+  var pickerVal = document.getElementById('datepicker').value || todayStr();
+  document.getElementById('load-status').innerText = 'Loading…';
+
+  if (currentMode === 'daily') {
+    loadDaily(pickerVal);
+  } else {
+    loadWeekly(pickerVal);
+  }
 }
 
-function fetchData(date) {
-  document.getElementById('load-status').innerText = 'Loading...';
-  document.getElementById('articles').innerHTML =
-    '<div class="loading">Fetching report for ' + date + '...</div>';
-  document.getElementById('stats').style.display = 'none';
-  document.getElementById('excel-wrap').innerHTML = '';
-  document.getElementById('date-label').innerText = 'Loading...';
-
-  fetch(buildUrl(date))
-    .then(function(r) {
-      if (!r.ok) throw new Error('not found');
-      return r.json();
-    })
-    .then(function(data) {
-      render(data);
-      document.getElementById('load-status').innerText = '';
-    })
-    .catch(function() {
-      document.getElementById('load-status').innerText = '';
-      document.getElementById('date-label').innerText = 'No data found';
-      document.getElementById('stats').style.display = 'none';
-      document.getElementById('excel-wrap').innerHTML = '';
-      document.getElementById('articles').innerHTML =
-        '<div class="error-box">&#9888; No report found for <strong>'
-        + date + '</strong>. The script may not have run on this date.</div>';
-    });
+// ─── DAILY ───────────────────────────────────────────
+function loadDaily(date) {
+  resetUI('Loading daily report for ' + fmtShort(date) + '…');
+  fetchDay(date).then(function(data) {
+    document.getElementById('load-status').innerText = '';
+    if (!data) {
+      renderError(date, 'daily');
+      return;
+    }
+    renderDaily(data, date);
+  });
 }
 
-function render(data) {
-  document.getElementById('date-label').innerText =
-    'Daily News Radar \u2014 ' + data.date;
+function renderDaily(data, date) {
+  // Masthead
+  setMasthead('Daily News Radar', fmtLong(date));
 
-  var s = document.getElementById('stats');
-  s.style.display = 'grid';
-  s.innerHTML =
-    sc(data.total, 'Articles today', 'After AI filter') +
-    sc(data.date_short, 'Report date', 'UTC') +
-    sc('Daily', 'Frequency', 'Auto-updated 3AM UTC');
+  // Alert
+  showAlert(fmtLong(date), data.total || 0);
 
-  document.getElementById('excel-wrap').innerHTML = data.excel_url
-    ? '<a class="excel-btn" href="' + data.excel_url + '" download>'
-      + '&#128190; Download Excel Report</a>'
-    : '';
+  // Stats
+  showStats([
+    { val: data.total, lbl: 'Articles Today', sub: 'After AI filter' },
+    { val: fmtShort(date), lbl: 'Report Date', sub: 'UTC' },
+    { val: 'Daily', lbl: 'Frequency', sub: 'Auto-updated 3 AM UTC' }
+  ]);
+
+  // Excel
+  if (data.excel_url) {
+    document.getElementById('excel-wrap').innerHTML =
+      '<a class="excel-btn" href="' + esc(data.excel_url) + '" download>' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+      ' Download Excel Report</a>';
+  }
 
   if (!data.articles || !data.articles.length) {
-    document.getElementById('articles').innerHTML =
-      '<div class="error-box">No articles for this date.</div>';
+    document.getElementById('content-area').innerHTML =
+      '<div class="error-state"><strong>No articles</strong>No articles found for this date.</div>';
     return;
   }
 
   var html = '';
   data.articles.forEach(function(art, i) {
-    html +=
-      '<div class="article">'
-      + '<div class="art-num">[' + (i+1) + ']'
-      + ' <span style="color:#888;font-weight:400;">'
-      + esc(art.source_name) + '</span></div>'
-      + '<div class="art-title">'   + esc(art.title)       + '</div>'
-      + '<div class="art-summary">' + esc(art.summary)     + '</div>'
-      + '<div class="art-source">'  + esc(art.source_line)
-      + ' &nbsp;|&nbsp; <a href="'  + esc(art.link)
-      + '" target="_blank" rel="noopener">Read Full Article &#8599;</a>'
-      + '</div></div>';
+    var hasSummary = art.summary && art.summary.trim();
+    var uid = 'daily-' + i;
+    html += '<div class="daily-article">'
+      + '<div class="art-num">[ ' + (i+1) + ' ]</div>'
+      + '<a class="art-title-link" href="' + esc(art.link) + '" target="_blank" rel="noopener">'
+      + esc(art.title) + ' ↗</a>'
+      + '<div class="art-meta">'
+      +   '<span class="art-source-chip">' + esc(art.source_name) + '</span>';
+    if (art.source_line) {
+      html += '<span style="font-size:11px;color:var(--slate);">' + esc(art.source_line) + '</span>';
+    }
+    html += '</div>';
+    if (hasSummary) {
+      html += '<button class="art-toggle" id="btn-' + uid + '" onclick="toggleSummary(\'' + uid + '\')">'
+        + '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>'
+        + ' Show summary</button>'
+        + '<div class="art-summary" id="sum-' + uid + '">' + esc(art.summary) + '</div>';
+    }
+    html += '</div>';
   });
-  document.getElementById('articles').innerHTML = html;
+  document.getElementById('content-area').innerHTML = html;
+  updateStickyCount(data.total);
 }
 
-function sc(val, lbl, sub) {
-  return '<div class="stat-card"><div class="val">' + val
-    + '</div><div class="lbl">' + lbl
-    + '</div><div class="sub">' + sub + '</div></div>';
+// ─── WEEKLY ──────────────────────────────────────────
+function loadWeekly(anyDate) {
+  var monday = mondayOf(anyDate);
+  var sunday = sundayOf(monday);
+  var dates  = weekDates(monday);
+  resetUI('Loading week of ' + fmtLong(monday) + '…');
+
+  Promise.all(dates.map(fetchDay)).then(function(results) {
+    document.getElementById('load-status').innerText = '';
+    var allArticles = [];
+    results.forEach(function(data) {
+      if (data && Array.isArray(data.articles)) {
+        data.articles.forEach(function(a) { allArticles.push(a); });
+      }
+    });
+    renderWeekly(allArticles, monday, sunday);
+  }).catch(function() {
+    document.getElementById('load-status').innerText = '';
+    renderError(mondayOf(anyDate), 'weekly');
+  });
 }
 
+function renderWeekly(articles, monday, sunday) {
+  var range = fmtLong(monday) + ' – ' + fmtLong(sunday);
+  setMasthead('Weekly Newsletter', range);
+  showAlert(fmtLong(monday), articles.length, 'Mon–Sun digest');
+
+  showStats([
+    { val: articles.length, lbl: 'Total Articles', sub: 'This week' },
+    { val: fmtShort(monday), lbl: 'Week Starting', sub: 'Monday' },
+    { val: 'Weekly', lbl: 'Frequency', sub: 'Published Mondays' }
+  ]);
+
+  if (!articles.length) {
+    document.getElementById('content-area').innerHTML =
+      '<div class="error-state">'
+      + '<strong>No articles this week</strong>'
+      + 'No data found for the week of ' + esc(fmtLong(monday)) + '.'
+      + '<div class="err-hint">Daily JSON files for Mon–Sun have not been generated yet.</div>'
+      + '</div>';
+    return;
+  }
+
+  // Bucket
+  var buckets = {};
+  CATEGORIES.forEach(function(c) { buckets[c.id] = []; });
+
+  articles.forEach(function(art) {
+    var cid = categorise(art);
+    if (!buckets[cid]) cid = 'cat-industry';
+    buckets[cid].push(art);
+  });
+
+  // Render sections
+  var html = '';
+  CATEGORIES.forEach(function(cat) {
+    var items = buckets[cat.id];
+    html += '<div class="cat-section">'
+      + '<div class="cat-header ' + cat.id + '">'
+      +   '<span class="cat-title">' + cat.icon + '&nbsp; ' + esc(cat.label) + '</span>'
+      +   '<span class="cat-count">Total News (' + items.length + ')</span>'
+      + '</div>';
+
+    if (!items.length) {
+      html += '<div class="section-empty">No articles in this category this week.</div>';
+    } else {
+      items.forEach(function(art, i) {
+        var uid = cat.id + '-' + i;
+        var hasSummary = art.summary && art.summary.trim();
+        var isLast = i === items.length - 1;
+        html += '<div class="article-card ' + cat.id + '"' + (isLast ? ' style="border-radius:0 0 10px 10px;"' : '') + '>'
+          + '<div class="art-num">[ ' + (i+1) + ' ]</div>'
+          + '<a class="art-title-link" href="' + esc(art.link) + '" target="_blank" rel="noopener">'
+          + esc(art.title) + ' ↗</a>'
+          + '<div class="art-meta"><span class="art-source-chip">Source: ' + esc(art.source_name) + '</span></div>';
+        if (hasSummary) {
+          html += '<button class="art-toggle" id="btn-' + uid + '" onclick="toggleSummary(\'' + uid + '\')">'
+            + '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>'
+            + ' Show summary</button>'
+            + '<div class="art-summary" id="sum-' + uid + '">' + esc(art.summary) + '</div>';
+        }
+        html += '</div>';
+      });
+    }
+    html += '</div>';
+  });
+
+  document.getElementById('content-area').innerHTML = html;
+  updateStickyCount(articles.length);
+}
+
+// ─── ERROR ───────────────────────────────────────────
+function renderError(date, mode) {
+  document.getElementById('content-area').innerHTML =
+    '<div class="error-state">'
+    + '<strong>⚠ No report found</strong>'
+    + 'No ' + (mode === 'weekly' ? 'weekly' : 'daily') + ' data for <strong>' + esc(mode === 'weekly' ? 'week of ' + fmtLong(date) : fmtLong(date)) + '</strong>.'
+    + '<div class="err-hint">The automated script may not have run yet for this date.</div>'
+    + '</div>';
+}
+
+// ═══════════════════════════════════════════════════════
+// UI HELPERS
+// ═══════════════════════════════════════════════════════
+function setMasthead(type, dateStr) {
+  document.getElementById('masthead-sub').innerHTML =
+    '<span style="color:#7eb8f7;font-weight:600;">' + esc(type) + '</span>'
+    + ' &nbsp;·&nbsp; <strong id="masthead-date-label">' + esc(dateStr) + '</strong>';
+}
+
+function showAlert(dateStr, count, extra) {
+  document.getElementById('alert-date-line').innerText = dateStr + (extra ? ' · ' + extra : '');
+  document.getElementById('alert-count').innerText = count;
+  document.getElementById('alert-banner').classList.toggle('show', count > 0);
+}
+
+function showStats(cards) {
+  var g = document.getElementById('stats-grid');
+  g.style.display = 'grid';
+  g.innerHTML = cards.map(function(c) {
+    return '<div class="stat-card">'
+      + '<div class="stat-val">' + esc(String(c.val)) + '</div>'
+      + '<div class="stat-lbl">' + esc(c.lbl) + '</div>'
+      + '<div class="stat-sub">' + esc(c.sub) + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+function toggleSummary(uid) {
+  var sum = document.getElementById('sum-' + uid);
+  var btn = document.getElementById('btn-' + uid);
+  if (!sum || !btn) return;
+  var open = sum.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.innerHTML = (open
+    ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg> Hide summary'
+    : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg> Show summary');
+}
+
+function updateStickyCount(n) {
+  var chip = document.getElementById('sticky-count');
+  chip.innerText = n + ' articles';
+  chip.classList.add('show');
+  setTimeout(function() { chip.classList.remove('show'); }, 3000);
+}
+
+// ═══════════════════════════════════════════════════════
+// CATEGORISE
+// ═══════════════════════════════════════════════════════
+function categorise(art) {
+  var hay = ((art.title || '') + ' ' + (art.source_name || '') + ' ' + (art.summary || '')).toLowerCase();
+  // Regulatory first (very specific legal terms)
+  var regCat = CATEGORIES[3];
+  for (var k = 0; k < regCat.keywords.length; k++) {
+    if (hay.indexOf(regCat.keywords[k]) !== -1) return regCat.id;
+  }
+  // Big-3 next
+  var big3 = CATEGORIES[1];
+  for (var k = 0; k < big3.keywords.length; k++) {
+    if (hay.indexOf(big3.keywords[k]) !== -1) return big3.id;
+  }
+  // PBM competitor
+  var comp = CATEGORIES[0];
+  for (var k = 0; k < comp.keywords.length; k++) {
+    if (hay.indexOf(comp.keywords[k]) !== -1) return comp.id;
+  }
+  return 'cat-industry'; // default
+}
+
+// ═══════════════════════════════════════════════════════
+// ESC
+// ═══════════════════════════════════════════════════════
 function esc(s) {
   if (!s) return '';
-  return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ═══════════════════════════════════════════════════════
+// SCROLL PROGRESS BAR
+// ═══════════════════════════════════════════════════════
+window.addEventListener('scroll', function() {
+  var scrollTop = window.scrollY || document.documentElement.scrollTop;
+  var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = docHeight > 0 ? scrollTop / docHeight : 0;
+  document.getElementById('scroll-bar').style.transform = 'scaleX(' + pct + ')';
+}, { passive: true });
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
 document.getElementById('datepicker').value = todayStr();
-fetchData(todayStr());
+loadReport();
 </script>
 </body>
 </html>
