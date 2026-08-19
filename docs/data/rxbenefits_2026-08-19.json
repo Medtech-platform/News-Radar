@@ -1,0 +1,24 @@
+{
+  "date": "August 19, 2026",
+  "date_short": "2026-08-19",
+  "total": 2,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-08-19.xlsx",
+  "articles": [
+    {
+      "title": "Rising Impact Of Orphan Drugs And High-Cost Medications On Self-Funded Pharmacy Spend",
+      "summary": "A growing concentration of pharmacy spend driven by orphan drugs and ultra-high-cost medications among a very small percentage of plan members has emerged as a major cost driver for self-funded employers. This trend severely threatens employer healthcare budgets by introducing unpredictable, catastrophic claims that standard stop-loss policies may not fully insulate. For pharmacy benefits managers, addressing this shift requires deploying advanced specialty drug containment strategies, robust utilization management, and targeted clinical oversight to protect plan sponsors from extreme financial volatility.",
+      "source_line": "Source: EIN News; Tue, 18 Aug 2026 12:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNcWxtMVF2bjBTVVA3aEoxS0kxamg1bTlET0ZoVGZEWU1fR2JlREFXaXR0U0hKd3hWVUFiay1qXzI5elV2ZHBMSm9BWTZPQzEwWWd5ZlNPU24ySDRhYnBiSGVnM3EwT1ZKMkhYSDZOMjBia2RZejU1dDRHZFdaeWcyNWdBZDF6Tk1MUHl3NVhCa3lUS1RCNmo5NVU4NUxhUzVhZkEwRXBQNFFIX2dheVAtWHlNWl9NZlZYbnNiVUh5SUZ5aC0wb1JCQ01SbGREQXhQUWZ2ZmlkZk8ybHUwWFd0WVhpS18wdw?oc=5",
+      "source_name": "EIN News",
+      "date": "Tue, 18 Aug 2026 12:00:00 GMT"
+    },
+    {
+      "title": "Data-Driven Insights Outpace Cost Pressures in Employer Health Spending Decisions",
+      "summary": "Recent industry data reveals that self-funded employers are shifting from reactive cost-cutting to data-driven decision-making when managing employee health and pharmacy benefits. This matters because relying on concrete analytics rather than general budget pressures allows organizations to target inefficiencies and specialty drug spend more effectively. For PBM partners and employee benefits leaders, this trend underscores the growing demand for transparent, data-backed solutions that prove return on investment and guide strategic plan design.",
+      "source_line": "Source: Insurance Business; Tue, 18 Aug 2026 06:54:06 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQX1VOdjh2ZGttSFh3QloxVExJODdZenBUeE00cG9XN0VGOVFHdXE0V1R3WFZhVkEtTDE5T0czb2dSU09lTDNNaEN1c0lDQUpzVno3N3dIdXVfVFVqcDVTaGFyZHYxNk1pWVQwS1RRWXBXUlpSSVNuSGM1YW1ROFdqbzRWQlVNZ0NkaGROTk1sZE1Td0hSZ1ZCVVJOU2E5MUVnVktVb05ZbnBMQmZ0WGhjVmNuWmN0OUdzZ3BZYWFKMUJMWEowclJSdk1XQ1NsMHotY0V2bg?oc=5",
+      "source_name": "Insurance Business",
+      "date": "Tue, 18 Aug 2026 06:54:06 GMT"
+    }
+  ]
+}
