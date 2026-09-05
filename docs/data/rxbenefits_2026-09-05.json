@@ -1,0 +1,24 @@
+{
+  "date": "September 05, 2026",
+  "date_short": "2026-09-05",
+  "total": 2,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-09-05.xlsx",
+  "articles": [
+    {
+      "title": "The Financial Impact of Ultra-Expensive Cancer Drugs on Self-Funded Employer Health Plans",
+      "summary": "The rising prevalence of specialty medications, exemplified by a $480,000-a-year cancer treatment, is placing unprecedented financial strain on self-funded employer health plans. This trend matters because single high-cost claims can severely disrupt corporate healthcare budgets and threaten the sustainability of comprehensive employee benefits. For businesses, this necessitates a greater reliance on proactive pharmacy benefit management strategies, robust utilization management, and advanced risk mitigation tools like stop-loss insurance to protect against catastrophic specialty drug costs.",
+      "source_line": "Source: HR Brew; Fri, 04 Sep 2026 18:38:53 GMT",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOTGFXbC1aSEg5cW1VNXp2SmR0MDFlbWJNS3M5ai1TRzJsbVFTRGw0UUxzTFJGWGpFVXhKMzhBSE11NU44enVxdnVxOWJNUk1MUG1NYWkyUHpNeEFZRG53eUxaakkyMVJzaVkzZmdLSnV5RzFnZWFGMkYxb1VSa0xsUGNMNA?oc=5",
+      "source_name": "HR Brew",
+      "date": "Fri, 04 Sep 2026 18:38:53 GMT"
+    },
+    {
+      "title": "Vanderbilt Lawsuit Challenges Employer Fiduciary Authority in Benefit Appeals",
+      "summary": "A recent lawsuit filed against Vanderbilt University challenges the traditional scope of employer authority in managing employee benefit appeals, raising questions about fiduciary liability under ERISA. This legal action matters because it threatens to alter how self-funded plan sponsors handle disputed claims and exercise discretion over benefit determinations. For self-funded employers and benefit managers, the case signals a pressing need to review appeal governance, ensure rigorous documentation, and closely monitor fiduciary liabilities to mitigate potential legal exposure.",
+      "source_line": "Source: Insurance Business; Fri, 04 Sep 2026 09:15:36 GMT",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPejZpeDE1SGZPYnBkdGk3U1k3cFZzQnFjX2doQWZpWkRjZVYxTl9SVGE3M2RidnNWY014elVreVFoY3NLWlp4TDliMXhTMmE4MDZrLXVmZTIzM3RhcnZTVEt3a01MYzhGOWFvcDNuaUlYMG9HRWd5c2dSVWlCMWEydVJuR25qQktPTi0teEp1eUc5bE54NFNkOHBWRDExenZ1Y21tcmtUNmo5OHdZck44ZEJDai01bUllaU5tUTNEbU1Rc2FVZlFSTjM0bW1DcGM?oc=5",
+      "source_name": "Insurance Business",
+      "date": "Fri, 04 Sep 2026 09:15:36 GMT"
+    }
+  ]
+}
