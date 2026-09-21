@@ -1,0 +1,48 @@
+{
+  "date": "September 21, 2026",
+  "date_short": "2026-09-21",
+  "total": 5,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-09-21.xlsx",
+  "articles": [
+    {
+      "title": "Eli Lilly Stock Reaches All-Time High Following CVS Coverage Expansion For Zepbound",
+      "summary": "Eli Lilly's stock hit a record high driven by reports of expanded CVS formulary coverage for its blockbuster weight-loss drug, Zepbound. This development matters because broader commercial PBM access significantly accelerates market penetration and utilization rates for high-cost specialty medications. For self-funded employers and benefits managers, this increased accessibility underscores the urgency of implementing robust utilization management strategies to navigate rising GLP-1 financial exposure.",
+      "source_line": "Source: Stocktwits; Sun, 20 Sep 2026 09:22:45 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQUkdkR0FROUhqVnJfbURFQmcxTTZXTkNvMmViNTRHMk9LTVItcGYwc1BfeXhjc2lqVmhxd2l1Y0ZRSE1hWVd2RWdnR0c3TU96OUMwOEUzc1JwZVRHWkdrczNtMlFFQzhRZFlfVWQtR3ZoTTd5TUZtNS16UUkzbi1VUVl4Nlh1d2RVZHRDZE1fQ20yRmlrcEFlMWE4Y09ReUlkSDVocm9jTmtkaDRRMjNUY0VOTy1oYWhhRUlFZXFRVk9RUHdIN0VyaER0TlNDUmJQeTFtM3RNVFA0ZGJpSVE?oc=5",
+      "source_name": "Stocktwits",
+      "date": "Sun, 20 Sep 2026 09:22:45 GMT"
+    },
+    {
+      "title": "High Success Rates for Patients Appealing Health Insurance Denials Highlight Payer Friction",
+      "summary": "Recent data reveals that patients who actively appeal health insurance and pharmacy benefit denials frequently overturn initial adverse determinations, demonstrating significant friction in the adjudication process. This trend matters because frequent denials that are later overturned indicate potential over-restriction of medically necessary treatments, leading to administrative waste and delayed care. For self-funded employers and benefit managers, this underscores the importance of robust advocacy support and tighter oversight of PBM and health plan utilization management to ensure appropriate access while minimizing costly, unnecessary disputes.",
+      "source_line": "Source: Los Angeles Times; Sun, 20 Sep 2026 13:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbURVenpOTTV2NEVRVnp1eE5BM1ZDc296NE5IT3d4djVpalRkTjNiN0tTdXUwcW1jUXVzYXhjWU85SnhzcjZ5SWF2RjYxMFVJVFhBOW0wQW95QU5rUVJwSTNtand1QUxka0hHYnM2aXJvRnc4QmJwQ2tBei1lR21Qc09kbW1RU0UxMWs3SnFJaVR0Yk9UWXJsTkozX3BwVHdsSTVuQQ?oc=5",
+      "source_name": "Los Angeles Times",
+      "date": "Sun, 20 Sep 2026 13:00:00 GMT"
+    },
+    {
+      "title": "Angle Health Secures $600 Million to Scale Commercial Employer Health Benefits Platform",
+      "summary": "Angle Health has successfully raised $600 million in funding to expand its technology-driven health benefits platform targeted at commercial employers. This significant capital injection matters because it fuels the growing market competition among digital-first carriers striving to offer self-funded and fully insured employers more transparent, flexible, and integrated healthcare solutions. For the broader industry, this expansion signals increased employer demand for modern alternatives to traditional health plans, potentially reshaping how benefits are administered, cost-managed, and delivered to workforce populations.",
+      "source_line": "Source: MedCity News; Sun, 20 Sep 2026 21:56:05 GMT",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNemgyVEhSUWw1Yzc2ZnBjM0dReEgtMmNZSnJad29xT2NNZVZFcFh4am9rZ05pUTBBdjVxMW94a3pXSzBNWTNOSjdFcFo0RjJncHlUNmprMWJ5dlo4Um4yeWJ6aXIzNWNzV29nY3lYNFVIbnBEMWVPUzZBeEpiMzI2X1VvaGJVelZWWjEteFFtelBhWl8zTkxiSThJX2xDd0FU?oc=5",
+      "source_name": "MedCity News",
+      "date": "Sun, 20 Sep 2026 21:56:05 GMT"
+    },
+    {
+      "title": "Novo Nordisk Faces Investor Pressure To Diversify Beyond Weight-Loss Drugs Amid Market Shifts",
+      "summary": "Investors are urging Wegovy-maker Novo Nordisk to articulate a long-term strategic vision that extends beyond its current dominance in the anti-obesity medication market. This matters because growing competition and pricing pressures in the weight-loss drug category threaten future revenue growth and long-term market stability. For self-funded employers and pharmacy benefit managers, this evolving pharmaceutical landscape highlights the need to monitor pipeline diversification and anticipate future cost trajectories for high-demand specialty medications.",
+      "source_line": "Source: Reuters; Mon, 21 Sep 2026 05:03:43 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNekJHT3lsN3JVUXUzTUg3R24xS0pySkxoRjQzclAwNWo0SFJfR1lwQUhEZWFUbG9kQmFyY1pMeGxvRmo2TWhBX0luTkkxRTZLOTk1a3JLb1p4ZTJsV1RFNWpDOFhYSHMwNWFxaXpPZUFfaW5DN1JldDhuN0ZiTUIzMUFIQi1YdkFNUFpWV0pVbm5tYzZ5NVRETGhDZ3Y5TW1LRFdlMlNfMXNLMTk5NWszS0pwQVVSVk53NmtpZHFjbFNXUQ?oc=5",
+      "source_name": "Reuters",
+      "date": "Mon, 21 Sep 2026 05:03:43 GMT"
+    },
+    {
+      "title": "Aetna Modernizes Oncology Prior Authorization Processes to Reduce Administrative Burdens",
+      "summary": "Aetna has implemented a modernized prior authorization framework specifically targeted at oncology treatments to streamline approval processes and alleviate administrative friction for care providers. This development matters because complex prior authorization protocols often delay critical specialty drug access, directly impacting patient outcomes and self-funded employer healthcare costs. For businesses like RxBenefits, this shift signals a broader industry trend toward digitizing and simplifying specialty drug management, potentially paving the way for more efficient utilization management strategies in self-insured group health plans.",
+      "source_line": "Source: Oncodaily; Mon, 21 Sep 2026 07:26:18 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5XSmlkS3AyTV9KOFZIQVZ4Vzgya2t1UzhLb0xKRU1yT0s2OFFRbWxqX3BZUUZKMGdvSEg1SG9WbFpfb0RQdHZsSWNEWjE1d2lsdVd5bE9wNjZjazRqTVF0OHMtUXQwQQ?oc=5",
+      "source_name": "Oncodaily",
+      "date": "Mon, 21 Sep 2026 07:26:18 GMT"
+    }
+  ]
+}
