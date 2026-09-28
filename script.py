@@ -178,6 +178,29 @@ def fetch_all_news(keywords):
     print(f"\n✅ Total raw articles fetched: {len(all_articles)}", flush=True)
     return all_articles
 
+def deduplicate_articles(articles):
+    """Remove duplicate articles by URL and near-duplicate titles before AI processing."""
+    seen_urls = set()
+    seen_titles = set()
+    unique = []
+
+    for art in articles:
+        url = art.get("link", "").split("?")[0].rstrip("/")  # strip query params
+        # Normalize title: lowercase, remove punctuation, first 60 chars
+        import re
+        title_key = re.sub(r"[^a-z0-9 ]", "", art.get("title", "").lower())[:60].strip()
+
+        if url in seen_urls or title_key in seen_titles:
+            continue
+
+        seen_urls.add(url)
+        if title_key:
+            seen_titles.add(title_key)
+        unique.append(art)
+
+    removed = len(articles) - len(unique)
+    print(f"   🧹 Deduplication: removed {removed} duplicates, {len(unique)} remain", flush=True)
+    return unique
 
 def process_article_with_ai(article, ai_client):
     user_prompt = f"""
