@@ -1,0 +1,83 @@
+# ============================================================
+# companies.txt — COMPANY & ORGANISATION NAMES ONLY
+# The tool searches for news specifically mentioning these.
+# Do NOT put topic keywords here — those go in keywords.txt
+# One name per line. Lines starting with # are ignored.
+# ============================================================
+
+# --- Major PBMs ---
+CVS Caremark
+OptumRx
+Express Scripts
+Evernorth
+Prime Therapeutics
+Navitus
+MedImpact
+Capital Rx
+WelldynE
+EmpiRx Health
+Maxor
+AffirmedRx
+TrueScripts
+TrueRx
+SlateRx
+Liviniti
+MedOne Rx
+RightWay Rx
+LucyRx
+Judi Health
+Innovative Rx Strategies
+National CooperativeRx
+ProAct Rx
+
+# --- Insurance & Health Plans ---
+CVS Health
+Optum
+UnitedHealth Group
+UnitedHealthcare
+United Healthcare
+Elevance Health
+Anthem
+Aetna
+Cigna Healthcare
+Evernorth
+Carelon
+CarelonRx
+Magellan Health
+Meritain Health
+BCBS Affiliates
+BCBS TX
+BCBS AL
+BCBS IL
+BCBS NC
+BCBS MI
+Highmark BCBS
+Capital Blue Cross
+
+# --- Coalitions & Consultants ---
+Employers Health
+Aon Rx Coalition
+Mercer Rx Coalition
+WTW Collaborative
+Health Action Council
+RxCare Alliance
+Keenan Pharmacy Purchasing Coalition
+CoreTrust
+Crumdale Specialty
+Risk International
+S&S Consulting
+Truveris
+Rx-DNA
+Ringmaster Technologies
+NFP
+
+# --- Key Industry News Sources to Monitor ---
+Managed Healthcare Executive
+Becker's Payer Issues
+Drug Channels
+BenefitsPRO
+Fierce Healthcare
+Drug Store News
+BioPharma Dive
+Medical Economics
+InsuranceNewsNet
