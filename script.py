@@ -417,6 +417,9 @@ if __name__ == "__main__":
         if not raw_articles:
             print("⚠️  No articles fetched. Exiting.", flush=True)
             exit(0)
+        
+        # NEW: Step 4b — deduplicate before AI
+        raw_articles = deduplicate_articles(raw_articles)
 
         # Step 5: Process with AI
         print(f"\n🤖 Processing {len(raw_articles)} articles with Gemini AI...", flush=True)
