@@ -1,6 +1,5 @@
 Managed Healthcare Executive
 Becker’s Payer Issues
-CMS
 BioPharma Dive
 PhRMA
 FTC
