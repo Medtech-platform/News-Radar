@@ -59,6 +59,16 @@ SENDER_EMAIL        = os.environ.get("SENDER_EMAIL", "").strip()
 SENDER_APP_PASSWORD = os.environ.get("SENDER_APP_PASSWORD", "").strip()
 RECIPIENT_EMAIL     = os.environ.get("RECIPIENT_EMAIL", "").strip()
 
+# ==========================================
+# TOKEN BUDGET — keeps Gemini calls lean
+# Max articles sent to AI; cap output per article
+# Gemini Flash Lite: ~1M token context, but we stay well under
+# ==========================================
+MAX_ARTICLES_TO_PROCESS = 60   # pre-AI cap after dedup
+MAX_ARTICLES_PER_KW     = 3    # RSS results kept per keyword
+GEMINI_MODEL            = "gemini-2.0-flash-lite"   # fast + cheap
+GEMINI_MAX_TOKENS       = 300  # per article; title+summary+source fits in ~200
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"
 }
@@ -66,8 +76,7 @@ HEADERS = {
 # ==========================================
 # TIGHTENED SYSTEM PROMPT — HIGH RELEVANCE ONLY
 # ==========================================
-SYSTEM_PROMPT = """
-You are a senior intelligence analyst for RxBenefits, a pharmacy benefits management (PBM) company that exclusively serves self-funded employer health plans.
+SYSTEM_PROMPT = """You are a senior intelligence analyst for RxBenefits, a pharmacy benefits management (PBM) company that exclusively serves self-funded employer health plans.
 
 Your task: evaluate ONE news article and decide whether it is HIGH-RELEVANCE to RxBenefits.
 
@@ -100,11 +109,10 @@ If YES → process it
 ─── OUTPUT FORMAT ──────────────────────────────────────────────
 If article does NOT pass → respond ONLY with: SKIP
 
-If article PASSES → respond EXACTLY in this format (no extra text):
+If article PASSES → respond EXACTLY in this format (no extra text, no markdown):
 TITLE: <Punchy, specific title in Title Case — max 15 words>
-SUMMARY: <2–4 sentences: what happened, why it matters to self-funded employers / PBMs, key implication>
-SOURCE_LINE: Source: <Source Name>; <Publication Date>
-"""
+SUMMARY: <2-3 sentences: what happened, why it matters to self-funded employers / PBMs, key implication>
+SOURCE_LINE: Source: <Source Name>; <Publication Date>"""
 
 
 def validate_env_vars():
@@ -146,6 +154,7 @@ def load_keywords(filepath):
     print(f"✅ Loaded {len(keywords)} keywords.", flush=True)
     return keywords
 
+
 def load_companies(filepath):
     filepath = os.path.join(BASE_DIR, "Companies.txt")
     if not os.path.exists(filepath):
@@ -156,21 +165,21 @@ def load_companies(filepath):
     print(f"✅ Loaded {len(companies)} companies.", flush=True)
     return companies
 
-def fetch_all_news(keywords, companies):   # <-- add companies param
-    # ... existing keyword loop unchanged ...
 
-    # Competitor / company news
-    print(f"\n📡 Fetching competitor news for {len(companies)} companies...", flush=True)
-    for i, company in enumerate(companies, 1):
-        print(f"\n   [{i}/{len(companies)}] Fetching: '{company}'", flush=True)
-        query = f'"{company}" pharmacy benefits when:24h'
+def fetch_all_news(keywords, companies):
+    all_articles = []
+    print(f"\n📡 Fetching news for {len(keywords)} keywords...", flush=True)
+
+    for i, keyword in enumerate(keywords, 1):
+        print(f"\n   [{i}/{len(keywords)}] Fetching: '{keyword}'", flush=True)
+        query = f'"{keyword}" when:24h'
         encoded_query = urllib.parse.quote(query)
         rss_url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
         try:
             feed = feedparser.parse(rss_url, request_headers=HEADERS)
             count = len(feed.entries)
             print(f"      Found {count} articles", flush=True)
-            for item in feed.entries[:3]:   # cap at 3 per company to limit volume
+            for item in feed.entries[:MAX_ARTICLES_PER_KW]:
                 source_info = item.get("source", {})
                 source_name = (
                     source_info.get("title", "N/A")
@@ -178,7 +187,7 @@ def fetch_all_news(keywords, companies):   # <-- add companies param
                     else getattr(source_info, "title", "N/A")
                 )
                 all_articles.append({
-                    "keyword":     company,
+                    "keyword":     keyword,
                     "title":       item.get("title", "N/A"),
                     "link":        item.get("link", "N/A"),
                     "published":   item.get("published", item.get("pubDate", "N/A")),
@@ -186,8 +195,39 @@ def fetch_all_news(keywords, companies):   # <-- add companies param
                     "description": item.get("summary", item.get("description", "N/A")),
                 })
         except Exception as e:
-            print(f"      ❌ Error fetching '{company}': {e}", flush=True)
-        time.sleep(random.uniform(1.5, 3.0))
+            print(f"      ❌ Error fetching '{keyword}': {e}", flush=True)
+        time.sleep(random.uniform(1.0, 2.0))
+
+    # Competitor / company news
+    if companies:
+        print(f"\n📡 Fetching competitor news for {len(companies)} companies...", flush=True)
+        for i, company in enumerate(companies, 1):
+            print(f"\n   [{i}/{len(companies)}] Fetching: '{company}'", flush=True)
+            query = f'"{company}" pharmacy benefits when:24h'
+            encoded_query = urllib.parse.quote(query)
+            rss_url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
+            try:
+                feed = feedparser.parse(rss_url, request_headers=HEADERS)
+                count = len(feed.entries)
+                print(f"      Found {count} articles", flush=True)
+                for item in feed.entries[:2]:   # cap at 2 per company
+                    source_info = item.get("source", {})
+                    source_name = (
+                        source_info.get("title", "N/A")
+                        if isinstance(source_info, dict)
+                        else getattr(source_info, "title", "N/A")
+                    )
+                    all_articles.append({
+                        "keyword":     company,
+                        "title":       item.get("title", "N/A"),
+                        "link":        item.get("link", "N/A"),
+                        "published":   item.get("published", item.get("pubDate", "N/A")),
+                        "source_name": source_name,
+                        "description": item.get("summary", item.get("description", "N/A")),
+                    })
+            except Exception as e:
+                print(f"      ❌ Error fetching '{company}': {e}", flush=True)
+            time.sleep(random.uniform(1.5, 3.0))
 
     return all_articles
 
@@ -212,22 +252,26 @@ def deduplicate_articles(articles):
 
 
 def process_article_with_ai(article, ai_client):
+    # Keep snippet short to conserve tokens — first 400 chars is enough for relevance
+    snippet = (article.get("description") or "")[:400]
+
     user_prompt = f"""Evaluate this article for RxBenefits relevance:
 
-Original Title: {article['title']}
+Original Title: {article['title'][:200]}
 Source Name: {article['source_name']}
 Publication Date: {article['published']}
 Link: {article['link']}
-Snippet: {article['description']}
-"""
+Snippet: {snippet}"""
+
     try:
         response = ai_client.models.generate_content(
-            model="gemini-3.5-flash-lite",
-            contents=f"{SYSTEM_PROMPT}\n\n{user_prompt}"
+            model=GEMINI_MODEL,
+            contents=f"{SYSTEM_PROMPT}\n\n{user_prompt}",
+            config={"max_output_tokens": GEMINI_MAX_TOKENS}
         )
-        text = response.text.strip()
+        text = response.text.strip() if response.text else ""
 
-        if text.upper().startswith("SKIP"):
+        if not text or text.upper().startswith("SKIP"):
             return None
 
         parsed = {
@@ -266,9 +310,30 @@ def save_excel_format(processed_articles):
         wb = openpyxl.Workbook()
         ws = wb.active
         ws.title = "News Radar Report"
-        ws.append(["New Title", "Summary", "Source Name", "Publication Date", "Hyperlink URL"])
-        for art in processed_articles:
-            ws.append([art["title"], art["summary"], art["source_name"], art["date"], art["link"]])
+
+        # Header row styling
+        headers = ["#", "Title", "Summary", "Source", "Publication Date", "Link"]
+        header_fill = PatternFill("solid", fgColor="1F4E79")
+        header_font = Font(bold=True, color="FFFFFF")
+        for col, h in enumerate(headers, 1):
+            cell = ws.cell(row=1, column=col, value=h)
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = Alignment(wrap_text=True, vertical="center")
+
+        for i, art in enumerate(processed_articles, 1):
+            ws.append([i, art["title"], art["summary"], art["source_name"], art["date"], art["link"]])
+
+        # Column widths
+        col_widths = [4, 35, 60, 20, 20, 40]
+        for col, w in enumerate(col_widths, 1):
+            ws.column_dimensions[get_column_letter(col)].width = w
+
+        # Wrap text for all data rows
+        for row in ws.iter_rows(min_row=2):
+            for cell in row:
+                cell.alignment = Alignment(wrap_text=True, vertical="top")
+
         wb.save(OUTPUT_EXCEL_FILE)
         print("✅ Excel file saved successfully.", flush=True)
     except Exception as e:
@@ -297,16 +362,22 @@ def save_json_format(processed_articles):
 
 
 def send_email_report(processed_articles):
-    """Send email via Gmail using SMTP with STARTTLS on port 587.
-    
-    IMPORTANT: Uses port 587 + STARTTLS (not port 465 + SSL).
-    GitHub Actions blocks outbound port 465 (SMTP over SSL), causing the
-    'Connection unexpectedly closed' error. Port 587 with STARTTLS works.
-    
-    Gmail setup required:
-      - Enable 2-Factor Authentication on the sender Gmail account
-      - Generate an App Password: Google Account → Security → App Passwords
-      - Store the 16-character App Password as the SENDER_APP_PASSWORD secret
+    """
+    Send email via Gmail using SMTP with STARTTLS on port 587.
+
+    FIX NOTES:
+    - Uses port 587 + STARTTLS (NOT port 465 + SSL).
+      GitHub Actions blocks outbound port 465, causing SMTPServerDisconnected.
+    - Increased timeout to 60s to handle slow GitHub runner network.
+    - Added explicit server.ehlo() calls before and after starttls().
+    - SENDER_APP_PASSWORD must be a Gmail App Password (16 chars, no spaces),
+      NOT your regular Gmail password. 2FA must be enabled on the sender account.
+
+    Gmail setup:
+      1. Enable 2-Factor Authentication on the sender Gmail account
+      2. Go to: Google Account → Security → 2-Step Verification → App Passwords
+      3. Create an App Password for "Mail" / "Other"
+      4. Copy the 16-character code (no spaces) → store as SENDER_APP_PASSWORD secret
     """
     print(f"\n📧 Sending email report ({len(processed_articles)} articles)...", flush=True)
     try:
@@ -382,17 +453,29 @@ def send_email_report(processed_articles):
         msg.attach(MIMEText(text_body, "plain", "utf-8"))
         msg.attach(MIMEText(html_body, "html",  "utf-8"))
 
-        # ---- Send via STARTTLS on port 587 (works in GitHub Actions) ----
+        # ---- Send via STARTTLS on port 587 ----
+        # FIX: timeout=60 (was 30) to survive slow GitHub Actions network
         print("   📬 Connecting to smtp.gmail.com:587 (STARTTLS)...", flush=True)
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=60) as server:
+            server.ehlo()           # identify ourselves to the server
+            server.starttls()       # upgrade to encrypted connection
+            server.ehlo()           # re-identify over TLS (required by Gmail)
+            print("   🔐 Logging in...", flush=True)
             server.login(SENDER_EMAIL, SENDER_APP_PASSWORD)
+            print("   📤 Sending message...", flush=True)
             server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
 
         print(f"✅ Email sent successfully. Subject: Daily News Alerts_{subject_date}", flush=True)
 
+    except smtplib.SMTPAuthenticationError as e:
+        print(f"❌ Email AUTH FAILED: {e}", flush=True)
+        print("   → Check: Is SENDER_APP_PASSWORD a Gmail App Password (not your real password)?", flush=True)
+        print("   → Check: Is 2-Factor Auth enabled on the sender Gmail account?", flush=True)
+        raise
+    except smtplib.SMTPServerDisconnected as e:
+        print(f"❌ SMTP connection dropped: {e}", flush=True)
+        print("   → This usually means port 587 is blocked or App Password is wrong.", flush=True)
+        raise
     except Exception as e:
         print(f"❌ Email sending error: {e}", flush=True)
         raise
@@ -417,20 +500,28 @@ if __name__ == "__main__":
         AI_CLIENT = genai.Client(api_key=GEMINI_API_KEY)
         print("✅ Gemini AI client initialized.", flush=True)
 
-        # Step 3: Load keywords
-        keywords = load_keywords(INPUT_KEYWORDS_FILE)
+        # Step 3: Load keywords + companies
+        keywords  = load_keywords(INPUT_KEYWORDS_FILE)
+        companies = load_companies(os.path.join(BASE_DIR, "Companies.txt"))
         if not keywords:
             print("❌ No keywords loaded. Exiting.", flush=True)
             exit(1)
 
         # Step 4: Fetch news
-        raw_articles = fetch_all_news(keywords)
+        raw_articles = fetch_all_news(keywords, companies)
         if not raw_articles:
             print("⚠️  No articles fetched. Exiting.", flush=True)
             exit(0)
 
-        # Step 4b: Deduplicate before AI
+        print(f"\n📰 Total raw articles fetched: {len(raw_articles)}", flush=True)
+
+        # Step 4b: Deduplicate before AI (saves tokens)
         raw_articles = deduplicate_articles(raw_articles)
+
+        # Step 4c: Cap articles sent to Gemini to stay within token budget
+        if len(raw_articles) > MAX_ARTICLES_TO_PROCESS:
+            print(f"   ✂️  Capping at {MAX_ARTICLES_TO_PROCESS} articles to manage Gemini token budget", flush=True)
+            raw_articles = raw_articles[:MAX_ARTICLES_TO_PROCESS]
 
         # Step 5: Process with AI — high-relevance filter
         print(f"\n🤖 Processing {len(raw_articles)} articles with Gemini AI (high-relevance filter)...", flush=True)
@@ -444,7 +535,7 @@ if __name__ == "__main__":
                 print(f"      ✅ Kept", flush=True)
             else:
                 print(f"      ⏭️  Skipped", flush=True)
-            time.sleep(random.uniform(0.5, 1.2))
+            time.sleep(random.uniform(0.3, 0.8))   # reduced delay — Flash Lite handles rate limits well
 
         print(f"\n📊 {len(processed_articles)}/{len(raw_articles)} articles kept after AI filter.", flush=True)
 
