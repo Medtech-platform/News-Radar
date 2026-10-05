@@ -212,7 +212,7 @@ Snippet: {article['description']}
 """
     try:
         response = ai_client.models.generate_content(
-            model="gemini-2.0-flash-lite",
+            model="gemini-3.5-flash-lite",
             contents=f"{SYSTEM_PROMPT}\n\n{user_prompt}"
         )
         text = response.text.strip()
