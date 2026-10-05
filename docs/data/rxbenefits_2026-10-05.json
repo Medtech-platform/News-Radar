@@ -1,28 +1,36 @@
 {
   "date": "October 05, 2026",
   "date_short": "2026-10-05",
-  "total": 3,
+  "total": 4,
   "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-10-05.xlsx",
   "articles": [
     {
-      "title": "Rise in Cash-Pay GLP-1s Alters Employer Benefit Utilization Trends",
-      "summary": "An increasing number of patients are bypassing traditional insurance and paying out-of-pocket for GLP-1 medications due to strict prior authorization and coverage exclusions by employers. This trend shifts utilization patterns outside employer-sponsored health plans, potentially impacting overall cost management strategies and employee satisfaction. Self-funded plan sponsors must evaluate whether cash-pay trends signal a need to redesign their obesity and diabetes benefit offerings.",
+      "title": "Rising Patient Cash Payments for GLP-1 Medications Impact Employer Plans",
+      "summary": "An increasing number of patients are paying out-of-pocket cash for GLP-1 weight-loss and diabetes medications due to strict employer plan restrictions and prior authorization hurdles. This trend highlights the financial strain of these blockbuster drugs and suggests employees are bypassing traditional PBM benefit channels to secure treatment. For self-funded employers, this shift creates new challenges in tracking total health utilization, managing population health outcomes, and evaluating the true ROI of obesity benefit designs.",
       "source_line": "Source: Medical Economics; Mon, 05 Oct 2026 18:07:30 GMT",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbEVaZDBtWnh5ZTJqVnR5QVB3Nm9qTWFPaWFzalVRV3hfU0R4YkhSRjdVbHJMRXR2Z1d6TkVrcjE5Q29nVVNJNnJ3ODBVd0U5OUJLM05nNFZlWHdKZUpmcW5ZU2xvWUdsS09MZ2dROWRXaDhYZ2E4dU10cGFNdXhOWHE4LVVCYjhFa01VSlRpSk8?oc=5",
       "source_name": "Medical Economics",
       "date": "Mon, 05 Oct 2026 18:07:30 GMT"
     },
     {
+      "title": "Benefits Brokers Pivot Strategy to Combat Soaring Health Plan Costs",
+      "summary": "Health benefits brokers are actively seeking new advisory strategies and cost-containment solutions as employer health plan expenditures continue to surge. This trend highlights the growing demand among self-funded employers for innovative pharmacy and medical benefit management partners to help control escalating expenses.",
+      "source_line": "Source: insurancejournal.com; Mon, 05 Oct 2026 18:40:26 GMT",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUUlhNmV4bFJXZmNXUjd5enJqSDJxSmtGbzZ0bm5JRkFsU09LdkhqdC1EYTV4eDlvSGw1RGJ2V29TUUF6cm52V0hpdm9kODJiZXpFMGhRT1hiSGdzMW5uX3lmeGc5VjFKaHhTZ3Q2RDhsS3JfN0FiTzBZcGFkMEZUcHUyTQ?oc=5",
+      "source_name": "insurancejournal.com",
+      "date": "Mon, 05 Oct 2026 18:40:26 GMT"
+    },
+    {
       "title": "Bipartisan Congressional Scrutiny Intensifies Against Pharmacy Benefit Managers",
-      "summary": "Lawmakers from both major political parties are increasingly targeting pharmacy benefit managers (PBMs) for legislative reform, focusing on pricing practices and transparency. This bipartisan momentum signals potential federal policy changes that will impact how PBMs operate and report costs to self-funded employers. Self-funded health plan sponsors should monitor these developments as they may yield new transparency mandates and regulatory compliance requirements.",
+      "summary": "Lawmakers from both parties are increasingly targeting pharmacy benefit managers over drug pricing practices and transparency issues. This bipartisan pressure signals potential federal reform that could significantly impact how PBMs operate and contract with self-funded employer health plans. The growing momentum highlights the need for employers to closely monitor legislative developments affecting their pharmacy benefit management strategies.",
       "source_line": "Source: KUOW; Mon, 05 Oct 2026 09:00:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbE9qU1cyYm5pRGlMX0dzUFpuRzFyMl96ZHlTUEF6Z1pBcHl3RjQ5ejBNVWx6ek5NZVVaMU9Ub3JrOFMxbnZBQWlLdU0zbm55UURVa2hNbk1hMDJfaTEtcGRuOXhfbXlKbGhjNmJwSDhwbDZrMHNkbGw0UG12UUNWVHVFcU5NeHNiY0JIWXJrVjgyQzFuWVE2bnVPdHB0Z1g4ak5QS3Q1X3EwMHpndDRoUkNyUmdadw?oc=5",
       "source_name": "KUOW",
       "date": "Mon, 05 Oct 2026 09:00:00 GMT"
     },
     {
-      "title": "SHARx Warns Self-Funded Employers That Discounts Fail to Control Total Pharmacy Spending",
-      "summary": "Industry analysis highlights that relying solely on traditional pharmaceutical discounts is insufficient for self-funded employers managing escalating pharmacy costs. The report emphasizes the need for comprehensive cost-management strategies beyond standard rebate models to address the total cost of care. This directly impacts employer benefits planning and PBM evaluation criteria.",
+      "title": "SHARx Warns Self-Funded Employers That Discounts Fail to Control Pharmacy Spend",
+      "summary": "A new advisory report from SHARx highlights that traditional PBM discount models and rebates are insufficient for controlling total pharmacy spending for self-funded employers. The analysis emphasizes that managing plan costs requires a deeper focus on utilization management, alternative funding strategies, and holistic plan design rather than relying solely on headline discounts. This directly impacts self-funded plan sponsors seeking effective cost-containment solutions amidst rising specialty drug expenses.",
       "source_line": "Source: PR Newswire; Mon, 05 Oct 2026 12:08:00 GMT",
       "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQd210cVZjMElkYUlJVC1fVW5Za0MzYlBPSXg2UnNqR0xTdXRYUEFBeE43Z3ItSENTbXVjUXVlUldoTzVqZE53TzNxRzBSYW9GUkhNdlBYbkQ2dUtUT1EtYVFTWTNrUGRWMU51UlMyb25nX0ZNWjc1V2hhcDAzTlpWczN3dVM5U2swMWdRRGlSRFZCNTNDZGw2TXJtRFlJbi1XYXg3YUNCWFh0X01ONkk1RXJDYUZMVGFlU2JXMERhb1ZXbzFBeHpmc2F2SVoycExxTF9DVw?oc=5",
       "source_name": "PR Newswire",
