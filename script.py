@@ -64,7 +64,7 @@ RECIPIENT_EMAIL     = os.environ.get("RECIPIENT_EMAIL", "").strip()
 # Max articles sent to AI; cap output per article
 # Gemini Flash Lite: ~1M token context, but we stay well under
 # ==========================================
-MAX_ARTICLES_TO_PROCESS = 60   # pre-AI cap after dedup
+MAX_ARTICLES_TO_PROCESS = 30   # pre-AI cap after dedup
 MAX_ARTICLES_PER_KW     = 3    # RSS results kept per keyword
 GEMINI_MODEL            = "gemini-3.5-flash-lite"   # fast + cheap
 GEMINI_MAX_TOKENS       = 300  # per article; title+summary+source fits in ~200
