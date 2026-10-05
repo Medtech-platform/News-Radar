@@ -146,20 +146,31 @@ def load_keywords(filepath):
     print(f"✅ Loaded {len(keywords)} keywords.", flush=True)
     return keywords
 
+def load_companies(filepath):
+    filepath = os.path.join(BASE_DIR, "Companies.txt")
+    if not os.path.exists(filepath):
+        print(f"⚠️  Companies.txt not found — skipping competitor news", flush=True)
+        return []
+    with open(filepath, "r", encoding="utf-8") as f:
+        companies = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+    print(f"✅ Loaded {len(companies)} companies.", flush=True)
+    return companies
 
-def fetch_all_news(keywords):
-    print(f"\n📡 Fetching news for {len(keywords)} keywords...", flush=True)
-    all_articles = []
-    for i, kw in enumerate(keywords, 1):
-        print(f"\n   [{i}/{len(keywords)}] Fetching: '{kw}'", flush=True)
-        query = f'"{kw}" when:24h'
+def fetch_all_news(keywords, companies):   # <-- add companies param
+    # ... existing keyword loop unchanged ...
+
+    # Competitor / company news
+    print(f"\n📡 Fetching competitor news for {len(companies)} companies...", flush=True)
+    for i, company in enumerate(companies, 1):
+        print(f"\n   [{i}/{len(companies)}] Fetching: '{company}'", flush=True)
+        query = f'"{company}" pharmacy benefits when:24h'
         encoded_query = urllib.parse.quote(query)
         rss_url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
         try:
             feed = feedparser.parse(rss_url, request_headers=HEADERS)
             count = len(feed.entries)
             print(f"      Found {count} articles", flush=True)
-            for item in feed.entries:
+            for item in feed.entries[:3]:   # cap at 3 per company to limit volume
                 source_info = item.get("source", {})
                 source_name = (
                     source_info.get("title", "N/A")
@@ -167,7 +178,7 @@ def fetch_all_news(keywords):
                     else getattr(source_info, "title", "N/A")
                 )
                 all_articles.append({
-                    "keyword":     kw,
+                    "keyword":     company,
                     "title":       item.get("title", "N/A"),
                     "link":        item.get("link", "N/A"),
                     "published":   item.get("published", item.get("pubDate", "N/A")),
@@ -175,10 +186,9 @@ def fetch_all_news(keywords):
                     "description": item.get("summary", item.get("description", "N/A")),
                 })
         except Exception as e:
-            print(f"      ❌ Error fetching '{kw}': {e}", flush=True)
-        delay = random.uniform(1.5, 3.0)
-        time.sleep(delay)
-    print(f"\n✅ Total raw articles fetched: {len(all_articles)}", flush=True)
+            print(f"      ❌ Error fetching '{company}': {e}", flush=True)
+        time.sleep(random.uniform(1.5, 3.0))
+
     return all_articles
 
 
