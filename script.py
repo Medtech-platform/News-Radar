@@ -535,7 +535,7 @@ if __name__ == "__main__":
                 print(f"      ✅ Kept", flush=True)
             else:
                 print(f"      ⏭️  Skipped", flush=True)
-            time.sleep(random.uniform(0.3, 0.8))   # reduced delay — Flash Lite handles rate limits well
+            time.sleep(random.uniform(4.0, 5.0))   # reduced delay — Flash Lite handles rate limits well
 
         print(f"\n📊 {len(processed_articles)}/{len(raw_articles)} articles kept after AI filter.", flush=True)
 
