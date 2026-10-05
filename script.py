@@ -66,7 +66,7 @@ RECIPIENT_EMAIL     = os.environ.get("RECIPIENT_EMAIL", "").strip()
 # ==========================================
 MAX_ARTICLES_TO_PROCESS = 60   # pre-AI cap after dedup
 MAX_ARTICLES_PER_KW     = 3    # RSS results kept per keyword
-GEMINI_MODEL            = "gemini-2.0-flash-lite"   # fast + cheap
+GEMINI_MODEL            = "gemini-3.5-flash-lite"   # fast + cheap
 GEMINI_MAX_TOKENS       = 300  # per article; title+summary+source fits in ~200
 
 HEADERS = {
