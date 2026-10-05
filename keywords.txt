@@ -1,63 +1,111 @@
 # ============================================================
 # keywords.txt — TOPIC & SUBJECT SEARCH TERMS ONLY
-# These are business topics/themes the tool searches for.
-# Do NOT put company names here — those go in companies.txt
+# Tuned specifically for RxBenefits (Pharmacy Benefits Optimizer)
+# serving self-funded employers via benefits advisors/brokers.
 # One term per line. Lines starting with # are ignored.
 # ============================================================
 
-# --- Core PBM Topics ---
+# --- Core PBM / PBO Topics (RxBenefits' direct business) ---
+Pharmacy Benefits Optimizer
 Pharmacy Benefit Manager
-PBM
-Pharmacy Benefits
-PBM Reform
-PBM Litigation
-PBM contract audit
+PBM reform
 PBM transparency
-Pharmacy Benefit Innovation
-Federal Drug Pricing
-Pharmacy Transparency
-Spread Pricing
-Pass-through pricing
+PBM contract audit
+PBM litigation
+PBM consolidation
+PBM market share
+Pass-through pricing PBM
+Spread pricing PBM
+Carve-out pharmacy
+Multi-PBM marketplace
+Independent PBM
 
-# --- Drug Pricing & Costs ---
-Drug Pricing
-Pharmacy Costs
-Pharmacy Rebates
-Rebate Aggregator
-Prescription Drugs
-Net Pharmacy Spend
-Gross Pharmacy Spend
-Pharmacy Inflation
-Drug Transparency
-Drug Discount Cards
-Copay Assistance
-340B Program
-Biosimilars
+# --- Self-Funded Employer Pharmacy (RxBenefits' customer) ---
+Self-funded employer pharmacy benefits
+Self-insured employer drug costs
+Employer pharmacy cost containment
+Employer pharmacy benefits strategy
+Employer pharmacy spend
+Pharmacy benefits broker
+Benefits advisor pharmacy
+Third-party administrator pharmacy
+Carved-out pharmacy benefit
 
-# --- Employer & Benefits ---
-Employer Benefits
-Employee Benefits
-Self-Insured Employers
-Employer Healthcare Costs
-Employer Coalitions
-Pharmacy Purchasing Coalition
-Self-funded employer pharmacy
-Commercial Insurance
-Health Plans
+# --- Drug Pricing (core to RxBenefits' value prop) ---
+Pharmacy rebates employer
+Drug rebate reform
+Net drug pricing
+Pharmacy spread pricing
+Drug pricing transparency
+Drugflation
+Prescription drug inflation employer
+Pharmacy claims repricing
+Formulary optimization
+Formulary management employer
 
-# --- Drug Categories (business-relevant only) ---
-Specialty Pharmacy
-Specialty Drugs
-GLP-1
-Formulary
-Prior Authorization
-Step Therapy
+# --- Specialty Drugs (biggest cost driver for employers) ---
+Specialty drug cost employer
+Specialty pharmacy management
+Specialty drug prior authorization
+Specialty drug trend
+High cost specialty drugs employer
+Rare disease drug cost employer
+Gene therapy cost employer
+Cell therapy employer coverage
 
-# --- Regulatory & Legal ---
-Healthcare Litigation
-FTC pharmacy
-HHS drug pricing
-PhRMA policy
+# --- GLP-1 / Obesity Drugs (hot topic for employer plans) ---
+GLP-1 employer coverage
+GLP-1 cost employer health plan
+Ozempic employer benefits
+Wegovy employer coverage
+Obesity drug employer plan
+Weight loss drug employer cost
+GLP-1 formulary
 
-# --- Industry & Market ---
-Pharmacy Benefit Management industry
+# --- Biosimilars (key savings lever RxBenefits promotes) ---
+Biosimilar adoption employer
+Biosimilar formulary
+Biosimilar switching
+Humira biosimilar
+Biosimilar cost savings
+Biosimilar-first strategy
+
+# --- 340B Program (directly affects employer PBM contracts) ---
+340B drug pricing program
+340B reform
+340B litigation
+340B hospital employer
+
+# --- Clinical Utilization Management (RxBenefits' key service) ---
+Prior authorization reform
+Prior authorization pharmacy
+Step therapy employer
+Utilization management pharmacy
+Independent clinical management pharmacy
+PharmD prior authorization
+
+# --- PBM Regulation & Legal (shapes RxBenefits' market) ---
+FTC PBM report
+FTC pharmacy investigation
+PBM antitrust
+Congress PBM legislation
+Senate PBM bill
+House PBM reform bill
+State PBM law
+PBM transparency law
+ERISA pharmacy benefit
+
+# --- Benefits Consultant / Broker Channel (RxBenefits' go-to-market) ---
+Employee benefits consultant pharmacy
+Benefits broker pharmacy strategy
+Pharmacy benefits RFP
+Benefits advisor employer pharmacy
+
+# --- Cost Containment Strategies (what RxBenefits sells) ---
+Pharmacy cost containment employer
+Manufacturer patient assistance program
+Copay assistance employer plan
+Pharmacy purchasing coalition employer
+Rebate aggregator
+Pharmacy benefit audit
+Pharmacy analytics employer
