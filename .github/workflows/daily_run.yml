@@ -2,7 +2,7 @@ name: Daily RxBenefits News Radar Report
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '30 21 * * *'
   workflow_dispatch:
 
 permissions:
