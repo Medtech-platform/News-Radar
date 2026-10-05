@@ -1,83 +1,107 @@
 # ============================================================
-# companies.txt — COMPANY & ORGANISATION NAMES ONLY
-# The tool searches for news specifically mentioning these.
-# Do NOT put topic keywords here — those go in keywords.txt
+# Companies.txt — COMPANY & ORGANISATION NAMES ONLY
+# Tuned for RxBenefits competitive intelligence.
+# Organized by how directly they compete with RxBenefits.
 # One name per line. Lines starting with # are ignored.
 # ============================================================
 
-# --- Major PBMs ---
-CVS Caremark
-OptumRx
-Express Scripts
-Evernorth
-Prime Therapeutics
+# --- Tier 1: Direct PBO / Independent PBM Competitors ---
+# (Same model as RxBenefits — serve self-funded employers via brokers)
+Truveris
+Scripta Insights
+Paramount Rx
+SmithRx
+Flipt
+Capital Rx
+Judi Health
+Innovative Rx Strategies
+TruDataRx
+AffirmedRx
+EmpiRx Health
+Navitus Health Solutions
 Navitus
 MedImpact
-Capital Rx
-WelldynE
-EmpiRx Health
 Maxor
-AffirmedRx
 TrueScripts
 TrueRx
 SlateRx
 Liviniti
-MedOne Rx
-RightWay Rx
+RightWay
 LucyRx
-Judi Health
-Innovative Rx Strategies
 National CooperativeRx
 ProAct Rx
 
-# --- Insurance & Health Plans ---
+# --- Tier 2: Big 3 PBMs (RxBenefits contracts with these — watch for policy/contract changes) ---
+CVS Caremark
+Express Scripts
+Evernorth
+OptumRx
+Prime Therapeutics
+
+# --- Tier 3: Large Health Insurers with PBM Divisions ---
 CVS Health
-Optum
 UnitedHealth Group
 UnitedHealthcare
-United Healthcare
+Optum
+Cigna Healthcare
 Elevance Health
 Anthem
 Aetna
-Cigna Healthcare
-Evernorth
-Carelon
+CaremarkPBM
 CarelonRx
-Magellan Health
-Meritain Health
-BCBS Affiliates
-BCBS TX
-BCBS AL
-BCBS IL
-BCBS NC
-BCBS MI
-Highmark BCBS
-Capital Blue Cross
+Carelon
 
-# --- Coalitions & Consultants ---
+# --- Tier 4: Employer Coalition / GPO / Consultant Channel ---
+# (RxBenefits competes with and/or partners with these)
 Employers Health
-Aon Rx Coalition
-Mercer Rx Coalition
-WTW Collaborative
+Aon pharmacy
+Mercer pharmacy
+WTW pharmacy benefits
 Health Action Council
-RxCare Alliance
-Keenan Pharmacy Purchasing Coalition
+Pharmacy Benefit Management Institute
+Pharmacy Benefit Management Association
+PBMI
 CoreTrust
-Crumdale Specialty
-Risk International
-S&S Consulting
+Crumdale Partners
 Truveris
 Rx-DNA
 Ringmaster Technologies
-NFP
+NFP pharmacy
+Risk International
 
-# --- Key Industry News Sources to Monitor ---
+# --- Tier 5: Pharmacy Chains (network/dispensing partners — watch for contract changes) ---
+CVS Pharmacy
+Walgreens
+Rite Aid
+Express Scripts pharmacy
+
+# --- Tier 6: Specialty Pharmacy Players (high cost drug management) ---
+Accredo
+BriovaRx
+AllianceRx Walgreens
+Biologics by McKesson
+Shields Health Solutions
+Maxor Specialty
+
+# --- Tier 7: Key Trade / News Sources to Monitor ---
+Drug Channels Institute
 Managed Healthcare Executive
-Becker's Payer Issues
-Drug Channels
 BenefitsPRO
 Fierce Healthcare
-Drug Store News
 BioPharma Dive
-Medical Economics
-InsuranceNewsNet
+Becker's Payer Issues
+Employee Benefit News
+Employee Benefit Adviser
+BenefitsLink
+Health Affairs
+STAT News pharmacy
+Modern Healthcare
+
+# --- Tier 8: Regulators & Policy Bodies ---
+Federal Trade Commission
+FTC
+PhRMA
+PCMA
+Pharmaceutical Care Management Association
+AHIP
+America's Health Insurance Plans
