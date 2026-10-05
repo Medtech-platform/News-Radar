@@ -252,9 +252,7 @@ def deduplicate_articles(articles):
 
 
 def process_article_with_ai(article, ai_client):
-    # Keep snippet short to conserve tokens — first 400 chars is enough for relevance
     snippet = (article.get("description") or "")[:400]
-
     user_prompt = f"""Evaluate this article for RxBenefits relevance:
 
 Original Title: {article['title'][:200]}
@@ -263,45 +261,50 @@ Publication Date: {article['published']}
 Link: {article['link']}
 Snippet: {snippet}"""
 
-    try:
-        response = ai_client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=f"{SYSTEM_PROMPT}\n\n{user_prompt}",
-            config={"max_output_tokens": GEMINI_MAX_TOKENS}
-        )
-        text = response.text.strip() if response.text else ""
+    for attempt in range(3):   # retry up to 3 times
+        try:
+            response = ai_client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=user_prompt,
+                config={
+                    "system_instruction": SYSTEM_PROMPT,
+                    "max_output_tokens": GEMINI_MAX_TOKENS
+                }
+            )
+            text = response.text.strip() if response.text else ""
+            if not text or text.upper().startswith("SKIP"):
+                return None
 
-        if not text or text.upper().startswith("SKIP"):
-            return None
+            parsed = {
+                "title": "", "summary": "", "source_line": "",
+                "link": article["link"], "source_name": article["source_name"],
+                "date": article["published"],
+            }
+            for line in text.split("\n"):
+                line = line.strip()
+                if line.startswith("TITLE:"):
+                    parsed["title"] = line.replace("TITLE:", "", 1).strip()
+                elif line.startswith("SUMMARY:"):
+                    parsed["summary"] = line.replace("SUMMARY:", "", 1).strip()
+                elif line.startswith("SOURCE_LINE:"):
+                    parsed["source_line"] = line.replace("SOURCE_LINE:", "", 1).strip()
 
-        parsed = {
-            "title":       "",
-            "summary":     "",
-            "source_line": "",
-            "link":        article["link"],
-            "source_name": article["source_name"],
-            "date":        article["published"],
-        }
+            if not parsed["title"] or not parsed["summary"] or not parsed["source_line"]:
+                return None
+            return parsed
 
-        for line in text.split("\n"):
-            line = line.strip()
-            if line.startswith("TITLE:"):
-                parsed["title"] = line.replace("TITLE:", "", 1).strip()
-            elif line.startswith("SUMMARY:"):
-                parsed["summary"] = line.replace("SUMMARY:", "", 1).strip()
-            elif line.startswith("SOURCE_LINE:"):
-                parsed["source_line"] = line.replace("SOURCE_LINE:", "", 1).strip()
+        except Exception as e:
+            err = str(e)
+            if "429" in err:
+                wait = 25 + (attempt * 10)   # wait 25s, then 35s, then 45s
+                print(f"      ⏳ Rate limited. Waiting {wait}s before retry {attempt+1}/3...", flush=True)
+                time.sleep(wait)
+            else:
+                print(f"      ❌ AI Processing Error: {e}", flush=True)
+                return None
 
-        if not parsed["title"] or not parsed["summary"] or not parsed["source_line"]:
-            print(f"      ⚠️  Incomplete AI output — skipping", flush=True)
-            return None
-
-        return parsed
-
-    except Exception as e:
-        print(f"      ❌ AI Processing Error: {e}", flush=True)
-        return None
-
+    print(f"      ❌ Failed after 3 retries (rate limit)", flush=True)
+    return None
 
 def save_excel_format(processed_articles):
     print(f"\n💾 Saving {len(processed_articles)} articles to Excel...", flush=True)
