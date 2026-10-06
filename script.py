@@ -520,10 +520,6 @@ if __name__ == "__main__":
         # Step 4b: Deduplicate before AI (saves tokens)
         raw_articles = deduplicate_articles(raw_articles)
 
-        # Step 4c: Cap articles sent to Gemini to stay within token budget
-        if len(raw_articles) > MAX_ARTICLES_TO_PROCESS:
-            print(f"   ✂️  Capping at {MAX_ARTICLES_TO_PROCESS} articles to manage Gemini token budget", flush=True)
-            raw_articles = raw_articles[:MAX_ARTICLES_TO_PROCESS]
 
         # Step 5: Process with AI — high-relevance filter
         print(f"\n🤖 Processing {len(raw_articles)} articles with Gemini AI (high-relevance filter)...", flush=True)
