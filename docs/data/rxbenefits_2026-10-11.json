@@ -1,0 +1,24 @@
+{
+  "date": "October 11, 2026",
+  "date_short": "2026-10-11",
+  "total": 2,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-10-11.xlsx",
+  "articles": [
+    {
+      "title": "UnitedHealthcare Cuts Prior Authorization Requirements by 30 Percent",
+      "summary": "UnitedHealthcare announced it is dropping approximately 30 percent of its prior authorization requirements to streamline care and reduce administrative friction. This move reflects growing industry pressure on payers to ease utilization management restrictions, which could influence broader PBM and health plan strategies regarding prior auth for specialty and pharmacy benefits.",
+      "source_line": "Source: Medical Economics; Sat, 10 Oct 2026 06:24:02 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiygJBVV95cUxQX1JDRlgtMmgyOVZMMURwNkFmTFZfY19lNEZ6Rm5qUEtBLUdWNVZyOTJnSVc4YXFpS2ROZEVTQnk0TVFfY2FzRUhNMHg2bmc0MHZnSUJ6QXlDWjBjeGpkaVBCenY2N0JDOHgwc3hoanVFZFZKS0RKX0VOdEV2RVFaa2dxN1pXakI2UTlnSzJIdkNoUjY4TXdSVW1WSzFodktuSUE5N0ZrR1FlblozekxnaVFwbEduOTRyZkhQX3MxZmZacWc3SnZXMllGWUxjM2Y2WmJQR2U0MzZLTXZfd21MRlpiZW9oWWMzSGc1RnNjd0kxTC1oYTNIaXo1cDJmb25mbWo0SXloQkFZY3Rfc0tkRFpSQmJ5M2NSOTYtT1JEVzRhQnZEMThaaFlQT0U1RGZkakQ2VEtVaTBkTHJIVks3OF9wZUgwVUJPU1E?oc=5",
+      "source_name": "Medical Economics",
+      "date": "Sat, 10 Oct 2026 06:24:02 GMT"
+    },
+    {
+      "title": "Readers Urge Lawmakers to Advance PBM Reform Legislation",
+      "summary": "An opinion piece calls on legislators to complete ongoing regulatory reforms targeting pharmacy benefit managers. The advocacy emphasizes pricing transparency and cost controls, which directly impact self-funded employer health plans navigating PBM contracts.",
+      "source_line": "Source: LancasterOnline; Sat, 10 Oct 2026 09:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQWDZwcHhDYVdSTUR2RWMyUThsUUQ3bXN1UWRlclFRNFVzZjJqQnMwd3gtVDJ0VEcxRE9LMHJKQTQ5VHk0Uk1QZnBQdG9vMmUzTWF3QXFkTXVJSmFVNkstSFg5OXltVTRGRGZsQzhnUE1jYnowVDNSS0pxbGxWOE56a2ZoTmNLOTRVMGZYTU00aVc2bFd2NURIRGZEVDlpbnhqdmxRMDZZcFZyZHhfWGNVR0Y5blQ5X0NGSE9hSmRSMG5saXFldUpIMVpDS1VSalV3a3RuaDVnYkJZWVBzVEVMbGN2YTc3ODlTeTFhek45emg3SElPVVlzaGZON2FQYXFtZXcxNXR4NFowclNzU0ZQMEFB?oc=5",
+      "source_name": "LancasterOnline",
+      "date": "Sat, 10 Oct 2026 09:00:00 GMT"
+    }
+  ]
+}
