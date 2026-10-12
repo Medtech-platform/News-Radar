@@ -1,0 +1,40 @@
+{
+  "date": "October 12, 2026",
+  "date_short": "2026-10-12",
+  "total": 4,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-10-12.xlsx",
+  "articles": [
+    {
+      "title": "FTC Scrutiny on Pharmaceutical Discounts and Rebates",
+      "summary": "The Wall Street Journal examines regulatory scrutiny from the Federal Trade Commission regarding pharmaceutical discounts and rebate practices. This oversight directly impacts PBM operations, drug pricing structures, and rebate management strategies utilized by self-funded employers. PBMs and employers must monitor how FTC actions could alter prescription drug cost negotiations and market transparency.",
+      "source_line": "Source: WSJ; Sun, 11 Oct 2026 18:58:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNZklvNjhHMGpPQkhVMmhhRkIyZ2UzVHVfMWJmOEpTZmo2TWVKMjBFbWdvYTBSRHdLOG1EYXNUZmZ2YzZiWVFOQWotVlFCaUVJRGR1Sld6T1VHaVI3NDREWDlNRUVfZFY3UGdRRE9VN2RPMGRCZUswUjRJWXhldTVhZEpB?oc=5",
+      "source_name": "WSJ",
+      "date": "Sun, 11 Oct 2026 18:58:00 GMT"
+    },
+    {
+      "title": "Mark Cuban Cost Plus Drugs Partners With Humana on Employer Drug Costs",
+      "summary": "Mark Cuban's Cost Plus Drug Company has announced a partnership with Humana aimed at addressing employer drug costs. This collaboration introduces new competitive dynamics into the pharmacy benefits space, offering self-funded employers alternative sourcing models for prescription drugs. The move highlights ongoing industry disruption as transparent pricing alternatives challenge traditional PBM models.",
+      "source_line": "Source: Medical Economics; Sun, 11 Oct 2026 07:53:02 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNV0NlSGZXeVY5bUR4TlF4YWFVQmxBMnZFMlJpM1VBU3JGWXp5RGh0QWRjN3JRQ2xwOGR3WnFBUGZVclVqU083MkZGSEhvU2o4NzBoRGNQLTNLOHgtd2V1bmN0cUt1NXBOQmR0LVlaRVlzcEZObE9tMGttcGF1NW44ajktcEVvbTdaNGUyQzRhSG5WTl9HNTBZR0pWQWFjRmVmd2NjQmltTDRfUklRSEk1TE81SElvNWhnSWtFcGJuc3hYc0ZiMmxVQjMtU3hnMDV3VUFHMDI1S2tjRG1JUmt2LVI3OGpYQnRhajBfNXZoVWdkaktqdkhYdVRQbXNBWGs1T2dPZGNVSlYycEtaRXg4c0I4WlQwa3p2RC02cy1pdTFKc0FubGtaTHlSeGNpUU5mSlpCYnRHWGpUdnVBQlQxVkIxRlEwZE9aWkpvNFE1TkRla3djZ1ItLUFrWTBlZWs?oc=5",
+      "source_name": "Medical Economics",
+      "date": "Sun, 11 Oct 2026 07:53:02 GMT"
+    },
+    {
+      "title": "UnitedHealthcare Cuts Prior Authorization Requirements by Thirty Percent",
+      "summary": "UnitedHealthcare has announced it is eliminating approximately 30% of its prior authorization requirements to streamline care and reduce administrative friction. This move by a major health plan highlights a broader industry trend toward easing utilization management burdens, which could influence benefit plan designs and expectations for self-funded employers.",
+      "source_line": "Source: Medical Economics; Sun, 11 Oct 2026 20:31:05 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiygJBVV95cUxQX1JDRlgtMmgyOVZMMURwNkFmTFZfY19lNEZ6Rm5qUEtBLUdWNVZyOTJnSVc4YXFpS2ROZEVTQnk0TVFfY2FzRUhNMHg2bmc0MHZnSUJ6QXlDWjBjeGpkaVBCenY2N0JDOHgwc3hoanVFZFZKS0RKX0VOdEV2RVFaa2dxN1pXakI2UTlnSzJIdkNoUjY4TXdSVW1WSzFodktuSUE5N0ZrR1FlblozekxnaVFwbEduOTRyZkhQX3MxZmZacWc3SnZXMllGWUxjM2Y2WmJQR2U0MzZLTXZfd21MRlpiZW9oWWMzSGc1RnNjd0kxTC1oYTNIaXo1cDJmb25mbWo0SXloQkFZY3Rfc0tkRFpSQmJ5M2NSOTYtT1JEVzRhQnZEMThaaFlQT0U1RGZkakQ2VEtVaTBkTHJIVks3OF9wZUgwVUJPU1E?oc=5",
+      "source_name": "Medical Economics",
+      "date": "Sun, 11 Oct 2026 20:31:05 GMT"
+    },
+    {
+      "title": "Employers Reconsider Coverage for Weight-Loss Drugs Amid Rising Costs",
+      "summary": "Rising financial pressures are leading self-funded employers to scale back or drop coverage for high-cost GLP-1 weight-loss medications. This trend highlights the ongoing tension between managing plan costs and meeting employee benefit expectations for obesity treatments. PBMs and employers must navigate alternative formulary management strategies to control these specialty drug expenditures.",
+      "source_line": "Source: Olhar Digital; Sun, 11 Oct 2026 10:06:48 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcF8zZ0FlRGdkbGtaOW9ObEYtaVFaLTdaaHBKUFVLd3VZZG9SNkNWYTVUS0hZajVlLWNJek1pRjZ0Rkh2aWxNdktNaVZfRDJOMzRYVDRXQWxITFJQNGRuakhSWFBWdmRBdUhLbFVxVGhVcGduZnV3Q1luQWluaDJyQlBNN3pVVUpBd1ROWkRFZEstN2JOWUMtdk9MWlByN2pXTkZYaEtRVDk3SmdSQTVSdlFFUQ?oc=5",
+      "source_name": "Olhar Digital",
+      "date": "Sun, 11 Oct 2026 10:06:48 GMT"
+    }
+  ]
+}
