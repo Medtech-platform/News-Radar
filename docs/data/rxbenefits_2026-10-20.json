@@ -1,96 +1,80 @@
 {
-  "date": "October 20, 2026",
-  "date_short": "2026-10-20",
-  "total": 11,
-  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-10-20.xlsx",
+  "date": "October 21, 2026",
+  "date_short": "2026-10-21",
+  "total": 9,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-10-21.xlsx",
   "articles": [
     {
-      "title": "Increased Scrutiny Faces the 340B Drug Discount Program",
-      "summary": "The massive 340B drug discount program is drawing heightened policy and market scrutiny regarding its operations and oversight. This matters to self-funded employers and PBMs because 340B dynamics directly impact commercial drug pricing, manufacturer discounting, and overall health plan cost trends. Key implications include potential legislative or regulatory shifts that could alter how covered entities and pharmacies handle 340B savings.",
-      "source_line": "Source: Pacific Research Institute; Mon, 19 Oct 2026 20:33:11 GMT",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdmZSVnBYai1CVXZnY1loZWdJQlVsOV9GSXlHbC1PWm4wQUc0dXpjWGlIODVBMTNFTGNmdURfTFowVE5ZVjJOVmtxR0dBbVhNT0VTd1pBTDRUc2VEX3ZjNXNrUjlLZU9SQ2ViYmFwT0tTcWI5b0NJSHpOc2lLTkx1eVhaQ21JemZlZEYxcjI0cXRYc29qbVphbEUtSVlJZE50?oc=5",
-      "source_name": "Pacific Research Institute",
-      "date": "Mon, 19 Oct 2026 20:33:11 GMT"
+      "title": "PhRMA Advocates for Itemized Billing in 340B Drug Program Reform",
+      "summary": "PhRMA is pushing for itemized billing requirements within the 340B drug pricing program to increase transparency regarding how covered entities utilize discounts. This policy debate impacts the broader drug pricing and supply chain ecosystem that affects self-funded employer health plan costs and PBM operations.",
+      "source_line": "Source: PhRMA; Tue, 20 Oct 2026 17:08:07 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBQbTRpUGRQaFJIX0lQYnBDMFRHdmdMT0xJU2k3UEFCRlJuT25Qc0JWX2VXVHo4YVhxMlVPdjVncldEWkN4M1lIdFd2czdSVkJCZHB5bU1ZVDJyak10b1Q1SkI4STU?oc=5",
+      "source_name": "PhRMA",
+      "date": "Tue, 20 Oct 2026 17:08:07 GMT"
     },
     {
-      "title": "Federal Scrutiny Intensifies on the 340B Drug Discount Program",
-      "summary": "The massive 340B drug discount program is facing heightened regulatory and legislative scrutiny as stakeholders debate its scope and impact on drug pricing. For self-funded employers and PBMs, changes to 340B directly influence overall commercial drug pricing trends, hospital contracting, and specialty drug cost dynamics.",
-      "source_line": "Source: Forbes; Mon, 19 Oct 2026 12:00:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZHNzcTdmZVhGS1l5NmJmLThmZlJWMllmemJxc1ZhaU1TR0RFWFJVbEt2TU9oQUdqaDh2STBNYXJBNDF2S2hfVzBadWxRR0Y1VHlKTnR5ejE2aERVdURqWU9PRXV5U0ZxQ25rVTBjenJQc1pldUlYaEk2VWRnZGtGUmFkbmtsbXVHTFZYVHZRZk1zUGppbDhDZWZrcGlTUFJnT3V2b0lLSmlEaEYzTnV5Zm1FWlp3czZtcXc?oc=5",
-      "source_name": "Forbes",
-      "date": "Mon, 19 Oct 2026 12:00:00 GMT"
+      "title": "Pharma Defends 340B Rebate Model Amid Ongoing Industry Scrutiny",
+      "summary": "Pharmaceutical companies are taking strategic steps to defend the current 340B rebate model as legal and regulatory pressures mount. This ongoing battle significantly impacts the broader drug pricing ecosystem, specialty drug distribution, and cost dynamics that affect self-funded employer health plans.",
+      "source_line": "Source: BenefitsPRO; Tue, 20 Oct 2026 12:27:02 GMT",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQTFFoeEUzd0N6ZGktM0xWYnF6WEFlaFJCVHY2SU9uRWNfTGNNamh5X1VwclFTalE2NXo4Q1lxWEszbVRGaGlGZUFJd1d5WkNRbUozc3h2RHVmQTVOdktuTmtMZTFBSHJqZm03c1pqU1MwaFpKR2FBZW10b01vb1NRUXREZTd4aDVJNHp2YlNGQQ?oc=5",
+      "source_name": "BenefitsPRO",
+      "date": "Tue, 20 Oct 2026 12:27:02 GMT"
     },
     {
-      "title": "Opioid MDL Judge Denies PBM Affiliates Motion To Dismiss",
-      "summary": "A federal judge denied a motion to dismiss filed by pharmacy benefit manager affiliates in ongoing opioid multidistrict litigation. This ruling keeps PBM entities exposed to liability related to the opioid crisis, signaling potential legal and financial risks for major industry players. Self-funded employers should monitor how these legal developments could impact PBM operational stability and future pricing models.",
-      "source_line": "Source: Mealey's; Mon, 19 Oct 2026 16:40:05 GMT",
-      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQbnVhZUdpVkNPMDBaejNGampuakU5cEVldm9XOHRaeWwwVUdnU0VRSjQ1RndqdzIxNDdWUXBCWXpvTzZSM25SOFJUQkxHN3BTVkkzUDZpMXhra2lfQW8zdlgzOEpnX2JGbHpMUFhpVEV3cThTUVN5aENJb0s3QTFLYzRKZFNDVVdzcE9XSDlhVURsSmNBYlBNVWxpWF9CWWhJTDFUNnZxSE1OUjJZNE1LdTBYemNsSVhheGJsUzV0a1Etc3h2bVlIUEhaZTFKa08ta25rbDdnaHNJNlVxeFpwMUV0a9IBYkFVX3lxTE9nZTB1dkhhWnNxWnRlek44d0ZnZmluRzZqWWNXYlBrcVd0T1BQVTdpTC1aT0kxNHNWSG5tNnlHTGNmQUZmc0ZoVThockRwY0d6OVhKV3lXNks1eHVETVI1MGZn?oc=5",
-      "source_name": "Mealey's",
-      "date": "Mon, 19 Oct 2026 16:40:05 GMT"
+      "title": "Pennsylvania Files Lawsuit Against Major Pharma and PBMs Over Insulin Pricing",
+      "summary": "The state of Pennsylvania has launched legal action against major pharmaceutical manufacturers and pharmacy benefit managers (PBMs) over inflated insulin prices. This lawsuit adds to the growing regulatory and legal scrutiny surrounding PBM business practices and drug pricing transparency, which directly impacts self-funded employers managing specialty drug costs.",
+      "source_line": "Source: InsuranceNewsNet; Tue, 20 Oct 2026 13:02:22 GMT",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWHItemg2TGRwcnhJNnFDaTE3MUJUTGR6OERoX2dhSmdhT0x1YVZxOTVuV2xCOTBMUGlCNk5QOERNRFBKb002bDZBSGVfcnlxWTVyM3JNODk0aGY0ZThXdlVkZTJsSllLb1I0NFp5RXpuakFyRjR1QWw4eGpJT3dlVHZKa0VicDVXUXczMGkyaGZ5QTJQLV9BZA?oc=5",
+      "source_name": "InsuranceNewsNet",
+      "date": "Tue, 20 Oct 2026 13:02:22 GMT"
     },
     {
-      "title": "PBM Network Terminations Present Operational and Compliance Risks for Pharmacy Networks",
-      "summary": "Pharmacy network terminations by PBMs create significant downstream operational and compliance challenges that extend far beyond simply losing a contract. For self-funded employers and PBM administrators, understanding these network dynamics is critical for maintaining adequate member access and avoiding regulatory scrutiny.",
-      "source_line": "Source: Drug Topics; Mon, 19 Oct 2026 16:24:01 GMT",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNbUJub1hNN1RXOWZrYjUwYURrZ1NSbFI0WXZGY01zZnRsRFF3T1h3RlhuSVRPNnY3RW01YVJITDhrX28td21iVTJPTkRaQnR5eXh0Q1BKQm94Y1JrODItcjM4Y1o4Sld2dEtnR1dieVRnNnJMUklhenU3bk1xcmt6RDhObm5TY2V2SXFTYWF3cTQxOFZWZWp5MHRNZm54czRpeHc?oc=5",
-      "source_name": "Drug Topics",
-      "date": "Mon, 19 Oct 2026 16:24:01 GMT"
+      "title": "Alternative PBM Satisfaction Declines, Narrowing Advantage Over Big Three",
+      "summary": "Employer satisfaction with alternative and transparent PBMs saw a decline, reducing the historical satisfaction gap between them and the traditional Big Three PBMs. This trend indicates that self-funded employers are demanding better performance and more measurable ROI from all PBM models as healthcare cost pressures intensify. The shift highlights the need for alternative PBMs to continuously prove their value proposition in managing employer drug spend.",
+      "source_line": "Source: Drug Channels; Tue, 20 Oct 2026 10:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNdzFYRnhEcmtiUlhERWthMDhyeDk2RWwzUmR0M2lHaXA0ZzU2WUIyRmJkQVdVeU5Ca2l4dmRSa05hSk5qUF8wX2xDTmdRLXdJdDFfQjNiZ09SaUNpN0dCejlReFlUdlIwZnYydUZGLVFON3ZGYW5EclRMR3drNjhrWlZtZEYzWVBfdUdjNWh1dWpTTFVp?oc=5",
+      "source_name": "Drug Channels",
+      "date": "Tue, 20 Oct 2026 10:00:00 GMT"
     },
     {
-      "title": "Ustekinumab Biosimilar Efficacy in Crohn Disease Supports Plan Formularies",
-      "summary": "Real-world evidence confirming the efficacy of ustekinumab biosimilars in treating Crohn disease reinforces confidence for self-funded employers transitioning patients from reference biologics. This clinical validation supports PBM formulary strategies aimed at driving biosimilar uptake to lower specialty drug spend.",
-      "source_line": "Source: Center for Biosimilars; Mon, 19 Oct 2026 14:04:07 GMT",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNV3VYWDEwRXlZYUxfX2dTQXBDdEVaTER0UXFrOTZNNGp3bnJoV01fS0tsZmhXLVlTX25DYXJVWThsQUpCU2RHLWxEU2xuV2MtNlRUWF94Sm5fekFmbDVjem1FUElQYXRNd2xNcnMxOFpGM1JVUkNKaktBM1JyTVNmT3ZqZ3MwN1oxYTdRWm9Ec3hLUm1FVHVMbl9MaG1VQQ?oc=5",
-      "source_name": "Center for Biosimilars",
-      "date": "Mon, 19 Oct 2026 14:04:07 GMT"
+      "title": "New York Pharmacists Urge Governor Hochul to Sign PBM Transparency Bill",
+      "summary": "Independent pharmacists in New York are ramping up pressure on Governor Kathy Hochul to sign a newly passed PBM transparency bill aimed at addressing reimbursement rates. This state-level legislation highlights the ongoing regulatory scrutiny and legislative pushbacks facing PBM practices, which directly impacts market dynamics for self-funded employers operating in the state.",
+      "source_line": "Source: Spectrum News; Tue, 20 Oct 2026 22:51:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQU2FpM1JuODJQWkVoLUhGY0FveExraWZSenlrYzVWTjFvT2ZjY0FrRDJZRDh5WFo2aTgwclZPZnNlb2V5TUd5TUwwQmhJbkhZYVh4ZTN0c3ozTV84LVY0eGR0X0hCRHgwYV9udGRWMkJXV2g4VzhybDlDWG1qUmJRazBIZThWNzZvVElxbXFrcGcxSXRaNUh4LXQyU082dw?oc=5",
+      "source_name": "Spectrum News",
+      "date": "Tue, 20 Oct 2026 22:51:00 GMT"
     },
     {
-      "title": "FDA Flags Quality Concerns at Chinese Facilities Supplying GLP-1 Compounding Ingredients",
-      "summary": "Federal investigators found severe contamination issues, including black mold and insects, at Chinese manufacturing plants producing active pharmaceutical ingredients for compounded GLP-1 drugs. This safety risk underscores the dangers of unapproved compounded weight-loss medications, providing self-funded employers with strong justification to steer members toward brand-name coverage policies. The news highlights critical clinical and financial risks associated with the booming compounding market.",
-      "source_line": "Source: Los Angeles Times; Mon, 19 Oct 2026 20:22:53 GMT",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTGVTb00yYnpsSmhiVWU2NWNTQ0M2eE1xRjBOT1lLLUtLbDFvOFBpNmtCMk9tNDZldmRMWFRvUHVoUXI5UDVKdTZMN1hIc2RXOUtISlZXWXdWdkNOZUV2dEJDUEVkdVFwMjd2S05LZXgzZVNYdDBQNF8wVHFMRHFmYVVzb3VwSWNTQUxzNEhKaGdmWmVIX19zYU1sSkFyRXJzOEo4RFBrM1J0SmpBcDktZnU5d1VCVzV6aTBxZg?oc=5",
-      "source_name": "Los Angeles Times",
-      "date": "Mon, 19 Oct 2026 20:22:53 GMT"
+      "title": "Epic Integrates Major Pharmacy Alternatives to Enhance Rx Pricing Transparency",
+      "summary": "Electronic health record giant Epic has partnered with Amazon Pharmacy, LillyDirect, and Mark Cuban Cost Plus Drug Company to launch a prescription drug pricing and fulfillment tool. This integration allows clinicians and patients to compare cash prices and alternative fulfillment channels directly at the point of prescribing, posing a significant challenge to traditional PBM retail networks. For self-funded employers and PBMs, this trend toward price transparency and bypass models increases pressure on plan design and pharmacy benefit management strategies.",
+      "source_line": "Source: Word & Brown General Agency; Tue, 20 Oct 2026 18:00:21 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNMmpJRzgzc0xFMEEzbTdKams3TmtCa3VoX1BKaG9KYkt0VGxQSHBDZnpIWEdUSFgwdFMwY1VNeVRJajlEQzBpcnhLT1BUSTdQMjFraF9lTEMyOWtiTG55Ti14QVV4NGNrQUJ1cWJfN1NnOGt3b1N5cEowUnR2YUVPa3VFUEhwZEEyUnJ2S1h0Q05IRkIyTlItN3d0bXByTE5BczkxakdaR3U4cmpEUHpoblJqNlZ6SFloaDN3N1lIcGNmaXV3MExWQXdPVHZkaHk2UmliWXJnYTczencwTmF4MnR3?oc=5",
+      "source_name": "Word & Brown General Agency",
+      "date": "Tue, 20 Oct 2026 18:00:21 GMT"
     },
     {
-      "title": "Big Pharma Intervenes to Defend 340B Rebate Pilot in AHA Lawsuit",
-      "summary": "Pharmaceutical manufacturers, including AbbVie, are seeking to join the defense of restrictive 340B contract pharmacy rebate models in a legal challenge brought by the American Hospital Association. The ongoing litigation impacts how drug discounts flow through the supply chain, carrying broader implications for drug pricing transparency and the financial stability of safety-net providers. Self-funded employers and PBMs monitor these 340B dynamics closely as they influence overall commercial drug spend and market pricing pressure.",
-      "source_line": "Source: Crain's Chicago Business; Mon, 19 Oct 2026 10:15:00 GMT",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQS2ZPV3RrcTN5X2xGdWd4aTBSNDVIek0zYi1pckc2Y0NfNTU2d013bWM4bWJUVzRjZ2dnWFgyRUpjVGo5YTFCZnVGNzRCU2JGZEtoX1dFNUF6NWM5T2FtOERndzB3Nmo5ZV9iVVpxYlVWbUE0UkxmOXN6S0xoOTI1eWhub3FFR1FZ?oc=5",
-      "source_name": "Crain's Chicago Business",
-      "date": "Mon, 19 Oct 2026 10:15:00 GMT"
+      "title": "Net Launch Prices for New Prescription Drugs Surge 35%",
+      "summary": "A recent analysis reveals that the net launch prices for new prescription drugs increased by 35% between 2022 and 2025. This significant escalation in initial drug costs directly impacts overall pharmacy benefit spend and challenges self-funded employers trying to manage long-term plan affordability. The trend underscores the growing financial pressure of new market entries on employer-sponsored health plans.",
+      "source_line": "Source: American Hospital Association; Tue, 20 Oct 2026 21:06:22 GMT",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZTNrLV81ZEtyUy12aHBGU1N3UGNwSkl1ZERwdV9kWUF6enBWYnRITzlxZm50NTRqN1EtUUJHNjB6QmNkaGdyUDJmdW83a3k4eFRqNmxZLUFZdVlSVlJXUWRQckhuVXlJZVBlNlhCS2tHUnRDekZ6dnpnX2syWmp0UTk3cFB4WUtxdExJeVpkZWotaFBMd1N3S21ocFpuX0I0ZzFrNkxZVklKcHNTRHVtSmVvNEc1SzZwSUhNeA?oc=5",
+      "source_name": "American Hospital Association",
+      "date": "Tue, 20 Oct 2026 21:06:22 GMT"
     },
     {
-      "title": "Preparing for the Shift to 340B Rebate Models in Pharmacy Benefits",
-      "summary": "Industry experts discuss strategic preparations for transitioning to a 340B rebate model as drug pricing dynamics evolve. This shift significantly impacts drug acquisition costs, contract pharmacy arrangements, and overall pharmacy benefit management strategies. Self-funded employers must monitor these policy and operational changes to understand their implications on specialty drug spend and network pricing.",
-      "source_line": "Source: Managed Healthcare Executive; Mon, 19 Oct 2026 12:25:59 GMT",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQVFUMlVhOFZfMDg0VHFjTXdHekxXNGxJRXFIRF9HM0puNUVpRlZsN2p4V05Nemw0dGdtN1BqaW56aGRjc1pTVXktSUZuWWNnUUd4VG5jMWYwSGNJdWR1amtPZ3h5TVdyUnV4bkN0WkgxNmkxVnpkSWFyUHdLQUF5UFlvRlBCWk1tSm1seEFpVWFfWXdvVFF0b1lFS2d0eUNsYkEyYWxR?oc=5",
-      "source_name": "Managed Healthcare Executive",
-      "date": "Mon, 19 Oct 2026 12:25:59 GMT"
+      "title": "Sullivan County Legislature Votes to Transition Employee Benefits to Self-Insurance",
+      "summary": "The Sullivan County legislature has voted to shift its employee health benefits to a self-funded model. This move highlights the growing trend of public and private entities adopting self-insurance to gain better control over healthcare and pharmacy benefit costs. For self-funded market participants, it underscores the ongoing expansion of the addressable market as plan sponsors seek alternatives to fully insured arrangements.",
+      "source_line": "Source: Sullivan County Democrat; Tue, 20 Oct 2026 10:10:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPM2JxdExhNzU3OHZFVk9kd0xMbWNTd3RmRlVnb3NHWExtQkJsalFaTzRmUVdId24zenU4V2dtRURxQThxR1ppM1h0RnBWMkwzQ2JhRThlSTZlNE9uN1JPcHlOanRFRjNOak5tTmgxcGNvaGhVWm1ZTWxVY01Sa1JSLVdQOXV2Y0NudzBGU2ZPaGU1SzNpdDdpMFQyemdoc09rSFVUSTQxbUdlYmFkLUZr?oc=5",
+      "source_name": "Sullivan County Democrat",
+      "date": "Tue, 20 Oct 2026 10:10:00 GMT"
     },
     {
-      "title": "Strategies for Cost Management and Clinical Outcomes in Employer Obesity Care",
-      "summary": "This article examines how self-funded employers are navigating the financial and clinical challenges of covering GLP-1s and other obesity treatments within their health plans. It highlights strategies for balancing member health outcomes with sustainable cost containment in specialty pharmacy benefits.",
-      "source_line": "Source: HR Dive; Mon, 19 Oct 2026 13:46:34 GMT",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPVWk4VERoUjJEeXJxdzNpblhFR1RvdHFLTjk3T0NOQmduVmV0SVVfTTQ5cjBUdGV0R3ZqbndmZXdhZmstUFBRRUozejExampvaTAyQlh5eU9PR3VZZzd3d3lXbGZLNWF0eUQ3V0Fxd2Iyc3hWYUxHUmlab05URUZObHpzYjBpYkRJTnRnNlY0UjVZb19hZmM2TzFFRmJrTmFtdkxJ?oc=5",
-      "source_name": "HR Dive",
-      "date": "Mon, 19 Oct 2026 13:46:34 GMT"
-    },
-    {
-      "title": "CVS Health Investment Case Shifts Amid Pharmacy-Focused Expansion Strategy",
-      "summary": "Financial analysis examines how CVS Health's continued strategic pivot toward pharmacy and healthcare services alters its investment thesis. For self-funded employers and PBM market observers, shifts in major PBM corporate strategies signal potential changes in market competition, pricing models, and service integration.",
-      "source_line": "Source: Simply Wall Street; Mon, 19 Oct 2026 17:40:28 GMT",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNWTlnVXZCbmNQdGtyMkdjdjRvNjZRQjFDTEtFMnY2azJnT1lLTTduY3g3aDNOVzAycUlNekEzZ0JVN0JhdjJfZnlzV3lMRl9tN3VJdTZCemZWTlNYVkItN2NXTm1WdERubHFyVFZWSmllbHN3YlowdlNSY1RxVjk2eVlfTHo2bXhSTjM4UGg2Tm1qdk1aamxVRmEwdWpwYTdkYzBBS3MyMkFPMlZnNnNubS1vRExaUnM4SlFMM3dsZjNCQi10RGFR0gHMAUFVX3lxTE9WT1NNNVo1UUhOVVJXUTZOdi10T1VhWnpuX0k0Tk8yV21uV3dlVVFuRWRENl9Ia1I0MFdrYTRpRXZJUERtZEdYN2E0ZTY3LVZ2NzhWU29wcTJSQ1k0cFItZXZaNmZFY2J0ZWpxeGhlX2R0eVVBV2dZMkJ0MFNKTTFBN19pdVFIV1lFcVN0ck5FaWtlb3YwdTBaQjRraVBvTmd4d0JsSURNMXNPQXp6QmRNU2ZBX215R0VOalFMU1pXb0hQWVcxbHVvWGRVWQ?oc=5",
-      "source_name": "Simply Wall Street",
-      "date": "Mon, 19 Oct 2026 17:40:28 GMT"
-    },
-    {
-      "title": "Arkansas Pharmacies Escalate Legal Battle Against PBMs With $500M Lawsuit",
-      "summary": "Independent pharmacies in Arkansas have launched a massive $500 million lawsuit against major pharmacy benefit managers, escalating ongoing state-level conflicts over reimbursement rates and business practices. This litigation underscores the mounting legal and regulatory pressures facing the PBM industry, which could ultimately influence plan design and cost management strategies for self-funded employers operating in the region.",
-      "source_line": "Source: Arkansas Business; Mon, 19 Oct 2026 05:00:53 GMT",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNeHdIQ2Y0RGdNTFExOWg4YW0zdEp3Mm5BRkhjTnhrZEYyd0VuY2RSa3FQVVpxa01uQjlQdjY2aWJjX3liUWVuWWxsRW5rQ2k0SEdDbFp2VmxKVmRwQWNtUGdxaUNSdXJYc1VfWUhvb0ZTdFZzTVI1X3daTncxVTJFWTRFV2dNYWZ6V252aWpLS0tkRVY4eENVaHRsOTNHeVFCNThfRA?oc=5",
-      "source_name": "Arkansas Business",
-      "date": "Mon, 19 Oct 2026 05:00:53 GMT"
+      "title": "State Policymakers Flag Specialty Drug Prices as Major Cost Challenge",
+      "summary": "State-level policy discussions have highlighted specialty drug prices as a primary driver of escalating healthcare expenditures. This focus underscores the growing pressure on self-funded employers who bear the financial brunt of high-cost specialty therapies within their pharmacy benefits.",
+      "source_line": "Source: State Affairs Pro; Tue, 20 Oct 2026 03:31:27 GMT",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNWlZBUHVWT0o2aEI0ckJISDgwRXJUMWtKbDdqV2NNOE5WcE9uVEdISmJJby10MFlpR3ZMcnJ1RnZpVWlrOEJzNWZQX3FEa2UyMEpJSkhZUXYtTExTdWd0dTRvaV96dlFrMnZLaTZ0b2VfSHRDUnRQSThTR3dPRVlvZ1pvTHE0VHE4Y21LdDZIVXRHVWcyUFR4UFdFSmpGUQ?oc=5",
+      "source_name": "State Affairs Pro",
+      "date": "Tue, 20 Oct 2026 03:31:27 GMT"
     }
   ]
 }
