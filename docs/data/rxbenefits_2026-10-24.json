@@ -1,0 +1,48 @@
+{
+  "date": "October 24, 2026",
+  "date_short": "2026-10-24",
+  "total": 5,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-10-24.xlsx",
+  "articles": [
+    {
+      "title": "Family Health Insurance Premiums Reach $28,000 as Employee Costs Surge",
+      "summary": "A new KFF report reveals that average family health insurance premiums have climbed to $28,000, driven by a 9% spike in employee costs. This escalating financial burden increases pressure on self-funded employers to reevaluate plan design and pharmacy benefit management strategies to control escalating healthcare spend.",
+      "source_line": "Source: Yahoo Finance; Sat, 24 Oct 2026 14:15:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVDdWcS1oNldGNEZtRldEa1lCZGJMREl0WXY4ODVEdHFwYTUyM3V0YVpzQVBKbGliQ2ZFOEdXXzZ5MHAtV29UbE1jclYzX0JUbGhyb0xBakRyenJrcnRnQXYzQTRlOVJPeUZoMUphV0N4Xy1mbFQtTk9uMGJGdE82ZUdxVWk0UmRsYzBNX3pTYXE5WFk5QU9mcVBnUXpFZw?oc=5",
+      "source_name": "Yahoo Finance",
+      "date": "Sat, 24 Oct 2026 14:15:00 GMT"
+    },
+    {
+      "title": "UnitedHealthcare Cuts Prior Authorization Requirements by 30 Percent",
+      "summary": "UnitedHealthcare has announced it is eliminating 30 percent of its prior authorization requirements to streamline care and reduce administrative burden. This move by a major payer signals potential shifting industry standards around utilization management that self-funded employers and PBMs monitor closely. The reduction could influence broader plan design trends and pressure competitors to reevaluate their own prior auth protocols for specialty and pharmacy benefits.",
+      "source_line": "Source: Medical Economics; Sat, 24 Oct 2026 02:45:38 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiygJBVV95cUxQX1JDRlgtMmgyOVZMMURwNkFmTFZfY19lNEZ6Rm5qUEtBLUdWNVZyOTJnSVc4YXFpS2ROZEVTQnk0TVFfY2FzRUhNMHg2bmc0MHZnSUJ6QXlDWjBjeGpkaVBCenY2N0JDOHgwc3hoanVFZFZKS0RKX0VOdEV2RVFaa2dxN1pXakI2UTlnSzJIdkNoUjY4TXdSVW1WSzFodktuSUE5N0ZrR1FlblozekxnaVFwbEduOTRyZkhQX3MxZmZacWc3SnZXMllGWUxjM2Y2WmJQR2U0MzZLTXZfd21MRlpiZW9oWWMzSGc1RnNjd0kxTC1oYTNIaXo1cDJmb25mbWo0SXloQkFZY3Rfc0tkRFpSQmJ5M2NSOTYtT1JEVzRhQnZEMThaaFlQT0U1RGZkakQ2VEtVaTBkTHJIVks3OF9wZUgwVUJPU1E?oc=5",
+      "source_name": "Medical Economics",
+      "date": "Sat, 24 Oct 2026 02:45:38 GMT"
+    },
+    {
+      "title": "Opinion Piece Targets PBMs Over Rising Prescription Drug Costs",
+      "summary": "An op-ed examines the role of pharmacy benefit managers in driving up prescription drug costs, focusing on middleman practices. The discussion underscores ongoing legislative and public scrutiny regarding PBM transparency and pricing models that impact self-funded employers.",
+      "source_line": "Source: Las Cruces Sun-News; Sat, 24 Oct 2026 09:06:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQYVNOcndtUmJJUWdkQ2VlNHp3S1dSWkNtNU00dTV6clRORUQzcF9hSHo0MGkwSnRzNHNZRmhEN1Q1a25EMnNRVm1uYWZiaWRFekE5TEU5RENIVmJ3VlowSVRUUFY5QnkzV3FxN203WjFEbEtHMHZhQnFFMVotdk90UXJZZUs5V21Sc2VYMU9sTUk3dWpDSlpkU0E1dEw2Vy0wcFZ2MTNWNG5TeGJsazNySm0zME5DbmVqRGMwQm9MRzNBNEZGbTZfZFVn?oc=5",
+      "source_name": "Las Cruces Sun-News",
+      "date": "Sat, 24 Oct 2026 09:06:00 GMT"
+    },
+    {
+      "title": "Rising Job-Based Health Plan Costs Threaten Employer Budgets",
+      "summary": "Employer-sponsored health insurance costs continue to climb significantly, placing mounting financial pressure on self-funded organizations. Plan sponsors must increasingly look to strategic cost-management solutions, particularly within pharmacy benefits, to curb healthcare inflation.",
+      "source_line": "Source: The Current; Sat, 24 Oct 2026 23:20:13 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVGZlMFZqNVVQYnYyaGlJSkxLaDFjYWlHZlN3X2pHV0VxMGV3UW83TmNNUEZGcFI3V3VOZTZGSjl6QnpBTnZkRG1IWTF1dHBWa3hSWHVxTk1BSlYzR2FMeFV5VEd2OVRjejkwdmJBRzlVWWV3cHUwcTc1Q2QxSXZneVJieDFXZFluZnB6OGtPV01FampOVXc1ZUNFZ1Y5NUJPMk5nWnFRT1BwUQ?oc=5",
+      "source_name": "The Current",
+      "date": "Sat, 24 Oct 2026 23:20:13 GMT"
+    },
+    {
+      "title": "House Committee Investigates Allegations of PBM Retaliatory Audits",
+      "summary": "A congressional committee has launched an inquiry into whether major PBMs utilized pharmacy audits as a retaliatory tool against independent competitors or pharmacies. This probe highlights ongoing federal scrutiny over PBM business practices and market power, which could lead to tighter regulatory oversight affecting PBM operations and contract enforcement.",
+      "source_line": "Source: TOKENPOST; Sat, 24 Oct 2026 06:46:32 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0wdkRyOXFzblo0UDliSVo2X1ppM0hqbktGNDFwWVlJOVBfNzFvdEtjb19DVXpJamRWQm4tdGtUWEpONjFOZnhSaWV2eGJDdUV5ZnBYNVZnLTRvM2s?oc=5",
+      "source_name": "TOKENPOST",
+      "date": "Sat, 24 Oct 2026 06:46:32 GMT"
+    }
+  ]
+}
