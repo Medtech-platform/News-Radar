@@ -1,0 +1,40 @@
+{
+  "date": "November 08, 2026",
+  "date_short": "2026-11-08",
+  "total": 4,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-11-08.xlsx",
+  "articles": [
+    {
+      "title": "US Pharmacy Closures Exceed 3,000 Locations Between 2022 and 2024",
+      "summary": "A new analysis reveals that the United States lost over 3,000 retail pharmacies from 2022 to 2024, driven primarily by major chain closures. This shrinking retail footprint impacts member access to pharmacy networks and shifts utilization patterns for employer-sponsored health plans.",
+      "source_line": "Source: Drug Topics; Sat, 07 Nov 2026 15:35:41 GMT",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcUMxc1pTMW1wZFhEUHBEN2NLeF9JUlZCQ3NPb3Q3aFhCRGRUMjI3X3Vfb0plS3V5WHhKNG5naEJrYm9zc3hLWTQzcTY2bGk2cXdnWEZaTWloS0g2R3hrQ0VIcUlGV3JveVJ0RVBYMG8weDU4bzhKeEpwbjdmY1RBdWFERUxQejhZaEhJV3ItVlZfTnp6ZTJj?oc=5",
+      "source_name": "Drug Topics",
+      "date": "Sat, 07 Nov 2026 15:35:41 GMT"
+    },
+    {
+      "title": "CVS Health Potential Breakup Unlikely to Disrupt PBM Market Dynamics",
+      "summary": "Industry analysts suggest that a potential breakup of CVS Health may not fundamentally alter the competitive landscape or pricing practices within the PBM industry. For self-funded employers, structural shifts among legacy PBMs underscore the ongoing need to evaluate transparent, unbundled pharmacy benefit solutions.",
+      "source_line": "Source: Axios; Sat, 07 Nov 2026 10:19:41 GMT",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOZ2lPQThhajhNT3N5UDBlYkk2cFJBM0dXYmR6QVBoUUlHa0FnUnZIaU5QdkRYdWRMSVJxcFBXMHdEcUNPakh6ZXpYNlJaLWlDUm04UGNCaURpQVZiZWo3RDZ6QXZsTElTRnpxYlVMaHI2UVg4MzNwd3o4dlBjaVBucnRvRQ?oc=5",
+      "source_name": "Axios",
+      "date": "Sat, 07 Nov 2026 10:19:41 GMT"
+    },
+    {
+      "title": "Cigna Reports Q3 Earnings Highlighting PBM and Specialty Pharmacy Performance",
+      "summary": "Cigna Group discussed its third-quarter financial results, highlighting the performance of its pharmacy benefit management and specialty pharmacy operations, Evernorth. For self-funded employers, these earnings calls offer insight into PBM pricing strategies, specialty drug cost trends, and margin dynamics. Monitoring major PBM financial results helps employers understand broader market pressures impacting drug spend management.",
+      "source_line": "Source: TradingView; Sat, 07 Nov 2026 07:15:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOOVFMUl92TU9wVXQ5NmRKaHNGcnhRSjY2T2VVVFhwVDZPeDBuVTBWOHFhYnA1Y0hDT2IzcllEUGRtcnhkaHpoQktoc2xPY2lMM0hnb1BCMGM4THh3cm1jb3FSMGxEeEsxV052M3MteGxna2hVeExseElqOTd4dzNrWFJHZ2lMdVJJN3VhX2xjam85U25XUnBFVzg0TUZOWUVWc2xBU24zY2VrUUNBZ1E?oc=5",
+      "source_name": "TradingView",
+      "date": "Sat, 07 Nov 2026 07:15:00 GMT"
+    },
+    {
+      "title": "CVS Health Announces Plan to Split Into Two Publicly Traded Companies",
+      "summary": "CVS Health has announced plans to split its retail and pharmacy benefit management (PBM) operations into two separate publicly traded companies by 2028. This major corporate restructuring could significantly alter the competitive landscape for self-funded employers and reshape PBM market dynamics, contracting, and service delivery models.",
+      "source_line": "Source: Tampa Free Press; Sat, 07 Nov 2026 13:01:08 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNd014MW9GLWJldEpjTGpKRUFCWVpuY0VOeDRwSWVjMkotV0U5dW5oV3hqTGMyYlMzaW93Y3FvcWVzZ2pRUGV6STl6cU9tNW9qMndUZndUS2VJVVF1VFN0aFAyZHoydE1Cbmt4YUYyMm92Tk11NUNOdDlybUR5ME80Qnk3elBMRnJYZkxJcHlaODM?oc=5",
+      "source_name": "Tampa Free Press",
+      "date": "Sat, 07 Nov 2026 13:01:08 GMT"
+    }
+  ]
+}
