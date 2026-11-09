@@ -1,0 +1,32 @@
+{
+  "date": "November 09, 2026",
+  "date_short": "2026-11-09",
+  "total": 3,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-11-09.xlsx",
+  "articles": [
+    {
+      "title": "CVS Health Restructuring Preserves Core PBM and Caremark Operations",
+      "summary": "CVS Health is undergoing a corporate breakup, but the restructuring strategically keeps its most impactful healthcare delivery and PBM divisions intact. For self-funded employers, this structural shift signals ongoing consolidation within integrated pharmacy and medical benefits giants, impacting pricing transparency and market leverage.",
+      "source_line": "Source: Forbes; Sun, 08 Nov 2026 14:11:46 GMT",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNQWdSbHZRR1ZZTWI3ZGlqY242WTROX3hYSmRKSnlWSjl2eUxhU3dVQ1hIbDRBVmZnOUQ3MFNSVUpSaTR0cF9nOHRKUFF1UnNuNFlIZUV6Y2RESGlrckNuUXBmZm5yYXBrSmp4T0lDUzBoeEpmY3ZsZDlQNFFxZUxYQUw1STg5VzE1OXpVZnJtcWItZlZqN2s4STVRSW0tLXdSdnVqeUJic25ySHhOaEdFWG51Sm4?oc=5",
+      "source_name": "Forbes",
+      "date": "Sun, 08 Nov 2026 14:11:46 GMT"
+    },
+    {
+      "title": "CVS Health Consider Splitting Retail Pharmacy and PBM Operations",
+      "summary": "CVS Health is exploring a structural separation of its retail drugstore and pharmacy benefit management businesses, signaling a major shift in integrated healthcare models. This potential breakup could significantly impact market dynamics, pricing structures, and competitive strategies for self-funded employers and alternative PBMs.",
+      "source_line": "Source: Texarkana Gazette; Sun, 08 Nov 2026 04:00:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPU2J2cEltSG8wZVJYbHU3SGQwVHE2TUpRajlTYmh1SlZINFhVMmxOcUtTMGtma2M4VDJ6Nm11TXppR3NsOUxFR1pHeWUxNXNtaWxiVndNN1FTUjY5QzVHbGFvV2tHQ1llMU5qUTB0dkNLYUQ5ZlE0WlhGZjBnMW9qNjByT0lsRWpCNzB4NDIxbnZmamFaaUR1NVJlWVhTdw?oc=5",
+      "source_name": "Texarkana Gazette",
+      "date": "Sun, 08 Nov 2026 04:00:00 GMT"
+    },
+    {
+      "title": "CVS Health Challenges Tennessee PBM Ownership Ban in Federal Court",
+      "summary": "CVS Health has filed a federal lawsuit challenging a Tennessee law that bans certain pharmacy benefit manager (PBM) ownership structures. This legal battle carries significant implications for state-level PBM regulation, corporate operational models, and the broader legislative landscape affecting PBMs and self-funded employer plans.",
+      "source_line": "Source: Yahoo Finance; Sun, 08 Nov 2026 01:16:00 GMT",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOG05dmhLWGlIYi00MzJNYjR6MHVxbkU4SEFFZmxjTGRwWU55bHk5Zlg5SFF4RVUxQ0M0SmhLRzB6eFlVVHVBeDk4ZGVuZFQzNXJOM2pSUzRVWjhoSHQ4cnpBbkw2Y25YVzhrUGxtRVRmY0FDVlpOMFJ4SkZEX3FVUkFIczh0YndNOUNmNnJBRjh0a0xKNDJGbTFZdEw?oc=5",
+      "source_name": "Yahoo Finance",
+      "date": "Sun, 08 Nov 2026 01:16:00 GMT"
+    }
+  ]
+}
