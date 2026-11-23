@@ -1,0 +1,32 @@
+{
+  "date": "November 23, 2026",
+  "date_short": "2026-11-23",
+  "total": 3,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-11-23.xlsx",
+  "articles": [
+    {
+      "title": "GLP-1 Hospitalization Savings Fail to Offset Employer Drug Costs",
+      "summary": "Recent analysis highlights that while GLP-1 receptor agonists successfully reduce hospitalizations, the overall net cost still fails to make financial sense for many self-funded employers. This dilemma intensifies the pressure on plan sponsors to implement stricter utilization management, prior authorization, and alternative coverage strategies to manage escalating specialty drug spend.",
+      "source_line": "Source: NewsNation; Sun, 22 Nov 2026 23:25:03 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPYmZHVkJmaDJqMHI3ckttSmQzanN5Q0otNXVMUWhqSmtrZEJvbXhVNEwyamRpckVpbUVtNWcyMlZDUk5kQjRTLVVaYUNSZkg3QVVTMzdjU1hGVXFmWDRaNnBseXZaamNyTkZMMUpFbndkdXRDV3hKSnNqMmFneTdPX3hwWldjc2R2UUtTOG9XRHTSAZYBQVVfeXFMUEsxTHNGNkdhMkZfZHRIM1Rralg3SkhNajBtSnVSel9lUkt0SGs5TGstVE9YQ0hHYjdzMmozLThqdFl6MHlZY0hhSEVuUnRSQmdYLU51ZHd1WFRyZHFmb2JkTjE3bTFxazFpeHNiNGJpRFJIR2EyeGhvWmJ2WnBjaFltTW5BU1IybDJxV2dCOFVyNlpkQXNn?oc=5",
+      "source_name": "NewsNation",
+      "date": "Sun, 22 Nov 2026 23:25:03 GMT"
+    },
+    {
+      "title": "Mercer Survey Shows Employers Intensify Health Benefit Cost Management Strategies",
+      "summary": "A recent Mercer survey reveals that employers are aggressively doubling down on health benefit cost management tactics. This trend directly impacts self-funded employers seeking innovative ways to control rising pharmacy and medical benefit expenses through strategic plan designs.",
+      "source_line": "Source: www.mercer.com; Sun, 22 Nov 2026 06:51:52 GMT",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPOVN5ZXhtZzhITzBCdW43TmhNbjBjSXpHYk9zM19lQW5xTGFPMC15Z3BWMXpyT05GT2hFSVVIQ3RUcWoxV2FQRmx2OVYzX25NakxGeXBxU3RrSVlFcEx5TnFwaUVPZWxHZUlSVWlmNC1kWVd2Sm5IeWRTUXlHUk1SWk5xYUFTenQxbWZpR3NJRFhraUJHOUE4MnZ5cXpDZGxCSHUyQUIwa294WHRabVQ2dkhYUlZzNXVaQnBUQnloNA?oc=5",
+      "source_name": "www.mercer.com",
+      "date": "Sun, 22 Nov 2026 06:51:52 GMT"
+    },
+    {
+      "title": "Study Highlights Rising GLP-1 Use and Growing Access Gaps",
+      "summary": "A new study shows that while utilization of GLP-1 medications continues to climb, widening access gaps are emerging among different populations. This trend directly impacts self-funded employers grappling with how to sustainably manage weight-loss drug coverage and escalating specialty drug costs within their health plans.",
+      "source_line": "Source: JournalArta; Sun, 22 Nov 2026",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNWmZnb2RxcXFscVdFSHpZZ29ncGEydnpPXzR4WWJJVUx6VnhYZUI5ZW1nUUpScWdEQTFWcWdrZ3ZVb0JRZ2RFVV9oZm1DN3diM2FqaFBabHNJRDlyY3JLZUZES2tpZ3h4Y2J0T3JRal9wdlZoSGlFdFZGN2FscGIxZlJkZS0tVUNEZ205RWRJZw?oc=5",
+      "source_name": "JournalArta",
+      "date": "Sun, 22 Nov 2026 18:10:49 GMT"
+    }
+  ]
+}
