@@ -1,0 +1,32 @@
+{
+  "date": "November 27, 2026",
+  "date_short": "2026-11-27",
+  "total": 3,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-11-27.xlsx",
+  "articles": [
+    {
+      "title": "Idaho Reports Significant 19.5% Drop in Self-Funded Health Plan Enrollment",
+      "summary": "Data reveals a notable 19.5% decline in self-funded health plan enrollment within Idaho, signaling potential shifts in employer risk tolerance or market dynamics. This trend is critical for self-funded plan strategists and PBMs monitoring regional adoption of alternative health plan financing models.",
+      "source_line": "Source: BenefitsPRO; Thu, 26 Nov 2026 13:36:40 GMT",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQQ180UGF1Ul8zUEd0emZzWTIxd1Q5dVd1bmVUTmJOc2lvd0tTZ2hDTlBLY3NXOGliMW9Pd19mUENrVUtFcDY1N0M1a0ZTT1hfN21nX280dWIxc3BqTW05UjkwNVBjZ3d3T0VpaGhPZUdsd0ZsMkxkNEZXQ0I3cWVqdS1tTmY1aVNtOUNhY2Z0X1gwbG8?oc=5",
+      "source_name": "BenefitsPRO",
+      "date": "Thu, 26 Nov 2026 13:36:40 GMT"
+    },
+    {
+      "title": "Schools Consortium Files Antitrust Lawsuit Against Insulin Manufacturers and Major PBMs",
+      "summary": "A consortium of schools has initiated legal action against major insulin manufacturers and pharmacy benefit managers, alleging anti-competitive practices and inflated drug prices. This lawsuit highlights growing legal and financial scrutiny facing PBM pricing models and manufacturer contracting strategies within employer-sponsored and public health plans. The litigation signals continued exposure for PBMs regarding drug cost transparency and rebate structures.",
+      "source_line": "Source: Wisevoter; Thu, 26 Nov 2026 20:39:10 GMT",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOS2I2eExrZXhzVFBrQjYzS1l2OUpVZ0ZobmJhY3RPclRRdkp2STJlVW9LUGQ1M0FNdmM2b014b1NWRnBIODE2NnJPSzhxQVlIcVJpUV9qdXVhVE56UjMyZ1ZsdDJrNXJVaXFtY1VlTFpJakVXbDluSXZZVy0wdkNEaVZrLU5qQ0lLbElCUw?oc=5",
+      "source_name": "Wisevoter",
+      "date": "Thu, 26 Nov 2026 20:39:10 GMT"
+    },
+    {
+      "title": "Eli Lilly and PBMs Face Insulin RICO Lawsuit from School Health Group",
+      "summary": "A school healthcare group has filed a RICO lawsuit against Eli Lilly and major pharmacy benefit managers over insulin pricing strategies. This legal action targets complex PBM pricing models and drug manufacturer rebate practices, carrying significant implications for employer health plan litigation and cost transparency.",
+      "source_line": "Source: Insurance Business; Thu, 26 Nov 2026 19:22:22 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNZlByQU8tWlJYTmU2VmhIa09Tb1g0YWV0WlRaVjNOT3JVTUdHd0xJNjU2Z2tUWjh2cmJjdlZsMmF0NWFsTFg1em5LUzh4ajNzQkxhSDFQVE5YdS1xTGY5bGVjZFgzQVFTaXB0ZkpaMEJhb1ZXV0xsbjVLM2EzZEFubzBIM05wcEFCZDNKSU1uX29KNWNhMU9tYUw4c1BmS3hJWUZEeGNtbUNqTXN5dWlmT21RRGI1bEVheWE0NkpTWTBMVUNJbnRsZmlFaGhTTFRvQmRqQU80ZUt6Q2xKcEZtZg?oc=5",
+      "source_name": "Insurance Business",
+      "date": "Thu, 26 Nov 2026 19:22:22 GMT"
+    }
+  ]
+}
