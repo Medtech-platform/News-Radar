@@ -1,0 +1,40 @@
+{
+  "date": "November 28, 2026",
+  "date_short": "2026-11-28",
+  "total": 4,
+  "excel_url": "https://medtech-platform.github.io/News-Radar/data/rxbenefits_intel_hub_report_2026-11-28.xlsx",
+  "articles": [
+    {
+      "title": "New PBM Disclosure Rules Expose Opaque Compensation Practices",
+      "summary": "Mercer outlines how new regulatory disclosure rules are shedding light on previously hidden PBM compensation structures. This increased transparency impacts self-funded employers by revealing complex revenue streams and driving demand for more accountable, transparent pharmacy benefit management contracts.",
+      "source_line": "Source: www.mercer.com; Fri, 27 Nov 2026 21:44:14 GMT",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeDUyUHl3T25xclhvZnV6NTdqX3p1ZzBZSVJPYkczWG53UWxOcUhEaW1SVk00aEpPclA5SnVfaEVUMDFCQi14Y0MtTk9MZ2VEaW9GVVU3TXBWcGxjbDRwRmhkdFI2X2NhUWMtTUJHMk92N1k5SGFmNjVFdi1ITXQzb010VGFWNWQwSXgzYThlcWNHc0Y4R25BaWxwNXlNNS10cVVGbHRNeWNRUGdST2RmNFRBdUQ4YXlvUU1n?oc=5",
+      "source_name": "www.mercer.com",
+      "date": "Fri, 27 Nov 2026 21:44:14 GMT"
+    },
+    {
+      "title": "Site-of-Care Pricing Becomes Priority for Benefits Brokers Amid Rising Costs",
+      "summary": "Benefits brokers are increasingly focusing on site-of-care pricing strategies to help employers combat rising healthcare and specialty drug costs. This trend impacts self-funded health plans seeking to optimize infusion and specialty medication delivery away from expensive hospital settings. PBMs and plan sponsors must align benefit designs to capture these potential savings.",
+      "source_line": "Source: Insurance Business; Fri, 27 Nov 2026 15:14:43 GMT",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOQVZFaUs5Um9oTGRhOWlUTU5UcDFhM2NEa2laSHJKRlNDTXNXemJGd0NFeDNxR2Y3dVFEOXJmTUp3ZmRMRUhsUWxaVTBYZUJndmRQLVp0enc3alN1MXFBa2RnWVhsMk5DTG9XQkdGZWZYT2M2UEgyWWVhQzNBdzNqbjl0S29nQ0dsTDJ4Z2ZqTjBoazVHdXY0bWduWlQ2aG1xbmFfQ2ozaWJQdUFEcHg3NTRnZUc2THA5U3lSRGZCdGRfNU1T?oc=5",
+      "source_name": "Insurance Business",
+      "date": "Fri, 27 Nov 2026 15:14:43 GMT"
+    },
+    {
+      "title": "Mercer Survey Shows Employers Intensify Health Benefit Cost Management",
+      "summary": "A recent Mercer survey reveals that employers are significantly stepping up efforts to manage health benefit costs as expenses continue to rise. This trend highlights the growing pressure on self-funded employers to seek strategic cost containment solutions, particularly within pharmacy benefits.",
+      "source_line": "Source: www.mercer.com; Fri, 27 Nov 2026 14:51:52 GMT",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPOVN5ZXhtZzhITzBCdW43TmhNbjBjSXpHYk9zM19lQW5xTGFPMC15Z3BWMXpyT05GT2hFSVVIQ3RUcWoxV2FQRmx2OVYzX25NakxGeXBxU3RrSVlFcEx5TnFwaUVPZWxHZUlSVWlmNC1kWVd2Sm5IeWRTUXlHUk1SWk5xYUFTenQxbWZpR3NJRFhraUJHOUE4MnZ5cXpDZGxCSHUyQUIwa294WHRabVQ2dkhYUlZzNXVaQnBUQnloNA?oc=5",
+      "source_name": "www.mercer.com",
+      "date": "Fri, 27 Nov 2026 14:51:52 GMT"
+    },
+    {
+      "title": "Low Patient Appeal Rates for Denied Prior Authorizations Revealed in Survey",
+      "summary": "A new survey shows that while the majority of prior authorization appeals succeed, most patients never actually file an appeal after an initial denial. This low appeal rate impacts utilization management trends and plan design considerations for self-funded employers managing specialty pharmacy costs.",
+      "source_line": "Source: Insurance Business; Fri, 27 Nov 2026 15:14:42 GMT",
+      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPY2NkdW1jRk5kQ3N0QmZCMTE2Z2huVUg5Vkx4M2VnV1k5ODhndVg5UU9LZ2FQRTNlNzR2eGlROVhGMWlfTUQ4ZDBCSWliR2ZUR0YxU3BGNFJRaWdaekZPczFaWVFWLVQ2TU9fcnZ3ZlZZZzF3YW9Yc2VMaTZWOFRGWGhDUndnUlJfZ19KdlREakRvRDAtRC1fTGVfZ1JqakZuM1dCTnY1c2J6MExUSzFCM05BUGFsb3VleEszM0QwbUR3am1nYWtBazZTcFduSkRKZ28wRXFxbC0?oc=5",
+      "source_name": "Insurance Business",
+      "date": "Fri, 27 Nov 2026 15:14:42 GMT"
+    }
+  ]
+}
